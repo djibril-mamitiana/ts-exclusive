@@ -117,10 +117,49 @@ useHead({
     </div>
   </section>
 
-  <section class="ts-sec ts-black" style="padding-block:clamp(72px,10vw,150px)">
+  <section class="ts-sec ts-black">
+    <div class="ts-wrap">
+      <div class="ts-gap" style="margin-bottom:clamp(36px,5vw,70px)">
+        <span v-reveal class="ts-label">{{ h.whyLabel }}</span>
+        <h2 v-reveal="0.1" class="ts-title">{{ h.whyTitle }}</h2>
+      </div>
+      <ul class="ts-list">
+        <li v-for="(w, i) in h.why" :key="w[0]" v-reveal="i * 0.06"><span>{{ w[1] }}</span><small>{{ w[2] }}</small></li>
+      </ul>
+    </div>
+  </section>
+
+  <section v-if="content.partners.length" class="ts-sec ts-light" style="padding-block:clamp(72px,10vw,150px)">
     <div class="ts-wrap">
       <span v-reveal class="ts-label">{{ h.trustLabel }}</span>
-      <div v-reveal="0.1" class="ts-trust" style="margin-top:34px"><span v-for="t in h.trust" :key="t">{{ t }}</span></div>
+      <div v-reveal="0.1" class="ts-trust" style="margin-top:34px"><span v-for="p in content.partners" :key="p.id">{{ p.name }}</span></div>
+    </div>
+  </section>
+
+  <section v-if="content.testimonials.length" class="ts-sec ts-black">
+    <div class="ts-wrap">
+      <div class="ts-gap" style="margin-bottom:clamp(36px,5vw,70px)">
+        <span v-reveal class="ts-label">{{ h.testiLabel }}</span>
+        <h2 v-reveal="0.1" class="ts-title">{{ h.testiTitle }}</h2>
+      </div>
+      <div class="ts-quotes">
+        <figure v-for="(t, i) in content.testimonials" :key="t.id" v-reveal="i * 0.1" class="ts-quote">
+          <blockquote>« {{ t.quote }} »</blockquote>
+          <figcaption><b>{{ t.name }}</b><span v-if="t.role || t.org"> · {{ [t.role, t.org].filter(Boolean).join(', ') }}</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section v-if="content.faqs.length" class="ts-sec ts-light">
+    <div class="ts-wrap ts-split">
+      <div class="ts-gap">
+        <span v-reveal class="ts-label">{{ h.faqLabel }}</span>
+        <h2 v-reveal="0.1" class="ts-title">{{ h.faqTitle }}</h2>
+      </div>
+      <div class="ts-faq">
+        <details v-for="f in content.faqs" :key="f.id" v-reveal><summary>{{ f.question }}</summary><p>{{ f.answer }}</p></details>
+      </div>
     </div>
   </section>
 

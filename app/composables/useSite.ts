@@ -3,10 +3,38 @@ import { messages, type Lang } from '~/i18n/messages'
 export const useSettings = () =>
   useFetch<Record<string, string>>('/api/settings', { key: 'settings', default: () => ({}) })
 
+// Textes modifiés depuis l'admin (voir /admin/textes). Chargés une fois dans le layout.
+export const useTexts = () =>
+  useFetch<Record<string, { fr: string; en: string }>>('/api/texts', { key: 'texts', default: () => ({}) })
+
+function setPath(obj: any, path: string, value: string) {
+  const parts = path.split('.')
+  let cur = obj
+  for (let i = 0; i < parts.length - 1; i++) {
+    cur = cur?.[parts[i]]
+    if (cur == null) return
+  }
+  const last = parts[parts.length - 1]
+  if (cur != null && last in cur) cur[last] = value
+}
+
 export const useLang = () => {
   const route = useRoute()
+  const { data: texts } = useNuxtData<Record<string, { fr: string; en: string }>>('texts')
   const lang = computed<Lang>(() => (route.path === '/en' || route.path.startsWith('/en/') ? 'en' : 'fr'))
-  const m = computed(() => messages[lang.value])
+  // Messages par défaut + surcharges saisies dans l'admin
+  const m = computed(() => {
+    const base = messages[lang.value]
+    const over = texts.value || {}
+    const keys = Object.keys(over)
+    if (!keys.length) return base
+    const copy = JSON.parse(JSON.stringify(base))
+    for (const k of keys) {
+      const v = over[k]?.[lang.value]
+      if (v) setPath(copy, k, v)
+    }
+    return copy as typeof base
+  })
   // chemin localisé : /services -> /en/services
   const lp = (p: string) => (lang.value === 'en' ? '/en' + (p === '/' ? '' : p) : p)
   // même page dans l'autre langue
@@ -20,10 +48,10 @@ export const useLang = () => {
 
 export const useContent = () => {
   const { lang } = useLang()
-  return useFetch<{ services: any[]; offers: any[]; vehicles: any[]; testimonials: any[]; faqs: any[] }>('/api/content', {
+  return useFetch<{ services: any[]; offers: any[]; vehicles: any[]; testimonials: any[]; faqs: any[]; destinations: any[]; partners: any[] }>('/api/content', {
     key: `content-${lang.value}`,
     query: { lang: lang.value },
-    default: () => ({ services: [], offers: [], vehicles: [], testimonials: [], faqs: [] })
+    default: () => ({ services: [], offers: [], vehicles: [], testimonials: [], faqs: [], destinations: [], partners: [] })
   })
 }
 

@@ -23,7 +23,9 @@ export const adminTables: Record<string, { cols: string[]; json?: string[]; orde
   services: { cols: ['slug', 'title', 'subtitle', 'description', 'bullets', 'icon', 'image', 'sort', 'active', 'en'], json: ['bullets', 'en'], order: 'sort, id' },
   offers: { cols: ['name', 'price', 'target', 'options', 'highlight', 'sort', 'active', 'en'], json: ['options', 'en'], order: 'sort, id' },
   testimonials: { cols: ['name', 'role', 'org', 'quote', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },
-  faqs: { cols: ['question', 'answer', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' }
+  faqs: { cols: ['question', 'answer', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },
+  destinations: { cols: ['slug', 'name', 'image', 'description', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },
+  partners: { cols: ['name', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' }
 }
 
 export const quoteStatuses = ['Nouveau', 'En cours', 'Devis envoyé', 'Accepté', 'Refusé']

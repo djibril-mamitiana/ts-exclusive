@@ -48,6 +48,16 @@ export default defineNitroPlugin(async () => {
       id serial primary key, name text not null, mime text not null, data bytea not null, size int not null, created_at timestamptz default now()
     )`)
 
+    await query(`create table if not exists destinations (
+      id serial primary key, slug text unique not null, name text not null, image text default '', description text default '',
+      sort int default 0, active boolean default true, en jsonb default '{}'::jsonb
+    )`)
+    await query(`create table if not exists partners (
+      id serial primary key, name text not null, sort int default 0, active boolean default true, en jsonb default '{}'::jsonb
+    )`)
+    await query(`create table if not exists texts (key text primary key, fr text default '', en text default '')`)
+    await seedDestinationsAndPartners()
+
     const config = useRuntimeConfig()
     const [{ count: users }] = await query('select count(*)::int as count from users')
     if (!users && config.adminEmail && config.adminPassword) {

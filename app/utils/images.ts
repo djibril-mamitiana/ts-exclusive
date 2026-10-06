@@ -33,10 +33,3 @@ export const serviceImages: Record<string, string> = {
   'mise-a-disposition': photos.night,
   'tourisme-conciergerie': photos.baobabsRoad
 }
-
-export const destinations = [
-  { slug: 'antananarivo', name: 'Antananarivo', image: photos.antananarivo },
-  { slug: 'nosy-be', name: 'Nosy Be', image: photos.beach },
-  { slug: 'morondava', name: 'Morondava', image: photos.baobabsSunset },
-  { slug: 'antsirabe', name: 'Antsirabe', image: photos.hills }
-]

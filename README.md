@@ -32,7 +32,8 @@ Public (FR à la racine, EN sous `/en`) : accueil, services (+ une page par serv
 ## Administration (`/admin`)
 
 - Tableau de bord, demandes de devis (statuts, notes internes, export CSV)
-- Flotte, services, offres, témoignages, FAQ : édition en français et en anglais
+- Flotte, services, offres, destinations, partenaires, témoignages, FAQ : édition en français et en anglais
+- Textes du site : titres et phrases de l'accueil et des pages, en français et en anglais
 - Médiathèque : envoi d'images (stockées en base, 5 Mo max)
 - Utilisateurs : rôles Administrateur (accès complet) et Éditeur (contenu et devis)
 - Paramètres : téléphone, WhatsApp, email, adresse, réseaux sociaux
@@ -43,3 +44,7 @@ Public (FR à la racine, EN sous `/en`) : accueil, services (+ une page par serv
     node .output/server/index.mjs
 
 Le serveur écoute sur le port 3000 (variable `PORT`). Penser à définir toutes les variables d'environnement sur l'hébergeur.
+
+## Documentation
+
+Voir le dossier `docs/` : architecture, backlog, identité visuelle, wireframes et suivi tâche par tâche de l'estimation.

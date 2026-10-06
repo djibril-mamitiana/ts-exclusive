@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const { data: content } = await useContent()
 const { m } = useLang()
 const c = computed(() => m.value.hospitality)
 usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
@@ -21,7 +22,7 @@ usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
     <div class="ts-wrap">
       <span v-reveal class="ts-label">{{ c.partnerLabel }}</span>
       <h2 v-reveal="0.1" class="ts-title" style="margin:18px 0 44px">{{ c.partnerTitle }}</h2>
-      <div v-reveal="0.2" class="ts-trust"><span v-for="p in c.partners" :key="p">{{ p }}</span></div>
+      <div v-reveal="0.2" class="ts-trust"><span v-for="p in content.partners" :key="p.id">{{ p.name }}</span></div>
     </div>
   </section>
 

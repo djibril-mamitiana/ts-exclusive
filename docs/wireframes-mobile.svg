@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 1200" font-family="Arial, sans-serif" font-size="12">
+  <rect width="390" height="1200" fill="#eef2f7"/>
+  <g fill="none" stroke="#0c2646" stroke-width="1.5">
+    <rect x="10" y="10" width="370" height="640" fill="#c5d3e0"/>
+    <path d="M10 330 L380 290 V650 H10 Z" fill="#0c2646" stroke="none"/>
+    <rect x="260" y="22" width="52" height="24"/><rect x="322" y="22" width="48" height="24"/>
+    <rect x="28" y="560" width="150" height="38"/>
+    <rect x="10" y="660" width="370" height="150" fill="#fff"/>
+    <rect x="10" y="820" width="370" height="260" fill="#8aa4bd"/>
+    <rect x="10" y="1090" width="370" height="100" fill="#0c2646"/>
+  </g>
+  <g fill="#fff"><text x="28" y="42">TS EXCLUSIVE</text><text x="28" y="470" font-size="28">MORE THAN</text><text x="28" y="504" font-size="28">A RIDE.</text></g>
+  <g fill="#0c2646"><text x="28" y="580">Devis</text><text x="28" y="690">Piliers, intro, services, flotte, destinations</text></g>
+</svg>

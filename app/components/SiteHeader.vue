@@ -28,12 +28,12 @@ watch(() => route.fullPath, () => { open.value = false })
 
 const imgOf = (key: string) => {
   if (key.startsWith('s:')) return serviceImages[key.slice(2)] || photos.night
-  if (key.startsWith('d:')) return destinations.find(d => d.slug === key.slice(2))?.image || photos.baobabsRoad
+  if (key.startsWith('d:')) return content.value.destinations.find(d => d.slug === key.slice(2))?.image || photos.baobabsRoad
   return ({ fleet: photos.hero, exp: photos.airport, corp: photos.hotel, events: photos.events, about: photos.chauffeur, price: photos.night } as any)[key] || photos.hero
 }
 const previewKeys = computed(() => [
   ...content.value.services.map(s => 's:' + s.slug),
-  ...destinations.map(d => 'd:' + d.slug),
+  ...content.value.destinations.map(d => 'd:' + d.slug),
   'fleet', 'exp', 'corp', 'events', 'about', 'price'
 ])
 
@@ -86,7 +86,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
         </div>
         <div class="group">
           <h4 class="reveal-i" :style="{ '--i': 6 }">{{ m.menu.destinations }}</h4>
-          <NuxtLink v-for="(d, n) in destinations" :key="d.slug" class="reveal-i" :style="{ '--i': n + 7 }" :to="lp('/destinations#' + d.slug)" @mouseenter="hover = 'd:' + d.slug">{{ d.name }}</NuxtLink>
+          <NuxtLink v-for="(d, n) in content.destinations" :key="d.slug" class="reveal-i" :style="{ '--i': n + 7 }" :to="lp('/destinations#' + d.slug)" @mouseenter="hover = 'd:' + d.slug">{{ d.name }}</NuxtLink>
         </div>
       </div>
       <div class="preview" aria-hidden="true">

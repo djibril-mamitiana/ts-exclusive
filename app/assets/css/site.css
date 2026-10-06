@@ -442,3 +442,20 @@ body { margin: 0; background: var(--black); }
   .ts-tile, .ts-tile.w7, .ts-tile.w5 { grid-column: span 12; min-height: 300px; }
   .ts-tile .go { opacity: 1; transform: none; }
 }
+
+/* Témoignages et FAQ (sections de l'estimation, sobres) */
+.ts-quotes { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(28px, 4vw, 64px); }
+.ts-quote { margin: 0; border-top: 1px solid rgba(255,255,255,.25); padding-top: 28px; }
+.ts-quote blockquote { margin: 0 0 22px; font-family: var(--serif); font-weight: 300; font-size: clamp(1.4rem, 2.2vw, 2rem); line-height: 1.3; }
+.ts-quote figcaption { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.ts-faq details { border-top: 1px solid rgba(7,23,43,.18); padding: 22px 0; }
+.ts-faq details:last-child { border-bottom: 1px solid rgba(7,23,43,.18); }
+.ts-faq summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 24px; font-family: var(--serif); font-size: clamp(1.2rem, 1.8vw, 1.7rem); font-weight: 400; }
+.ts-faq summary::-webkit-details-marker { display: none; }
+.ts-faq summary::after { content: '+'; font-weight: 200; font-size: 1.8rem; line-height: 1; color: var(--champ); transition: transform .5s var(--ease); }
+.ts-faq details[open] summary::after { transform: rotate(45deg); }
+.ts-faq p { margin-top: 14px; opacity: .7; max-width: 60ch; }
+.ts-list li .small, .ts-black .ts-list li small { opacity: .65; }
+.ts-filters { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 28px 8px; }
+.ts-chip { background: transparent; color: inherit; border: 1px solid rgba(255,255,255,.35); padding: 11px 20px; font: 400 11px var(--sans); letter-spacing: .22em; text-transform: uppercase; cursor: pointer; transition: .5s var(--ease); }
+.ts-chip:hover, .ts-chip.on { background: #fff; color: var(--navy); border-color: #fff; }

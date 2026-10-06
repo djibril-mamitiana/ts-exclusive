@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { data: settings } = await useSettings()
+await useTexts()
 const { m, lp, lang } = useLang()
 </script>
 

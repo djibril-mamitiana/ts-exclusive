@@ -25,6 +25,15 @@ const fr = {
     seoDesc: 'Mobilité privée et corporate avec chauffeur à Madagascar : transferts aéroport, mise à disposition, événements, délégations.',
     lead: 'Un service exclusif pour vos déplacements à Madagascar.',
     statLabels: ['Véhicules', 'Passagers max', 'Assistance', 'Ar / jour dès'],
+    faqLabel: 'FAQ', faqTitle: 'Questions fréquentes', testiLabel: 'Témoignages', testiTitle: 'Ils nous font confiance.',
+    whyLabel: 'Why TS EXCLUSIVE', whyTitle: 'Built around your journey.',
+    why: [
+      ['01', 'Reliability', 'Une organisation maîtrisée.'],
+      ['02', 'Professional drivers', 'Chauffeurs sélectionnés et formés.'],
+      ['03', 'Discretion', 'Un service respectueux de la confidentialité.'],
+      ['04', 'Flexibility', 'Des solutions adaptées à votre agenda.'],
+      ['05', 'Local expertise', 'La connaissance de Madagascar et de ses destinations.']
+    ],
     pillars: [
       { icon: 'shield', t: 'Discrétion', d: 'Votre confidentialité est notre priorité.' },
       { icon: 'clock', t: 'Ponctualité', d: "Toujours à l'heure, sur tous vos itinéraires." },
@@ -130,6 +139,15 @@ const en: typeof fr = {
     seoDesc: 'Private and corporate chauffeur mobility in Madagascar: airport transfers, chauffeur hire, events and delegations.',
     lead: 'An exclusive service for your travel across Madagascar.',
     statLabels: ['Vehicles', 'Max passengers', 'Support', 'Ar / day from'],
+    faqLabel: 'FAQ', faqTitle: 'Frequently asked questions', testiLabel: 'Testimonials', testiTitle: 'Trusted by professionals.',
+    whyLabel: 'Why TS EXCLUSIVE', whyTitle: 'Built around your journey.',
+    why: [
+      ['01', 'Reliability', 'A well-run organisation.'],
+      ['02', 'Professional drivers', 'Selected and trained drivers.'],
+      ['03', 'Discretion', 'A service that respects confidentiality.'],
+      ['04', 'Flexibility', 'Solutions adapted to your schedule.'],
+      ['05', 'Local expertise', 'Knowledge of Madagascar and its destinations.']
+    ],
     pillars: [
       { icon: 'shield', t: 'Discretion', d: 'Your privacy is our priority.' },
       { icon: 'clock', t: 'Punctuality', d: 'Always on time, on every route.' },

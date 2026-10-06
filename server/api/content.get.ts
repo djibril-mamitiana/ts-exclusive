@@ -14,15 +14,18 @@ function localize(rows: any[], lang: string) {
 
 export default defineEventHandler(async (event) => {
   const lang = getQuery(event).lang === 'en' ? 'en' : 'fr'
-  const [services, offers, vehicles, testimonials, faqs] = await Promise.all([
+  const [services, offers, vehicles, testimonials, faqs, destinations, partners] = await Promise.all([
     query('select * from services where active order by sort, id'),
     query('select * from offers where active order by sort, id'),
     query('select * from vehicles where active order by sort, id'),
     query('select * from testimonials where active order by sort, id'),
-    query('select * from faqs where active order by sort, id')
+    query('select * from faqs where active order by sort, id'),
+    query('select * from destinations where active order by sort, id'),
+    query('select * from partners where active order by sort, id')
   ])
   return {
     services: localize(services, lang), offers: localize(offers, lang), vehicles: localize(vehicles, lang),
-    testimonials: localize(testimonials, lang), faqs: localize(faqs, lang)
+    testimonials: localize(testimonials, lang), faqs: localize(faqs, lang),
+    destinations: localize(destinations, lang), partners: localize(partners, lang)
   }
 })
