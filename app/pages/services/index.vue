@@ -9,7 +9,7 @@ usePageSeo(s.value.seoTitle, s.value.sub, '/img/baobabs.jpg')
   <PageHero :label="s.label" :title="s.title" :sub="s.sub" :image="photos.chauffeur" />
 
   <section class="ts-sec ts-black" style="padding-top:clamp(40px,6vw,90px)">
-    <div class="ts-wrap"><ServiceEditorial :services="content.services" /></div>
+    <div class="ts-wrap"><ServiceMosaic :services="content.services" /></div>
   </section>
 
   <section class="ts-sec ts-light">

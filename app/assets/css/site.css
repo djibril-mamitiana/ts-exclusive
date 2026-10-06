@@ -372,3 +372,73 @@ body { margin: 0; background: var(--black); }
   .ts-dest .side { justify-items: start; }
 }
 @media (max-width: 900px) { .ts-dest .mapcard { grid-template-columns: 56px; padding: 12px 16px; } .ts-dest .mapcard svg { width: 56px; } }
+
+/* ============ Refonte 3 : brief premium + modèles du client (couleurs inchangées) ============ */
+.ts-title, .ts-display { text-transform: uppercase; font-weight: 300; letter-spacing: -.01em; }
+
+/* Header transparent sur le hero, bleu marine translucide au scroll */
+.ts-header { color: #fff; background: transparent; border-bottom: 1px solid transparent; backdrop-filter: none; -webkit-backdrop-filter: none; padding: 26px 0; }
+.ts-header.scrolled { background: rgba(7,23,43,.8); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom-color: rgba(255,255,255,.1); padding: 10px 0; }
+.ts-header .ts-btn:hover { background: #fff; color: var(--navy); border-color: #fff; }
+
+/* Hero : photo plein écran, panneau diagonal marine (forme du visuel client), chiffres façon fiche véhicule */
+.ts-hero { display: flex; flex-direction: column; justify-content: space-between; align-items: stretch; background: var(--black); color: #fff; }
+.ts-hero::after { display: block; background: linear-gradient(180deg, rgba(7,23,43,.5) 0%, rgba(7,23,43,0) 28%, rgba(7,23,43,0) 55%, rgba(7,23,43,.9) 100%); z-index: 1; }
+.ts-hero .bg img { object-position: 74% 60%; }
+.ts-hero .panel { z-index: 1; background: linear-gradient(100deg, rgba(7,23,43,.94) 0%, rgba(7,23,43,.8) 100%); clip-path: polygon(0 0, 50% 0, 34% 100%, 0 100%); }
+.ts-hero .in { flex: 1; display: flex; align-items: center; padding-block: 120px 24px; color: #fff; z-index: 2; position: relative; }
+.ts-hero .copy { max-width: min(640px, 46vw); }
+.ts-hero .kicker { color: #fff; opacity: .8; }
+.ts-hero h1.ts-display { font-family: var(--serif); font-weight: 300; text-transform: uppercase; color: #fff; font-size: clamp(3.2rem, 7.6vw, 8.4rem); line-height: .94; letter-spacing: -.012em; margin: 24px 0 22px; }
+.ts-hero .lead { font: 300 clamp(1rem, 1.5vw, 1.3rem)/1.5 var(--sans); color: #fff; opacity: .85; max-width: 30ch; letter-spacing: .02em; }
+.ts-hero .cta { color: #fff; margin-top: 38px; }
+.ts-hero .cta .ts-btn.solid { background: #fff; color: var(--navy); border-color: #fff; }
+.ts-hero .cta .ts-btn.solid:hover { background: transparent; color: #fff; }
+.ts-hero .cta .ts-btn:not(.solid):hover { background: #fff; color: var(--navy); border-color: #fff; }
+.ts-scroll { bottom: auto; top: 46%; }
+.ts-hstats { position: relative; z-index: 3; display: grid; grid-template-columns: repeat(4, 1fr); padding-bottom: clamp(28px, 5vh, 56px); animation: rise 1.4s var(--ease) 1.7s both; }
+.ts-hstats .st { padding: 0 clamp(12px, 2vw, 34px); border-left: 1px dashed rgba(255,255,255,.4); }
+.ts-hstats .st:first-child { padding-left: 0; border-left: 0; }
+.ts-hstats b { display: block; font-family: var(--serif); font-weight: 200; font-size: clamp(2.4rem, 5.6vw, 5.2rem); line-height: 1; }
+.ts-hstats b small { font-size: .38em; letter-spacing: .08em; margin-left: 4px; font-weight: 300; }
+.ts-hstats span { display: block; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; opacity: .75; margin-top: 10px; }
+
+/* Mosaïque de services numérotés (modèle Detailing) */
+.ts-mosaic { display: grid; grid-template-columns: repeat(12, 1fr); gap: clamp(10px, 1.4vw, 22px); }
+.ts-tile { position: relative; overflow: hidden; min-height: clamp(280px, 34vw, 500px); display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(20px, 2.4vw, 40px); isolation: isolate; grid-column: span 6; }
+.ts-tile.w7 { grid-column: span 7; }
+.ts-tile.w5 { grid-column: span 5; }
+.ts-tile .bgimg { position: absolute; inset: 0; z-index: -2; }
+.ts-tile .bgimg img { width: 100%; height: 100%; object-fit: cover; transition: transform 2.2s var(--ease); }
+.ts-tile.img::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, rgba(7,23,43,.88), rgba(7,23,43,.08) 68%); transition: opacity .8s; }
+.ts-tile:hover .bgimg img { transform: scale(1.07); }
+.ts-tile .num { position: absolute; top: clamp(12px, 1.8vw, 28px); left: clamp(18px, 2.2vw, 34px); font-family: var(--serif); font-weight: 200; font-size: clamp(4rem, 9vw, 9rem); line-height: .8; color: rgba(255,255,255,.92); }
+.ts-tile h3 { font-family: var(--serif); font-weight: 300; text-transform: uppercase; font-size: clamp(1.7rem, 3vw, 3.2rem); line-height: 1.02; transition: transform .8s var(--ease); }
+.ts-tile:hover h3 { transform: translateX(10px); }
+.ts-tile p { font-size: 13px; opacity: .8; max-width: 34ch; margin-top: 12px; }
+.ts-tile .go { display: inline-flex; align-items: center; gap: 12px; margin-top: 18px; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; opacity: 0; transform: translateX(-12px); transition: .7s var(--ease); }
+.ts-tile:hover .go { opacity: 1; transform: none; }
+.ts-tile.solid { background: var(--champ); color: var(--black); }
+.ts-tile.solid .num { color: rgba(7,23,43,.85); }
+.ts-tile.line { border: 1px solid rgba(255,255,255,.3); }
+.ts-tile.paper { background: var(--off); color: var(--navy); }
+.ts-tile.paper .num { color: var(--champ); }
+.ts-tile svg.ic { position: absolute; top: clamp(16px, 2vw, 30px); right: clamp(18px, 2.2vw, 34px); opacity: .7; }
+
+/* Fiche véhicule : repères en pointillés (modèle Tesla) */
+.ts-specs span { border-left: 1px dashed rgba(128,128,128,.55); padding-left: 18px; }
+.ts-specs span:first-child { border-left: 0; padding-left: 0; }
+
+@media (max-width: 900px) {
+  .ts-hero .bg { inset: 0; height: auto; }
+  .ts-hero .bg img { object-position: 70% 60%; }
+  .ts-hero .panel { inset: 0; height: auto; clip-path: none; background: linear-gradient(0deg, rgba(7,23,43,.9) 8%, rgba(7,23,43,.35) 55%, rgba(7,23,43,.1) 100%); }
+  .ts-hero .in { align-items: flex-end; padding-block: 110px 20px; }
+  .ts-hero .copy { max-width: none; }
+  .ts-hero h1.ts-display { font-size: clamp(2.8rem, 12vw, 4.6rem); margin: 16px 0 12px; }
+  .ts-hero .cta { margin-top: 24px; }
+  .ts-hstats { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
+  .ts-hstats .st:nth-child(3) { padding-left: 0; border-left: 0; }
+  .ts-tile, .ts-tile.w7, .ts-tile.w5 { grid-column: span 12; min-height: 300px; }
+  .ts-tile .go { opacity: 1; transform: none; }
+}

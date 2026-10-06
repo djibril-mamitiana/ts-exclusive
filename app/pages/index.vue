@@ -5,6 +5,19 @@ const { m, lp } = useLang()
 const h = computed(() => m.value.home)
 usePageSeo(h.value.seoTitle, h.value.seoDesc, '/img/baobabs.jpg')
 
+// Chiffres issus des données réelles (flotte, offres)
+const stats = computed(() => {
+  const v = content.value.vehicles
+  const pax = v.length ? Math.max(...v.map((x: any) => Number(x.passengers) || 0)) : 0
+  const prices = content.value.offers.map((o: any) => parseInt(String(o.price).replace(/[^0-9]/g, ''), 10)).filter((n: number) => n > 0)
+  const from = prices.length ? Math.min(...prices) : 0
+  const l = h.value.statLabels
+  return [
+    { v: String(v.length), l: l[0] }, { v: String(pax), l: l[1] }, { v: '24/7', l: l[2] },
+    { v: from >= 1000 ? Math.round(from / 1000) + 'K' : String(from), l: l[3] }
+  ].filter(x => x.v && x.v !== '0')
+})
+
 useHead({
   script: [{
     type: 'application/ld+json',
@@ -33,6 +46,9 @@ useHead({
       </div>
     </div>
     <span class="ts-scroll">{{ h.scroll }}</span>
+    <div class="ts-wrap ts-hstats">
+      <div v-for="x in stats" :key="x.l" class="st"><b>{{ x.v }}</b><span>{{ x.l }}</span></div>
+    </div>
   </section>
 
   <section class="ts-pillars">
@@ -64,7 +80,7 @@ useHead({
         <span v-reveal class="ts-label">{{ h.servicesLabel }}</span>
         <h2 v-reveal="0.1" class="ts-title">{{ h.servicesTitle }}</h2>
       </div>
-      <ServiceEditorial :services="content.services" :limit="4" />
+      <ServiceMosaic :services="content.services" :limit="4" />
       <div v-reveal style="margin-top:40px"><NuxtLink :to="lp('/services')" class="ts-btn">{{ m.common.discover }} Services <span class="ts-arr" /></NuxtLink></div>
     </div>
   </section>

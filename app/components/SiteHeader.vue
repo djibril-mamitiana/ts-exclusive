@@ -50,7 +50,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
 <template>
   <header class="ts-header" :class="{ scrolled }">
     <div class="ts-wrap row">
-      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo.png" alt="TS EXCLUSIVE Executive & Private Mobility" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.png" alt="TS EXCLUSIVE Executive & Private Mobility" width="256" height="48"></NuxtLink>
       <nav class="ts-nav" aria-label="Principal">
         <NuxtLink :to="lp('/services')">{{ m.nav.services }}</NuxtLink>
         <NuxtLink :to="lp('/flotte')">{{ m.nav.fleet }}</NuxtLink>

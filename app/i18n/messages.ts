@@ -24,6 +24,7 @@ const fr = {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility à Madagascar',
     seoDesc: 'Mobilité privée et corporate avec chauffeur à Madagascar : transferts aéroport, mise à disposition, événements, délégations.',
     lead: 'Un service exclusif pour vos déplacements à Madagascar.',
+    statLabels: ['Véhicules', 'Passagers max', 'Assistance', 'Ar / jour dès'],
     pillars: [
       { icon: 'shield', t: 'Discrétion', d: 'Votre confidentialité est notre priorité.' },
       { icon: 'clock', t: 'Ponctualité', d: "Toujours à l'heure, sur tous vos itinéraires." },
@@ -128,6 +129,7 @@ const en: typeof fr = {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility in Madagascar',
     seoDesc: 'Private and corporate chauffeur mobility in Madagascar: airport transfers, chauffeur hire, events and delegations.',
     lead: 'An exclusive service for your travel across Madagascar.',
+    statLabels: ['Vehicles', 'Max passengers', 'Support', 'Ar / day from'],
     pillars: [
       { icon: 'shield', t: 'Discretion', d: 'Your privacy is our priority.' },
       { icon: 'clock', t: 'Punctuality', d: 'Always on time, on every route.' },
