@@ -1,7 +1,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/site.css'],
+  pageTransition: { name: 'ts-page', mode: 'out-in' },
   routeRules: { '/admin/**': { ssr: false } },
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
@@ -31,12 +32,12 @@ export default defineNuxtConfig({
       title: 'TS EXCLUSIVE | Executive & Private Mobility',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'theme-color', content: '#0c2646' }
+        { name: 'theme-color', content: '#050505' }
       ],
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap' }
       ]
     }
   }

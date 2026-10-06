@@ -1,39 +1,29 @@
 <script setup lang="ts">
-const { m, lp } = useLang()
+const { m } = useLang()
 const c = computed(() => m.value.hospitality)
-usePageSeo(c.value.seoTitle, c.value.lead)
+usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
 </script>
 
 <template>
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">{{ c.eyebrow }}</span>
-      <h1>{{ c.title }}</h1>
-      <p class="lead">{{ c.lead }}</p>
-      <div class="hero-actions"><NuxtLink :to="{ path: lp('/contact'), query: { service: 'Délégation' } }" class="btn light">{{ c.cta1 }} <Icon name="arrow" :size="16" /></NuxtLink></div>
-    </div>
-  </section>
+  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="photos.lobby" />
 
-  <section class="section">
-    <div class="container prose-two">
-      <div class="photo-frame"><img src="/img/baobabs.jpg" alt="Madagascar"></div>
-      <div>
-        <span class="eyebrow">{{ c.itemsEyebrow }}</span>
-        <h2 class="h2" style="margin:18px 0">{{ c.itemsTitle }}</h2>
-        <div class="grid g2" style="gap:12px">
-          <div v-for="i in c.items" :key="i" class="num-card" style="padding:18px 20px;font-weight:600;color:var(--ink)">{{ i }}</div>
-        </div>
+  <section class="ts-sec ts-black">
+    <div class="ts-wrap ts-split">
+      <div v-reveal:img class="ts-photo"><img :src="sized(photos.airport, 1200)" alt="" loading="lazy"></div>
+      <div class="ts-gap">
+        <span v-reveal class="ts-label" style="color:var(--champ);opacity:1">{{ c.itemsLabel }}</span>
+        <ul class="ts-list"><li v-for="(i, n) in c.items" :key="i" v-reveal="n * 0.06">{{ i }}</li></ul>
       </div>
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="container center">
-      <span class="eyebrow">{{ c.partnerEyebrow }}</span>
-      <h2 class="h2" style="margin:18px 0 36px">{{ c.partnerTitle }}</h2>
-      <div class="partner-tags"><span v-for="p in c.partners" :key="p">{{ p }}</span></div>
+  <section class="ts-sec ts-light">
+    <div class="ts-wrap">
+      <span v-reveal class="ts-label">{{ c.partnerLabel }}</span>
+      <h2 v-reveal="0.1" class="ts-title" style="margin:18px 0 44px">{{ c.partnerTitle }}</h2>
+      <div v-reveal="0.2" class="ts-trust"><span v-for="p in c.partners" :key="p">{{ p }}</span></div>
     </div>
   </section>
 
-  <CtaBand :title="c.cta" :button="c.cta1" />
+  <FinalCta :line1="c.finalTitle" :image="photos.hotel" :primary="c.cta" to="/contact?service=Délégation" />
 </template>

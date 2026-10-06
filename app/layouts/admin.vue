@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import '~/assets/css/admin.css'
 const { data: me } = await useFetch('/api/admin/me', { key: 'me' })
 if (!me.value) await navigateTo('/admin/login')
 
@@ -28,7 +29,7 @@ const visibleNav = computed(() => nav.filter(n => !n.adminOnly || me.value?.role
       <NuxtLink v-for="n in visibleNav" :key="n.to" :to="n.to" :exact-active-class="n.exact ? 'router-link-active' : ''" :active-class="n.exact ? '' : 'router-link-active'">
         <Icon :name="n.icon" :size="18" /> {{ n.label }}
       </NuxtLink>
-      <NuxtLink to="/" class="push"><Icon name="home" :size="18" /> Voir le site</NuxtLink>
+      <a href="/" class="push"><Icon name="home" :size="18" /> Voir le site</a>
       <button class="out" @click="logout"><Icon name="out" :size="18" /> Déconnexion</button>
     </aside>
     <main class="admin-main"><slot /></main>

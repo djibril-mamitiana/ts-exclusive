@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 import { messages } from '~/i18n/messages'
+import '~/assets/css/site.css'
 
 const props = defineProps<{ error: NuxtError }>()
 const route = useRoute()
@@ -12,12 +13,12 @@ const home = () => clearError({ redirect: en ? '/en' : '/' })
 </script>
 
 <template>
-  <div style="min-height:100vh;display:grid;place-items:center;background:var(--navy);color:#fff;padding:24px;text-align:center">
+  <div class="ts" style="min-height:100vh;display:grid;place-items:center;text-align:center;padding:24px">
     <div>
-      <div style="font-size:clamp(5rem,16vw,9rem);font-weight:200;line-height:1;color:var(--steel)">{{ error?.statusCode || 500 }}</div>
-      <h1 style="color:#fff;font-size:2rem;margin:12px 0">{{ is404 ? t.notFound : 'Oups' }}</h1>
-      <p style="color:#c5d3e0;margin-bottom:28px">{{ is404 ? t.notFoundText : error?.statusMessage }}</p>
-      <button class="btn light" @click="home">{{ t.backHome }}</button>
+      <div class="ts-num" style="font-size:clamp(7rem,22vw,16rem)">{{ error?.statusCode || 500 }}</div>
+      <h1 class="ts-title" style="margin:18px 0 12px">{{ is404 ? t.notFound : 'Oops' }}</h1>
+      <p class="ts-text" style="margin:0 auto 36px">{{ is404 ? t.notFoundText : error?.statusMessage }}</p>
+      <button class="ts-btn" @click="home">{{ t.backHome }} <span class="ts-arr" /></button>
     </div>
   </div>
 </template>

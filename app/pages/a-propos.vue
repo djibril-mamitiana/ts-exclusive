@@ -1,52 +1,27 @@
 <script setup lang="ts">
 const { m } = useLang()
 const c = computed(() => m.value.about)
-usePageSeo(c.value.seoTitle, c.value.lead)
+usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
 </script>
 
 <template>
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">{{ c.eyebrow }}</span>
-      <h1>{{ c.title }}</h1>
-      <p class="lead">{{ c.lead }}</p>
+  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="photos.doorHandle" />
+
+  <section class="ts-sec ts-black">
+    <div class="ts-wrap">
+      <span v-reveal class="ts-label" style="color:var(--champ);opacity:1">{{ c.valuesLabel }}</span>
+      <ul class="ts-list" style="margin-top:28px">
+        <li v-for="(v, i) in c.values" :key="v" v-reveal="i * 0.07" style="font-size:clamp(2rem,4.4vw,4.4rem)"><span>{{ v }}</span><small>0{{ i + 1 }}</small></li>
+      </ul>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <h2 class="h2 center" style="margin-bottom:44px">{{ c.valuesTitle }}</h2>
-      <div class="grid g3">
-        <div v-for="(v, i) in c.values" :key="v[0]" class="num-card"><div class="n">0{{ i + 1 }}</div><h3>{{ v[0] }}</h3><p>{{ v[1] }}</p></div>
-      </div>
+  <section class="ts-sec ts-light">
+    <div class="ts-wrap ts-split">
+      <span v-reveal class="ts-label">{{ c.careLabel }}</span>
+      <ul class="ts-list"><li v-for="(k, i) in c.care" :key="k" v-reveal="i * 0.07">{{ k }}</li></ul>
     </div>
   </section>
 
-  <section class="section alt">
-    <div class="container prose-two">
-      <div>
-        <span class="eyebrow">{{ c.whyEyebrow }}</span>
-        <h2 class="h2" style="margin:18px 0">{{ c.whyTitle }}</h2>
-        <p class="lead">{{ c.whyText }}</p>
-      </div>
-      <div class="panel">
-        <h3 style="margin-bottom:14px">{{ c.vehiclesTitle }}</h3>
-        <ul class="checks"><li v-for="k in c.checks" :key="k"><Icon name="check" :size="18" /> {{ k }}</li></ul>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="h2 center" style="margin-bottom:44px">{{ c.journeyTitle }}</h2>
-      <div class="grid g3">
-        <div v-for="j in c.journey" :key="(j[0] as string)" class="num-card">
-          <h3 style="margin-bottom:14px">{{ j[0] }}</h3>
-          <ul class="checks"><li v-for="i in (j[1] as string[])" :key="i"><Icon name="check" :size="16" /> {{ i }}</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <CtaBand :title="c.cta" />
+  <FinalCta :line1="c.finalTitle" :image="photos.hero" />
 </template>

@@ -1,43 +1,28 @@
 <script setup lang="ts">
 const { data: content } = await useContent()
-const { m, lp } = useLang()
+const { m } = useLang()
 const s = computed(() => m.value.services)
-usePageSeo(s.value.seoTitle, s.value.lead)
+usePageSeo(s.value.seoTitle, s.value.sub, '/img/baobabs.jpg')
 </script>
 
 <template>
-  <section class="page-hero">
-    <div class="container">
-      <span class="eyebrow">{{ s.eyebrow }}</span>
-      <h1>{{ s.title }}</h1>
-      <p class="lead">{{ s.lead }}</p>
-    </div>
+  <PageHero :label="s.label" :title="s.title" :sub="s.sub" :image="photos.chauffeur" />
+
+  <section class="ts-sec ts-black" style="padding-top:clamp(40px,6vw,90px)">
+    <div class="ts-wrap"><ServiceEditorial :services="content.services" /></div>
   </section>
 
-  <section class="section alt">
-    <div class="container grid g3">
-      <NuxtLink v-for="sv in content.services" :key="sv.id" :to="lp(`/services/${sv.slug}`)" class="service-card">
-        <div class="thumb"><img v-if="sv.image" :src="sv.image" :alt="sv.title"><Icon v-else :name="sv.icon" :size="58" /></div>
-        <div class="body">
-          <h3>{{ sv.title }}</h3>
-          <p>{{ sv.subtitle }}</p>
-          <span class="link-arrow">{{ m.common.learnMore }} <Icon name="arrow" :size="16" /></span>
-        </div>
-      </NuxtLink>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="center" style="margin-bottom:56px">
-        <span class="eyebrow">{{ s.offersEyebrow }}</span>
-        <h2 class="h2" style="margin:18px 0">{{ s.offersTitle }}</h2>
-        <p class="lead">{{ s.offersLead }}</p>
+  <section class="ts-sec ts-light">
+    <div class="ts-wrap">
+      <div class="ts-gap" style="margin-bottom:clamp(40px,6vw,80px)">
+        <span v-reveal class="ts-label">{{ s.offersLabel }}</span>
+        <h2 v-reveal="0.1" class="ts-title">{{ s.offersTitle }}</h2>
+        <p v-reveal="0.2" class="ts-text" style="opacity:.65">{{ s.offersNote }}</p>
       </div>
       <OfferGrid :offers="content.offers" />
-      <p class="muted center" style="margin-top:28px;font-size:14px">{{ s.conditions }}</p>
+      <p class="ts-label" style="margin-top:36px;opacity:.55;text-transform:none;letter-spacing:.06em;font-size:13px">{{ s.conditions }}</p>
     </div>
   </section>
 
-  <CtaBand :title="s.cta" />
+  <FinalCta :line1="s.finalTitle" :image="photos.night" />
 </template>

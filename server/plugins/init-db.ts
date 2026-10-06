@@ -41,7 +41,8 @@ export default defineNitroPlugin(async () => {
       await query(`alter table ${t} add column if not exists en jsonb default '{}'::jsonb`)
     }
     await query('alter table vehicles add column if not exists dark_bg boolean default false')
-    await query("update vehicles set dark_bg = true where image in ('/img/fleet/prado.jpg', '/img/fleet/hilux.jpg') and dark_bg = false and id <= 6")
+    await query("update vehicles set image = replace(image, '.jpg', '-hd.jpg') where image like '/img/fleet/%.jpg' and image not like '%-hd.jpg'")
+    await query("update vehicles set dark_bg = true where image in ('/img/fleet/prado-hd.jpg', '/img/fleet/hilux-hd.jpg') and dark_bg = false and id <= 6")
     await query("update vehicles set image = replace(image, '.png', '.jpg') where image in ('/img/fleet/prado.png', '/img/fleet/hilux.png')")
     await query(`create table if not exists media (
       id serial primary key, name text not null, mime text not null, data bytea not null, size int not null, created_at timestamptz default now()
@@ -110,12 +111,12 @@ export default defineNitroPlugin(async () => {
     }
 
     const vehicles = [
-      ['Toyota Prado TLX', 'Premium SUV', 'Puissance. Élégance. Confiance absolue.', "Alliance de robustesse légendaire et de raffinement moderne : le SUV idéal pour les familles exigeantes, les professionnels et les explorateurs.", 7, 4, 'Familles, longues distances, personnalités', '/img/fleet/prado.jpg'],
-      ['Ford Everest XLT', 'Premium SUV', 'Puissant, confortable, prêt pour l\'aventure.', 'Moteur diesel puissant et économique, spacieux et confortable : parfait pour les longs trajets, les voyages en famille et les excursions.', 7, 4, 'Voyages en famille, excursions touristiques', '/img/fleet/everest.jpg'],
-      ['Jeep Wrangler Rubicon', '4×4 / Field Mobility', 'Dominateur des routes, roi des sentiers.', "Moteur V6 3,6 L, transmission 4×4 et boîte Rock-Trac pour le tout-terrain, avec une conduite raffinée.", 4, 2, 'Aventure, tout-terrain, séjours privés', '/img/fleet/wrangler.jpg'],
-      ['Toyota Land Cruiser 76', '4×4 / Field Mobility', "L'alliance parfaite entre prestige et robustesse.", "Idéal pour les déplacements VIP, les missions professionnelles et les circuits haut de gamme, sur toutes les routes de Madagascar.", 5, 4, 'Missions terrain, circuits, VIP', '/img/fleet/landcruiser.jpg'],
-      ['Toyota Hilux 2.4GD Comfort', '4×4 / Field Mobility', 'Double Cab 6-MT 4x4', "Robuste par nature, fiable par excellence : performance, confort et durabilité sur tous les terrains.", 5, 3, 'Projets de terrain, ONG, missions', '/img/fleet/hilux.jpg'],
-      ['Toyota Hilux 2.7L Standard', '4×4 / Field Mobility', 'Double Cab 5-MT 4x4', "Moteur essence puissant et transmission manuelle précise : équilibre entre performance, simplicité et endurance.", 5, 3, 'Projets de terrain, ONG, missions', '/img/fleet/hilux.jpg']
+      ['Toyota Prado TLX', 'Premium SUV', 'Puissance. Élégance. Confiance absolue.', "Alliance de robustesse légendaire et de raffinement moderne : le SUV idéal pour les familles exigeantes, les professionnels et les explorateurs.", 7, 4, 'Familles, longues distances, personnalités', '/img/fleet/prado-hd.jpg'],
+      ['Ford Everest XLT', 'Premium SUV', 'Puissant, confortable, prêt pour l\'aventure.', 'Moteur diesel puissant et économique, spacieux et confortable : parfait pour les longs trajets, les voyages en famille et les excursions.', 7, 4, 'Voyages en famille, excursions touristiques', '/img/fleet/everest-hd.jpg'],
+      ['Jeep Wrangler Rubicon', '4×4 / Field Mobility', 'Dominateur des routes, roi des sentiers.', "Moteur V6 3,6 L, transmission 4×4 et boîte Rock-Trac pour le tout-terrain, avec une conduite raffinée.", 4, 2, 'Aventure, tout-terrain, séjours privés', '/img/fleet/wrangler-hd.jpg'],
+      ['Toyota Land Cruiser 76', '4×4 / Field Mobility', "L'alliance parfaite entre prestige et robustesse.", "Idéal pour les déplacements VIP, les missions professionnelles et les circuits haut de gamme, sur toutes les routes de Madagascar.", 5, 4, 'Missions terrain, circuits, VIP', '/img/fleet/landcruiser-hd.jpg'],
+      ['Toyota Hilux 2.4GD Comfort', '4×4 / Field Mobility', 'Double Cab 6-MT 4x4', "Robuste par nature, fiable par excellence : performance, confort et durabilité sur tous les terrains.", 5, 3, 'Projets de terrain, ONG, missions', '/img/fleet/hilux-hd.jpg'],
+      ['Toyota Hilux 2.7L Standard', '4×4 / Field Mobility', 'Double Cab 5-MT 4x4', "Moteur essence puissant et transmission manuelle précise : équilibre entre performance, simplicité et endurance.", 5, 3, 'Projets de terrain, ONG, missions', '/img/fleet/hilux-hd.jpg']
     ]
     i = 0
     for (const [name, category, tagline, description, passengers, bags, usage, image] of vehicles) {

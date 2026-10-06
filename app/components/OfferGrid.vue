@@ -4,14 +4,12 @@ const { m, lp } = useLang()
 </script>
 
 <template>
-  <div class="grid g3">
-    <article v-for="o in offers" :key="o.id" class="offer" :class="{ hl: o.highlight }">
-      <span v-if="o.highlight" class="tag">{{ m.common.mostWanted }}</span>
+  <div class="ts-offers">
+    <article v-for="(o, i) in offers" :key="o.id" v-reveal="i * 0.1" class="ts-offer" :class="{ hl: o.highlight }">
       <h3>{{ o.name }}</h3>
       <div class="price"><small>{{ m.common.from }}</small>{{ o.price }}</div>
-      <p class="target">{{ o.target }}</p>
-      <ul class="checks"><li v-for="opt in o.options" :key="opt"><Icon name="check" :size="16" /> {{ opt }}</li></ul>
-      <NuxtLink :to="{ path: lp('/contact'), query: { service: 'Long terme' } }" class="btn" :class="o.highlight ? 'light' : 'ghost'" style="margin-top:auto;justify-content:center">{{ m.common.quote }}</NuxtLink>
+      <ul><li v-for="opt in o.options" :key="opt">{{ opt }}</li></ul>
+      <div><NuxtLink :to="{ path: lp('/contact'), query: { service: 'Long terme' } }" class="ts-btn sm">{{ m.common.quote }} <span class="ts-arr" /></NuxtLink></div>
     </article>
   </div>
 </template>

@@ -8,7 +8,7 @@ const form = reactive<any>({
   trip_date: '', trip_time: '', pickup: '', dropoff: '', passengers: '', bags: '',
   services: [] as string[], message: '', website: ''
 })
-// La liste des services est enregistrée en français côté admin, quelle que soit la langue du formulaire
+// Les services sont enregistrés en français côté admin, quelle que soit la langue du formulaire
 const frServices = ['Transfert aéroport', 'Executive Mobility', 'Corporate', 'Événement', 'Délégation', 'Long terme']
 const options = computed(() => f.value.services.map((label, i) => ({ label, value: frServices[i] })))
 
@@ -38,51 +38,51 @@ async function submit() {
 </script>
 
 <template>
-  <div v-if="done" class="alert ok" style="padding:28px">
-    <h3 style="color:#14633f;margin-bottom:8px">{{ f.okTitle }}</h3>
+  <div v-if="done" class="ts-msg">
+    <h3 class="ts-subtitle" style="margin-bottom:8px">{{ f.okTitle }}</h3>
     {{ f.okText.replace('{name}', form.name) }}
   </div>
-  <form v-else class="form" @submit.prevent="submit">
+  <form v-else class="ts-form" @submit.prevent="submit">
     <fieldset>
       <legend>{{ f.infoLegend }}</legend>
-      <div class="row">
-        <label class="f">{{ f.name }}<input v-model="form.name" required autocomplete="name"></label>
-        <label class="f">{{ f.company }}<input v-model="form.company" autocomplete="organization"></label>
+      <div class="r2">
+        <label class="ts-field">{{ f.name }}<input v-model="form.name" required autocomplete="name"></label>
+        <label class="ts-field">{{ f.company }}<input v-model="form.company" autocomplete="organization"></label>
       </div>
-      <div class="row">
-        <label class="f">{{ f.email }}<input v-model="form.email" type="email" autocomplete="email"></label>
-        <label class="f">{{ f.phone }}<input v-model="form.phone" type="tel" autocomplete="tel"></label>
+      <div class="r2">
+        <label class="ts-field">{{ f.email }}<input v-model="form.email" type="email" autocomplete="email"></label>
+        <label class="ts-field">{{ f.phone }}<input v-model="form.phone" type="tel" autocomplete="tel"></label>
       </div>
-      <label class="f">{{ f.whatsapp }}<input v-model="form.whatsapp" type="tel" :placeholder="f.whatsappHint"></label>
+      <label class="ts-field">{{ f.whatsapp }}<input v-model="form.whatsapp" type="tel" :placeholder="f.whatsappHint"></label>
     </fieldset>
 
     <fieldset>
       <legend>{{ f.tripLegend }}</legend>
-      <div class="row">
-        <label class="f">{{ f.date }}<input v-model="form.trip_date" type="date"></label>
-        <label class="f">{{ f.time }}<input v-model="form.trip_time" type="time"></label>
+      <div class="r2">
+        <label class="ts-field">{{ f.date }}<input v-model="form.trip_date" type="date"></label>
+        <label class="ts-field">{{ f.time }}<input v-model="form.trip_time" type="time"></label>
       </div>
-      <div class="row">
-        <label class="f">{{ f.pickup }}<input v-model="form.pickup"></label>
-        <label class="f">{{ f.dropoff }}<input v-model="form.dropoff"></label>
+      <div class="r2">
+        <label class="ts-field">{{ f.pickup }}<input v-model="form.pickup"></label>
+        <label class="ts-field">{{ f.dropoff }}<input v-model="form.dropoff"></label>
       </div>
-      <div class="row">
-        <label class="f">{{ f.passengers }}<input v-model="form.passengers" type="number" min="1"></label>
-        <label class="f">{{ f.bags }}<input v-model="form.bags" type="number" min="0"></label>
+      <div class="r2">
+        <label class="ts-field">{{ f.passengers }}<input v-model="form.passengers" type="number" min="1"></label>
+        <label class="ts-field">{{ f.bags }}<input v-model="form.bags" type="number" min="0"></label>
       </div>
     </fieldset>
 
     <fieldset>
       <legend>{{ f.serviceLegend }}</legend>
-      <div class="checkgrid">
-        <label v-for="o in options" :key="o.value"><input v-model="form.services" type="checkbox" :value="o.value"> {{ o.label }}</label>
+      <div class="ts-checks">
+        <label v-for="o in options" :key="o.value"><input v-model="form.services" type="checkbox" :value="o.value"><span>{{ o.label }}</span></label>
       </div>
     </fieldset>
 
-    <label class="f">{{ f.message }}<textarea v-model="form.message" :placeholder="f.messageHint" /></label>
-    <input v-model="form.website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="ts-field">{{ f.message }}<textarea v-model="form.message" :placeholder="f.messageHint" /></label>
+    <input v-model="form.website" class="ts-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
-    <p v-if="error" class="alert err">{{ error }}</p>
-    <div><button class="btn" :disabled="sending" type="submit">{{ sending ? f.sending : f.send }} <Icon name="arrow" :size="16" /></button></div>
+    <p v-if="error" class="ts-msg err">{{ error }}</p>
+    <div><button class="ts-btn" :disabled="sending" type="submit">{{ sending ? f.sending : f.send }} <span class="ts-arr" /></button></div>
   </form>
 </template>
