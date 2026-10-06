@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
 import { messages } from '~/i18n/messages'
-import '~/assets/css/site.css'
 
 const props = defineProps<{ error: NuxtError }>()
 const route = useRoute()
