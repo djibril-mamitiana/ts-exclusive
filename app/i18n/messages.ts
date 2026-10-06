@@ -23,6 +23,14 @@ const fr = {
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility à Madagascar',
     seoDesc: 'Mobilité privée et corporate avec chauffeur à Madagascar : transferts aéroport, mise à disposition, événements, délégations.',
+    lead: 'Un service exclusif pour vos déplacements à Madagascar.',
+    pillars: [
+      { icon: 'shield', t: 'Discrétion', d: 'Votre confidentialité est notre priorité.' },
+      { icon: 'clock', t: 'Ponctualité', d: "Toujours à l'heure, sur tous vos itinéraires." },
+      { icon: 'car', t: 'Confort', d: 'Des véhicules premium et un service soigné.' },
+      { icon: 'user', t: 'Service personnalisé', d: 'Une solution adaptée à chaque besoin.' },
+      { icon: 'diamond', t: 'Fiabilité', d: 'Un service maîtrisé de bout en bout.' }
+    ],
     kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
     introTitle1: 'Private mobility,', introTitle2: 'redefined.',
     introText: 'Une mobilité discrète, fiable et personnalisée pour dirigeants, voyageurs, entreprises et clients privés à Madagascar.',
@@ -119,6 +127,14 @@ const en: typeof fr = {
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility in Madagascar',
     seoDesc: 'Private and corporate chauffeur mobility in Madagascar: airport transfers, chauffeur hire, events and delegations.',
+    lead: 'An exclusive service for your travel across Madagascar.',
+    pillars: [
+      { icon: 'shield', t: 'Discretion', d: 'Your privacy is our priority.' },
+      { icon: 'clock', t: 'Punctuality', d: 'Always on time, on every route.' },
+      { icon: 'car', t: 'Comfort', d: 'Premium vehicles and a careful service.' },
+      { icon: 'user', t: 'Personalised service', d: 'A solution for every need.' },
+      { icon: 'diamond', t: 'Reliability', d: 'A service managed end to end.' }
+    ],
     kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
     introTitle1: 'Private mobility,', introTitle2: 'redefined.',
     introText: 'Discreet, reliable and personalised mobility for executives, travellers, corporations and private clients in Madagascar.',

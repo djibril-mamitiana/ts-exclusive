@@ -19,20 +19,36 @@ useHead({
 
 <template>
   <section class="ts-hero">
-    <div class="bg"><img v-parallax="0.12" :src="sized(photos.hero, 2000)" alt="TS EXCLUSIVE executive vehicle" fetchpriority="high"></div>
+    <div class="bg"><img v-parallax="0.1" :src="sized(photos.hero, 2000)" alt="TS EXCLUSIVE executive vehicle" fetchpriority="high"></div>
+    <div class="panel" />
     <div class="ts-wrap in">
-      <span class="ts-label kicker">{{ h.kicker }}</span>
-      <h1 class="ts-display">{{ h.title1 }}<br>{{ h.title2 }}</h1>
-      <p class="ts-label sub">{{ h.sub }}</p>
-      <div class="cta"><NuxtLink :to="lp('/#intro')" class="ts-btn">{{ h.cta }} <span class="ts-arr" /></NuxtLink></div>
+      <div class="copy">
+        <span class="ts-label kicker">{{ m.brandTag }}</span>
+        <h1 class="ts-display">{{ h.title1 }}<br>{{ h.title2 }}</h1>
+        <p class="lead">{{ h.lead }}</p>
+        <div class="cta">
+          <NuxtLink :to="lp('/contact')" class="ts-btn solid">{{ m.nav.quote }} <span class="ts-arr" /></NuxtLink>
+          <a class="ts-btn" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
     </div>
     <span class="ts-scroll">{{ h.scroll }}</span>
   </section>
 
-  <section id="intro" class="ts-sec ts-black">
+  <section class="ts-pillars">
+    <div class="ts-wrap grid5">
+      <div v-for="(p, i) in h.pillars" :key="p.t" v-reveal="i * 0.08" class="it">
+        <Icon :name="p.icon" :size="34" />
+        <h4>{{ p.t }}</h4>
+        <p>{{ p.d }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="intro" class="ts-sec ts-light">
     <div class="ts-wrap">
       <div class="ts-intro">
-        <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,8vw,8.4rem)">{{ h.introTitle1 }}<br><span style="color:var(--champ)">{{ h.introTitle2 }}</span></h2>
+        <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,7.4vw,7.6rem)">{{ h.introTitle1 }}<br><span class="serif-i" style="color:var(--champ);font-style:italic">{{ h.introTitle2 }}</span></h2>
         <p v-reveal="0.2" class="ts-text">{{ h.introText }}</p>
       </div>
       <div v-reveal:line class="ts-line" style="margin-top:clamp(64px,9vw,140px)" />

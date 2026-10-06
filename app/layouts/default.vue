@@ -13,7 +13,7 @@ const { m, lp, lang } = useLang()
       <div class="ts-wrap">
         <div class="top">
           <div>
-            <div class="ts-brand" style="font-size:34px">TS EXCLUSIVE</div>
+            <div class="ts-brand"><img src="/img/logo-light.png" alt="TS EXCLUSIVE" width="256" height="48"></div>
             <p class="ts-label" style="margin-top:18px">{{ m.footer.tagline }}</p>
             <p class="ts-label">{{ m.footer.place }}</p>
           </div>
