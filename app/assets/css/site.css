@@ -294,3 +294,7 @@ body { margin: 0; background: var(--black); }
 }
 @media (max-width: 700px) { .ts-tools .hide-m { display: none; } }
 @media (max-width: 900px) { .ts-dest::after { background: linear-gradient(0deg, rgba(5,5,5,.88), rgba(5,5,5,.35) 70%, rgba(5,5,5,.5)); } .ts-dest .names { margin-bottom: 36px; } }
+
+/* Photos à fond noir : fondu doux dans le fond de page */
+.ts-car.ts-black .vis img { -webkit-mask-image: radial-gradient(ellipse 74% 80% at 50% 52%, #000 60%, transparent 100%); mask-image: radial-gradient(ellipse 74% 80% at 50% 52%, #000 60%, transparent 100%); }
+@media (max-width: 700px) { .ts-hero .bg img { object-position: 66% 60%; } }
