@@ -14,8 +14,9 @@ const { m, lp, lang } = useLang()
       <div class="ts-wrap">
         <div class="top">
           <div>
-            <div class="ts-brand"><img src="/img/logo-light.png" alt="TS EXCLUSIVE" width="256" height="48"></div>
-            <p class="ts-label" style="margin-top:18px">{{ m.footer.tagline }}</p>
+            <div class="ts-brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="256" height="48"></div>
+            <p class="ts-thanks" style="margin:18px 0 6px">{{ m.home.thanks }}</p>
+            <p class="ts-label">{{ m.footer.tagline }}</p>
             <p class="ts-label">{{ m.footer.place }}</p>
           </div>
           <div>
@@ -45,7 +46,13 @@ const { m, lp, lang } = useLang()
           <a href="/admin">{{ m.footer.admin }}</a>
         </div>
       </div>
+      <div class="ts-wordmark" aria-hidden="true">TS EXCLUSIVE</div>
     </footer>
+
+    <div class="ts-mbar">
+      <NuxtLink :to="lp('/contact')" class="ts-btn solid">{{ m.nav.quote }}</NuxtLink>
+      <a class="ts-btn" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
 
     <a class="ts-wa" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="whatsapp" :size="22" /></a>
   </div>

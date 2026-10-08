@@ -1,0 +1,80 @@
+/* ============ Refonte 5 : finitions, cohérence photographique, détails de marque ============ */
+
+/* Chiffres alignés (Cormorant propose des chiffres elzéviriens où le 0 ressemble à un O) */
+.ts, .ts * { font-variant-numeric: lining-nums; }
+
+/* Hero : panneau plus étroit, voiture dégagée */
+.ts-hero .panel { clip-path: polygon(0 0, 44% 0, 28% 100%, 0 100%); }
+.ts-hero .copy { max-width: min(640px, 44vw); }
+.ts-hero .bg img { object-position: 84% 62%; }
+
+/* Colorimétrie unique : toutes les photographies reçoivent le même grain de couleur marine */
+.ts-hero .bg img, .ts-pagehero .bg img, .ts-final .bg img, .ts-tile .bgimg img, .ts-dest .layers img,
+.ts-photo img, .ts-menu .preview img, .ts-svc .media img { filter: saturate(.88) contrast(1.05); }
+.ts-photo::after, .ts-tile .bgimg::after { content: ''; position: absolute; inset: 0; background: rgba(12, 38, 70, .18); mix-blend-mode: multiply; pointer-events: none; }
+
+/* Flotte : texte et véhicule sur la même ligne, fond assorti à la photo */
+.ts-car .info { grid-row: 1; z-index: 3; }
+.ts-car .vis { grid-row: 1; justify-self: end; width: 100%; }
+.ts-car.ts-black { background: #03080f; }
+.ts-car.ts-black .vis img { -webkit-mask-image: none; mask-image: none; }
+.ts-car .vis::before { z-index: 3; }
+
+/* Destinations : carte en verre, repères blancs */
+.ts-dest .mapcard { background: rgba(7, 23, 43, .5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, .38); color: #fff; padding: 16px 20px; }
+.ts-dest .mapcard path { fill: rgba(255, 255, 255, .1); stroke: rgba(255, 255, 255, .65); }
+.ts-dest .mapcard .pin { fill: #fff; }
+.ts-dest .mapcard .pin.on { fill: var(--champ); }
+.ts-dest .mapcard .ring { stroke: var(--champ); }
+
+/* Barre de progression de lecture */
+.ts-progress { position: absolute; left: 0; bottom: -1px; width: 100%; height: 2px; background: var(--champ); transform-origin: left; transform: scaleX(0); transition: transform .15s linear; pointer-events: none; }
+
+/* Bandeau défilant des partenaires */
+.ts-marquee { overflow: hidden; border-block: 1px solid rgba(7, 23, 43, .22); padding: 30px 0; white-space: nowrap; }
+.ts-marquee .track { display: inline-flex; width: max-content; animation: marq 46s linear infinite; }
+.ts-marquee:hover .track { animation-play-state: paused; }
+.ts-marquee span { display: inline-flex; align-items: center; gap: 56px; padding-right: 56px; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(1.9rem, 3.8vw, 3.8rem); line-height: 1.1; }
+.ts-marquee span::after { content: ''; width: 9px; height: 9px; border: 1px solid var(--champ); transform: rotate(45deg); flex: none; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* Pied de page : grande signature */
+.ts-wordmark { font-family: var(--serif); font-weight: 300; font-size: 12.6vw; line-height: .78; letter-spacing: -.025em; text-align: center; color: rgba(255, 255, 255, .07); margin: 56px 0 0; white-space: nowrap; overflow: hidden; user-select: none; }
+
+/* Barre d'action mobile */
+.ts-mbar { display: none; }
+@media (max-width: 700px) {
+  .ts-mbar { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 58; background: rgba(7, 23, 43, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1px solid rgba(255, 255, 255, .18); padding: 10px var(--gut) calc(10px + env(safe-area-inset-bottom)); }
+  .ts-mbar .ts-btn { justify-content: center; padding: 14px 8px; color: #fff; }
+  .ts-mbar .ts-btn.solid { background: #fff; color: var(--navy); border-color: #fff; }
+  .ts-wa { display: none; }
+  .ts-footer { padding-bottom: 96px; }
+}
+
+/* Contact : photo d'accueil à l'aéroport */
+.ts-contact-photo { position: relative; aspect-ratio: 16 / 11; overflow: hidden; margin-bottom: 8px; outline: 1px solid rgba(255, 255, 255, .3); outline-offset: 10px; }
+.ts-contact-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.88) contrast(1.05); }
+.ts-contact-photo::after { content: ''; position: absolute; inset: 0; background: rgba(12, 38, 70, .2); mix-blend-mode: multiply; }
+
+/* Séparateur avec monogramme */
+.ts-rule { display: flex; align-items: center; gap: 22px; color: var(--champ); }
+.ts-rule::before, .ts-rule::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: .45; }
+.ts-rule i { font: italic 400 1.4rem var(--serif); letter-spacing: .04em; }
+
+@media (max-width: 900px) {
+  .ts-hero .panel { clip-path: none; }
+  .ts-hero .copy { max-width: none; }
+  .ts-hero .bg img { object-position: 70% 60%; }
+  .ts-car .info, .ts-car .vis { grid-row: auto; }
+}
+
+/* Véhicules à fond noir : projecteur bleu et fusion écran, plus de rectangle visible */
+.ts-car.ts-black .vis { background: radial-gradient(ellipse 70% 60% at 50% 62%, #1a4478 0%, #0c2646 42%, #03080f 100%); }
+.ts-car.ts-black .vis img { mix-blend-mode: screen; }
+
+/* Destinations : texte lisible sur toutes les photos */
+.ts-dest::after { background: linear-gradient(0deg, rgba(7,23,43,.9) 0%, rgba(7,23,43,.45) 48%, rgba(7,23,43,.12) 100%), linear-gradient(90deg, rgba(7,23,43,.6), transparent 62%); }
+
+/* Offres : boutons alignés en bas */
+.ts-offer { display: flex; flex-direction: column; gap: 22px; }
+.ts-offer > div:last-child { margin-top: auto; padding-top: 10px; }

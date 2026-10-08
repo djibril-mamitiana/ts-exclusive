@@ -23,7 +23,8 @@ const fr = {
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility à Madagascar',
     seoDesc: 'Mobilité privée et corporate avec chauffeur à Madagascar : transferts aéroport, mise à disposition, événements, délégations.',
-    lead: 'Un service exclusif pour vos déplacements à Madagascar.',
+    lead: "Votre chauffeur vous attend à l'arrivée. Nous nous occupons du reste.",
+    greet: 'Tonga soa, bienvenue',
     statLabels: ['Véhicules', 'Passagers max', 'Assistance', 'Ar / jour dès'],
     faqLabel: 'FAQ', faqTitle: 'Questions fréquentes', testiLabel: 'Témoignages', testiTitle: 'Ils nous font confiance.',
     whyLabel: 'Why TS EXCLUSIVE', whyTitle: 'Built around your journey.',
@@ -43,7 +44,7 @@ const fr = {
     ],
     kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
     introTitle1: 'Private mobility,', introTitle2: 'redefined.',
-    introText: 'Une mobilité discrète, fiable et personnalisée pour dirigeants, voyageurs, entreprises et clients privés à Madagascar.',
+    introText: "Dirigeants, voyageurs, entreprises, familles : un chauffeur ponctuel, discret, qui connaît la route. Le reste, c'est notre métier.",
     meta: [['Madagascar', 'Antananarivo'], ['Executive mobility', 'Private driver'], ['Service', '24/7']],
     servicesLabel: 'Services', servicesTitle: 'Chaque trajet, sur mesure.',
     fleetLabel: 'The fleet', fleetTitle: 'The fleet', fleetAll: 'Toute la flotte',
@@ -56,7 +57,7 @@ const fr = {
       ['04', 'Private events', 'Une mobilité pensée autour de votre événement.']
     ],
     trustLabel: 'Trusted by', trust: ['Hotels', 'Corporates', 'DMCs', 'Private clients', 'Events'],
-    finalTitle1: 'Wherever you go.', finalTitle2: 'We take care of the journey.', quote: 'Request a quote', contact: 'Contact us'
+    finalTitle1: 'Wherever you go.', finalTitle2: 'We take care of the journey.', quote: 'Demander un devis', contact: 'Nous contacter', thanks: 'Misaotra, merci de votre confiance.', board: 'Votre chauffeur vous attend'
   },
   destinations: {
     seoTitle: 'Destinations | TS EXCLUSIVE', label: 'Destinations', title1: 'Madagascar', title2: 'in motion.', sub: 'Une mobilité vers chaque destination.',
@@ -137,7 +138,8 @@ const en: typeof fr = {
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility in Madagascar',
     seoDesc: 'Private and corporate chauffeur mobility in Madagascar: airport transfers, chauffeur hire, events and delegations.',
-    lead: 'An exclusive service for your travel across Madagascar.',
+    lead: 'Your driver is waiting at arrivals. We take care of the rest.',
+    greet: 'Tonga soa, welcome',
     statLabels: ['Vehicles', 'Max passengers', 'Support', 'Ar / day from'],
     faqLabel: 'FAQ', faqTitle: 'Frequently asked questions', testiLabel: 'Testimonials', testiTitle: 'Trusted by professionals.',
     whyLabel: 'Why TS EXCLUSIVE', whyTitle: 'Built around your journey.',
@@ -157,7 +159,7 @@ const en: typeof fr = {
     ],
     kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
     introTitle1: 'Private mobility,', introTitle2: 'redefined.',
-    introText: 'Discreet, reliable and personalised mobility for executives, travellers, corporations and private clients in Madagascar.',
+    introText: 'Executives, travellers, companies, families: a punctual, discreet driver who knows the road. The rest is our job.',
     meta: [['Madagascar', 'Antananarivo'], ['Executive mobility', 'Private driver'], ['Service', '24/7']],
     servicesLabel: 'Services', servicesTitle: 'Every journey, tailored.',
     fleetLabel: 'The fleet', fleetTitle: 'The fleet', fleetAll: 'Entire fleet',
@@ -170,7 +172,7 @@ const en: typeof fr = {
       ['04', 'Private events', 'Mobility designed around your event.']
     ],
     trustLabel: 'Trusted by', trust: ['Hotels', 'Corporates', 'DMCs', 'Private clients', 'Events'],
-    finalTitle1: 'Wherever you go.', finalTitle2: 'We take care of the journey.', quote: 'Request a quote', contact: 'Contact us'
+    finalTitle1: 'Wherever you go.', finalTitle2: 'We take care of the journey.', quote: 'Request a quote', contact: 'Contact us', thanks: 'Misaotra, thank you for your trust.', board: 'Your driver is waiting for you'
   },
   destinations: {
     seoTitle: 'Destinations | TS EXCLUSIVE', label: 'Destinations', title1: 'Madagascar', title2: 'in motion.', sub: 'Mobility to every destination.',

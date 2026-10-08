@@ -27,7 +27,6 @@ const model = (name: string) => name.split(' ').slice(1).join(' ')
           <div v-reveal:img class="vis"><img :src="v.image" :alt="v.name" loading="lazy"></div>
         </div>
       </div>
-      <div class="big" aria-hidden="true">0{{ i + 1 }}</div>
     </section>
   </div>
 </template>

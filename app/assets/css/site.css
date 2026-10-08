@@ -459,3 +459,74 @@ body { margin: 0; background: var(--black); }
 .ts-filters { display: flex; flex-wrap: wrap; gap: 10px; padding-block: 28px 8px; }
 .ts-chip { background: transparent; color: inherit; border: 1px solid rgba(255,255,255,.35); padding: 11px 20px; font: 400 11px var(--sans); letter-spacing: .22em; text-transform: uppercase; cursor: pointer; transition: .5s var(--ease); }
 .ts-chip:hover, .ts-chip.on { background: #fff; color: var(--navy); border-color: #fff; }
+
+/* ============ Refonte 4 : moins "généré", plus d'artisanat ============ */
+
+/* Médias : débordement réel pour la parallaxe, donc jamais de bande vide */
+.ts-hero .bg, .ts-pagehero .bg { inset: 0; overflow: hidden; animation: hero-in 2.4s var(--ease) both; }
+.ts-final .bg { overflow: hidden; }
+.ts-hero .bg img, .ts-pagehero .bg img, .ts-final .bg img { animation: none; position: absolute; left: 0; top: -8%; width: 100%; height: 116%; object-fit: cover; }
+
+/* Typographie : phrases en minuscules, italique pour les mots clés, majuscules réservées aux petites étiquettes */
+.ts-title, .ts-display { text-transform: none; font-weight: 400; letter-spacing: -.018em; line-height: 1.02; }
+.ts-title em, .ts-display em, .ts-tile h3 em, h2 em { font-style: italic; color: var(--champ); }
+.ts-hero h1.ts-display { text-transform: none; font-weight: 400; font-size: clamp(3.4rem, 8vw, 8.6rem); line-height: .96; letter-spacing: -.025em; }
+.ts-hero h1.ts-display em { display: block; font-style: italic; color: var(--champ); padding-left: .08em; }
+.ts-tile h3, .ts-svc h3, .ts-car .name, .ts-dest .names a, .ts-dest .detail h3, .ts-offer h3, .ts-exp h3 { text-transform: none; font-weight: 400; letter-spacing: -.012em; }
+.ts-car .name { font-size: clamp(2.8rem, 6vw, 6.4rem); line-height: .98; }
+.ts-dest .names a { font-size: clamp(2.2rem, 5vw, 5rem); }
+.ts-car .big { display: none; }
+.ts-greet { font-family: var(--serif); font-style: italic; font-size: clamp(1.3rem, 2vw, 1.8rem); color: var(--champ); letter-spacing: 0; text-transform: none; opacity: 1; }
+
+/* Bordures et cadres fins */
+.ts-hero::before, .ts-pagehero::before { content: ''; position: absolute; inset: clamp(10px, 1.4vw, 22px); border: 1px solid rgba(255,255,255,.3); z-index: 2; pointer-events: none; }
+.ts-tile::before { content: ''; position: absolute; inset: 12px; border: 1px solid rgba(255,255,255,.3); pointer-events: none; z-index: 1; transition: inset .8s var(--ease), border-color .8s; }
+.ts-tile:hover::before { inset: 7px; border-color: rgba(255,255,255,.65); }
+.ts-tile.paper::before, .ts-tile.solid::before { border-color: rgba(7,23,43,.28); }
+.ts-tile.line { border: 0; }
+.ts-car .vis::before { content: ''; position: absolute; inset: 12px; border: 1px solid currentColor; opacity: .22; z-index: 2; pointer-events: none; }
+.ts-photo { outline: 1px solid rgba(7,23,43,.35); outline-offset: 12px; }
+.ts-black .ts-photo { outline-color: rgba(255,255,255,.3); }
+.ts-hstats .st { border-left-style: solid; border-left-color: rgba(255,255,255,.25); }
+.ts-pillars .it { border-color: rgba(7,23,43,.14); }
+.ts-pillars .grid5 { border-left: 1px solid rgba(7,23,43,.14); border-right: 1px solid rgba(7,23,43,.14); }
+.ts-offers, .ts-offer { border-color: rgba(7,23,43,.3); }
+.ts-offers { border: 1px solid rgba(7,23,43,.3); }
+.ts-field input, .ts-field textarea { border: 1px solid rgba(238,242,247,.35); padding: 13px 14px; background: rgba(255,255,255,.03); }
+.ts-field input:focus, .ts-field textarea:focus { border-color: var(--champ); background: rgba(255,255,255,.06); }
+.ts-quote { border: 1px solid rgba(255,255,255,.25); padding: 30px; }
+.ts-faq details { border: 1px solid rgba(7,23,43,.18); padding: 22px 26px; margin-bottom: 10px; transition: background .5s, border-color .5s; }
+.ts-faq details:last-child { border-bottom: 1px solid rgba(7,23,43,.18); }
+.ts-faq details[open] { background: #fff; border-color: var(--champ); }
+.ts-trust span { border: 1px solid rgba(7,23,43,.28); padding: 12px 24px; border-radius: 0; font-size: clamp(1rem, 1.6vw, 1.5rem); opacity: 1; transition: .5s var(--ease); }
+.ts-trust span:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.ts-footer .top, .ts-footer .bottom { border-color: rgba(255,255,255,.18); }
+.ts-final .btns .ts-btn { border-width: 1px; }
+
+/* Parcours « The TS Experience » : une route en pointillés, des étapes et une pancarte d'accueil à l'aéroport */
+.ts-route { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 7vw, 120px); align-items: start; }
+.ts-route .stick { position: sticky; top: 120px; display: grid; gap: 28px; }
+.ts-path { position: relative; padding-left: clamp(44px, 5vw, 80px); }
+.ts-path::before { content: ''; position: absolute; left: 11px; top: 14px; bottom: 14px; border-left: 2px dashed rgba(7,23,43,.35); }
+.ts-step { position: relative; padding: 0 0 clamp(44px, 6vw, 84px); }
+.ts-step:last-child { padding-bottom: 0; }
+.ts-step::before { content: ''; position: absolute; left: calc(-1 * clamp(44px, 5vw, 80px) + 4px); top: 8px; width: 16px; height: 16px; border: 2px solid var(--navy); background: var(--off); border-radius: 50%; transition: background .6s var(--ease), transform .6s var(--ease); }
+.ts-step:hover::before { background: var(--champ); transform: scale(1.25); }
+.ts-step .tag { font: 500 11px var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--champ); }
+.ts-step h3 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.9rem, 3.2vw, 3.2rem); line-height: 1.05; margin: 8px 0 10px; }
+.ts-step p { max-width: 38ch; opacity: .7; }
+.ts-board { justify-self: start; transform: rotate(-3deg); background: #fff; color: var(--navy); border: 1px solid rgba(7,23,43,.35); padding: 22px 26px 20px; width: min(300px, 100%); box-shadow: 6px 6px 0 rgba(138,164,189,.45); transition: transform .8s var(--ease); }
+.ts-board:hover { transform: rotate(0) translateY(-4px); }
+.ts-board img { height: 30px; width: auto; margin-bottom: 14px; }
+.ts-board b { display: block; font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 2.2rem; line-height: 1; }
+.ts-board span { display: block; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; opacity: .6; margin-top: 10px; }
+.ts-thanks { font-family: var(--serif); font-style: italic; font-size: clamp(1.4rem, 2.2vw, 2rem); color: var(--champ); margin-top: 40px; }
+
+@media (max-width: 900px) {
+  .ts-route { grid-template-columns: 1fr; }
+  .ts-route .stick { position: static; }
+  .ts-photo { outline-offset: 8px; }
+  .ts-hero::before, .ts-pagehero::before { inset: 8px; }
+}
+.ts-hero .ts-greet.kicker { color: var(--champ); opacity: 1; }
+.ts-hero .ts-greet.kicker::before { background: var(--champ); }

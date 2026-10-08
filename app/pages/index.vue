@@ -36,8 +36,8 @@ useHead({
     <div class="panel" />
     <div class="ts-wrap in">
       <div class="copy">
-        <span class="ts-label kicker">{{ m.brandTag }}</span>
-        <h1 class="ts-display">{{ h.title1 }}<br>{{ h.title2 }}</h1>
+        <span class="ts-greet kicker">{{ h.greet }}</span>
+        <h1 class="ts-display">{{ h.title1 }}<em>{{ h.title2 }}</em></h1>
         <p class="lead">{{ h.lead }}</p>
         <div class="cta">
           <NuxtLink :to="lp('/contact')" class="ts-btn solid">{{ m.nav.quote }} <span class="ts-arr" /></NuxtLink>
@@ -47,7 +47,7 @@ useHead({
     </div>
     <span class="ts-scroll">{{ h.scroll }}</span>
     <div class="ts-wrap ts-hstats">
-      <div v-for="x in stats" :key="x.l" class="st"><b>{{ x.v }}</b><span>{{ x.l }}</span></div>
+      <div v-for="x in stats" :key="x.l" class="st"><b v-count>{{ x.v }}</b><span>{{ x.l }}</span></div>
     </div>
   </section>
 
@@ -64,7 +64,7 @@ useHead({
   <section id="intro" class="ts-sec ts-light">
     <div class="ts-wrap">
       <div class="ts-intro">
-        <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,7.4vw,7.6rem)">{{ h.introTitle1 }}<br><span class="serif-i" style="color:var(--champ);font-style:italic">{{ h.introTitle2 }}</span></h2>
+        <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,7.4vw,7.6rem)">{{ h.introTitle1 }}<br><em>{{ h.introTitle2 }}</em></h2>
         <p v-reveal="0.2" class="ts-text">{{ h.introText }}</p>
       </div>
       <div v-reveal:line class="ts-line" style="margin-top:clamp(64px,9vw,140px)" />
@@ -105,14 +105,22 @@ useHead({
   </section>
 
   <section id="experience" class="ts-sec ts-light">
-    <div class="ts-wrap">
-      <div class="ts-gap" style="margin-bottom:clamp(40px,6vw,90px)">
+    <div class="ts-wrap ts-route">
+      <div class="stick">
         <span v-reveal class="ts-label">{{ h.expLabel }}</span>
         <h2 v-reveal="0.1" class="ts-title">{{ h.expTitle }}</h2>
+        <div v-reveal="0.2" class="ts-board" aria-hidden="true">
+          <img src="/img/logo.svg" alt="" width="130" height="30">
+          <b>Tonga soa</b>
+          <span>{{ h.board }}</span>
+        </div>
       </div>
-      <div v-for="x in h.exp" :key="x[0]" v-reveal class="ts-exp">
-        <span class="ts-num">{{ x[0] }}</span>
-        <div><h3>{{ x[1] }}</h3><p class="ts-text" style="opacity:.7">{{ x[2] }}</p></div>
+      <div class="ts-path">
+        <div v-for="x in h.exp" :key="x[0]" v-reveal class="ts-step">
+          <span class="tag">{{ x[0] }}</span>
+          <h3>{{ x[1] }}</h3>
+          <p>{{ x[2] }}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -132,7 +140,7 @@ useHead({
   <section v-if="content.partners.length" class="ts-sec ts-light" style="padding-block:clamp(72px,10vw,150px)">
     <div class="ts-wrap">
       <span v-reveal class="ts-label">{{ h.trustLabel }}</span>
-      <div v-reveal="0.1" class="ts-trust" style="margin-top:34px"><span v-for="p in content.partners" :key="p.id">{{ p.name }}</span></div>
+      <div v-reveal="0.1" class="ts-marquee" style="margin-top:34px" aria-label="partners"><div class="track"><span v-for="(p, i) in [...content.partners, ...content.partners]" :key="i">{{ p.name }}</span></div></div>
     </div>
   </section>
 

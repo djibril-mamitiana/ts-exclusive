@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { destinations, photos, serviceImages, sized } from '~/utils/images'
+import { photos, serviceImages, sized } from '~/utils/images'
 
 const { lang, m, lp, otherPath } = useLang()
 const { data: content } = await useContent()
@@ -9,9 +9,14 @@ const route = useRoute()
 const scrolled = ref(false)
 const open = ref(false)
 const hover = ref('')
+const progress = ref(0)
 
 onMounted(() => {
-  const on = () => (scrolled.value = window.scrollY > 40)
+  const on = () => {
+    scrolled.value = window.scrollY > 40
+    const max = document.documentElement.scrollHeight - window.innerHeight
+    progress.value = max > 0 ? Math.min(1, window.scrollY / max) : 0
+  }
   on()
   window.addEventListener('scroll', on, { passive: true })
   const esc = (e: KeyboardEvent) => e.key === 'Escape' && (open.value = false)
@@ -50,7 +55,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
 <template>
   <header class="ts-header" :class="{ scrolled }">
     <div class="ts-wrap row">
-      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.png" alt="TS EXCLUSIVE Executive & Private Mobility" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="256" height="48"></NuxtLink>
       <nav class="ts-nav" aria-label="Principal">
         <NuxtLink :to="lp('/services')">{{ m.nav.services }}</NuxtLink>
         <NuxtLink :to="lp('/flotte')">{{ m.nav.fleet }}</NuxtLink>
@@ -63,11 +68,12 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
         <button class="ts-btn sm" type="button" :aria-expanded="open" @click="open = true">{{ m.nav.menu }}</button>
       </div>
     </div>
+    <i class="ts-progress" :style="{ transform: 'scaleX(' + progress + ')' }" aria-hidden="true" />
   </header>
 
   <div class="ts-menu" :class="{ open }" :aria-hidden="!open" role="dialog" aria-label="Menu">
     <div class="top">
-      <NuxtLink :to="lp('/')" class="ts-brand"><img src="/img/logo-light.png" alt="TS EXCLUSIVE" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="256" height="48"></NuxtLink>
       <button class="ts-btn sm" type="button" @click="open = false">{{ m.nav.close }}</button>
     </div>
     <div class="body">

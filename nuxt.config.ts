@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/site.css'],
+  css: ['~/assets/css/site.css', '~/assets/css/site2.css'],
   pageTransition: { name: 'ts-page', mode: 'out-in' },
   routeRules: { '/admin/**': { ssr: false } },
   runtimeConfig: {
