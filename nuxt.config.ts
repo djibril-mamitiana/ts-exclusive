@@ -1,8 +1,8 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/site.css', '~/assets/css/site2.css'],
-  pageTransition: { name: 'ts-page', mode: 'out-in' },
+  css: ['~/assets/css/site.css', '~/assets/css/site2.css', '~/assets/css/site3.css'],
+  pageTransition: false, // la transition entre pages est gérée par le rideau (plugins/fx.client.ts)
   routeRules: { '/admin/**': { ssr: false } },
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL,
@@ -30,6 +30,8 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'fr' },
       title: 'TS EXCLUSIVE | Executive & Private Mobility',
+      // Posé avant le premier affichage : marque le JS actif et mémorise que l'intro a déjà été jouée dans cette session
+      script: [{ innerHTML: "document.documentElement.classList.add('js');try{if(sessionStorage.getItem('ts-seen'))document.documentElement.classList.add('ts-seen');else sessionStorage.setItem('ts-seen','1')}catch(e){}", tagPosition: 'head' }],
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'theme-color', content: '#0c2646' }

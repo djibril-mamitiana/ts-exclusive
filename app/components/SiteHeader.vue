@@ -27,7 +27,11 @@ onMounted(() => {
   })
 })
 watch(open, (v) => {
-  if (import.meta.client) document.documentElement.style.overflow = v ? 'hidden' : ''
+  if (import.meta.client) {
+    document.documentElement.style.overflow = v ? 'hidden' : ''
+    const lenis = (window as any).__lenis
+    if (lenis) (v ? lenis.stop() : lenis.start())
+  }
 })
 watch(() => route.fullPath, () => { open.value = false })
 

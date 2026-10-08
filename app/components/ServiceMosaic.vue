@@ -17,7 +17,7 @@ const look = (i: number) => pattern[i % pattern.length]
   <div class="ts-mosaic">
     <NuxtLink
       v-for="(s, i) in list" :key="s.id" v-reveal="(i % 2) * 0.12" :to="lp(`/services/${s.slug}`)"
-      class="ts-tile" :class="[look(i).w, look(i).kind]"
+      data-cursor-label="Voir" class="ts-tile" :class="[look(i).w, look(i).kind]"
     >
       <div v-if="look(i).kind === 'img'" class="bgimg"><img :src="sized(imageFor(s), 1400)" :alt="s.title" loading="lazy"></div>
       <span class="num">0{{ i + 1 }}</span>

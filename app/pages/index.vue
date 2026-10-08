@@ -34,6 +34,7 @@ useHead({
   <section class="ts-hero">
     <div class="bg"><img v-parallax="0.1" :src="sized(photos.hero, 2000)" alt="TS EXCLUSIVE executive vehicle" fetchpriority="high"></div>
     <div class="panel" />
+    <div class="spot" aria-hidden="true" />
     <div class="ts-wrap in">
       <div class="copy">
         <span class="ts-greet kicker">{{ h.greet }}</span>
@@ -65,7 +66,7 @@ useHead({
     <div class="ts-wrap">
       <div class="ts-intro">
         <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,7.4vw,7.6rem)">{{ h.introTitle1 }}<br><em>{{ h.introTitle2 }}</em></h2>
-        <p v-reveal="0.2" class="ts-text">{{ h.introText }}</p>
+        <p class="ts-text" data-scrub style="font-size:1.15rem;line-height:1.6;max-width:36ch;opacity:1">{{ h.introText }}</p>
       </div>
       <div v-reveal:line class="ts-line" style="margin-top:clamp(64px,9vw,140px)" />
       <div v-reveal="0.1" class="ts-meta" style="margin-top:28px">
@@ -85,7 +86,7 @@ useHead({
     </div>
   </section>
 
-  <section class="ts-black">
+  <section class="ts-black ts-sheet">
     <div class="ts-wrap" style="padding-top:clamp(40px,8vw,120px)">
       <span v-reveal class="ts-label">{{ h.fleetLabel }}</span>
       <h2 v-reveal="0.1" class="ts-display" style="margin-top:18px">{{ h.fleetTitle }}</h2>
@@ -96,7 +97,7 @@ useHead({
     </div>
   </section>
 
-  <section class="ts-black" style="padding:clamp(80px,10vw,160px) 0 0">
+  <section class="ts-black ts-sheet" style="padding-bottom:0">
     <div class="ts-wrap" style="margin-bottom:40px">
       <span v-reveal class="ts-label">{{ h.destLabel }}</span>
       <h2 v-reveal="0.1" class="ts-title" style="margin-top:18px">{{ h.destTitle1 }}<br>{{ h.destTitle2 }}</h2>
@@ -115,7 +116,7 @@ useHead({
           <span>{{ h.board }}</span>
         </div>
       </div>
-      <div class="ts-path">
+      <div class="ts-path" data-progress>
         <div v-for="x in h.exp" :key="x[0]" v-reveal class="ts-step">
           <span class="tag">{{ x[0] }}</span>
           <h3>{{ x[1] }}</h3>

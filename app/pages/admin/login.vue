@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '~/assets/css/admin.css'
 import '~/assets/css/admin2.css'
+import '~/assets/css/admin3.css'
 definePageMeta({ layout: false })
 useHead({ title: 'Connexion | TS EXCLUSIVE', meta: [{ name: 'robots', content: 'noindex' }] })
 const email = ref('')

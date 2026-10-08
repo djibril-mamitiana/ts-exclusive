@@ -1,0 +1,64 @@
+/* Admin v3 : formes douces et mouvement discret, même identité que le site */
+:root { --a-r: 18px; --a-r-l: 28px; }
+
+.admin-shell { grid-template-columns: 284px 1fr; }
+.admin-side { margin: 14px 0 14px 14px; height: calc(100vh - 28px); border-radius: var(--a-r-l); border: 1px solid rgba(255, 255, 255, .08); }
+.admin-side a, .admin-side button.out { border-radius: 14px; border-left: 0; position: relative; transition: background .35s, color .35s, transform .35s; }
+.admin-side a:hover { transform: translateX(3px); }
+.admin-side a.router-link-active { background: rgba(138, 164, 189, .2); }
+.admin-side a.router-link-active::before { content: ''; position: absolute; left: -2px; top: 22%; bottom: 22%; width: 3px; border-radius: 3px; background: #8aa4bd; }
+.admin-side .me { border-radius: var(--a-r); }
+.admin-side .me .av { border-radius: 50%; }
+.admin-side .me-actions a, .admin-side .me-actions button.out { border-radius: 999px; }
+.admin-main .topbar { margin: 14px 14px 0 0; border: 1px solid var(--adm-line); border-radius: 999px; padding: 14px 28px; }
+.admin-main .content { padding: 26px 28px 64px 14px; }
+
+.box, .stat { border-radius: var(--a-r-l); }
+.stat { border-left-width: 1px; border-left-color: var(--adm-line); position: relative; overflow: hidden; transition: transform .6s var(--ease), box-shadow .6s var(--ease); }
+.stat::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: #8aa4bd; border-radius: 4px; }
+.stat.todo::before { background: #0c2646; }
+.stat:hover { transform: translateY(-4px); box-shadow: 0 26px 40px -30px rgba(12, 38, 70, .5); }
+.box { transition: box-shadow .6s var(--ease); }
+
+.btn, .btn.sm, .icon-btn, .chip, .badge, .alert { border-radius: 999px; }
+.alert { padding: 12px 18px; }
+input, select, textarea { border-radius: 14px; }
+textarea { border-radius: 18px; }
+.drawer { border-radius: var(--a-r-l) 0 0 var(--a-r-l); box-shadow: -30px 0 70px -30px rgba(7, 24, 46, .5); animation: drawer-in .6s var(--ease) both; }
+@keyframes drawer-in { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+.tbl tr:hover td:first-child { border-radius: 12px 0 0 12px; }
+.tbl tr:hover td:last-child { border-radius: 0 12px 12px 0; }
+
+.dash-hero { border-radius: var(--a-r-l); }
+.dash-hero::before { border-radius: calc(var(--a-r-l) - 8px); }
+.statusbar { border-radius: 999px; overflow: hidden; height: 16px; }
+.legend span::before { border-radius: 50%; }
+.quick a { border-radius: 0; }
+
+/* Entrée en douceur du contenu */
+.admin-main .content > * { animation: adm-rise .9s var(--ease) both; }
+.admin-main .content > *:nth-child(2) { animation-delay: .08s; }
+.admin-main .content > *:nth-child(3) { animation-delay: .16s; }
+.admin-main .content > *:nth-child(4) { animation-delay: .24s; }
+.stats .stat { animation: adm-rise .9s var(--ease) both; }
+.stats .stat:nth-child(2) { animation-delay: .1s; } .stats .stat:nth-child(3) { animation-delay: .2s; } .stats .stat:nth-child(4) { animation-delay: .3s; }
+@keyframes adm-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.statusbar i { animation: bar-grow 1.4s var(--ease) both; transform-origin: left; }
+@keyframes bar-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Connexion */
+.login-split { padding: 14px; gap: 14px; }
+.login-photo { border-radius: var(--a-r-l); }
+.login-photo::before { border-radius: calc(var(--a-r-l) - 10px); }
+.login-photo img.bg { animation: login-zoom 18s ease-in-out infinite alternate; }
+@keyframes login-zoom { from { transform: scale(1.02); } to { transform: scale(1.12); } }
+.login-form { background: #fff; border-radius: var(--a-r-l); border: 1px solid var(--adm-line); }
+.login-form form { animation: adm-rise 1s var(--ease) both; }
+
+@media (max-width: 860px) {
+  .admin-side { margin: 10px; height: auto; border-radius: var(--a-r); }
+  .admin-main .topbar { margin: 0 10px; }
+  .admin-main .content { padding: 20px 10px 50px; }
+  .login-split { padding: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .admin-main .content > *, .stats .stat, .statusbar i, .login-form form, .drawer, .login-photo img.bg { animation: none !important; } }

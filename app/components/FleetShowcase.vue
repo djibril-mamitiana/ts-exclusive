@@ -24,7 +24,7 @@ const model = (name: string) => name.split(' ').slice(1).join(' ')
               <NuxtLink :to="{ path: lp('/contact'), query: { vehicule: v.name } }" class="ts-btn">{{ m.common.explore }} <span class="ts-arr" /></NuxtLink>
             </div>
           </div>
-          <div v-reveal:img class="vis"><img :src="v.image" :alt="v.name" loading="lazy"></div>
+          <div v-reveal:img class="vis" data-cursor-label="Zoom"><img :src="v.image" :alt="v.name" loading="lazy"></div>
         </div>
       </div>
     </section>

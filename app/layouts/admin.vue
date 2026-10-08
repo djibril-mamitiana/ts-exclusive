@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import '~/assets/css/admin.css'
 import '~/assets/css/admin2.css'
+import '~/assets/css/admin3.css'
 const { data: me } = await useFetch<any>('/api/admin/me', { key: 'me' })
 if (!me.value) await navigateTo('/admin/login')
 

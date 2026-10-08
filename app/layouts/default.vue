@@ -6,6 +6,8 @@ const { m, lp, lang } = useLang()
 
 <template>
   <div class="ts">
+    <div class="ts-curtain" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="280" height="64"><i /></div>
+    <div class="ts-wipe" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="200" height="46"></div>
     <SiteHeader />
     <CustomCursor />
     <main><slot /></main>
