@@ -5,7 +5,9 @@ const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=cro
 export const sized = (src: string, w: number) => (src.includes('images.unsplash.com') ? `${src}&w=${w}` : src)
 
 export const photos = {
-  hero: u('photo-1776043677298-5525a774cbf1'),
+  // Maybach S-Class, format paysage, voiture à gauche (Pexels, licence libre) : même cadrage que le visuel validé
+  hero: '/img/hero-maybach.jpg',
+  suv: u('photo-1776043677298-5525a774cbf1'),
   night: u('photo-1588956264627-5c98be74e381'),
   chauffeur: u('photo-1788178243376-7df65939eb55'),
   doorHandle: u('photo-1564705604144-51593412c133'),

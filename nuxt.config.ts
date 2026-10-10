@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: false },
-  css: ['~/assets/css/site.css', '~/assets/css/site2.css', '~/assets/css/site3.css'],
+  css: ['~/assets/css/site.css', '~/assets/css/site2.css', '~/assets/css/site3.css', '~/assets/css/site4.css'],
   pageTransition: false, // la transition entre pages est gérée par le rideau (plugins/fx.client.ts)
   routeRules: { '/admin/**': { ssr: false } },
   runtimeConfig: {
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
       link: [
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap' }
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&family=Roboto+Slab:wght@300;400&family=Manrope:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap' }
       ]
     }
   }

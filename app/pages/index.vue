@@ -17,6 +17,10 @@ const stats = computed(() => {
     { v: from >= 1000 ? Math.round(from / 1000) + 'K' : String(from), l: l[3] }
   ].filter(x => x.v && x.v !== '0')
 })
+// Numéros des tuiles : ils continuent après les services (ex : 6 services, flotte 07, à propos 08)
+const nFleet = computed(() => content.value.services.length + 1)
+const nAbout = computed(() => content.value.services.length + 2)
+const tel = computed(() => 'tel:' + String(settings.value.phone || '').replace(/[^+\d]/g, ''))
 
 useHead({
   script: [{
@@ -32,21 +36,20 @@ useHead({
 
 <template>
   <section class="ts-hero">
-    <div class="bg"><img v-parallax="0.1" :src="sized(photos.hero, 2000)" alt="TS EXCLUSIVE executive vehicle" fetchpriority="high"></div>
-    <div class="panel" />
+    <div class="bg"><img v-parallax="0.08" :src="photos.hero" alt="TS EXCLUSIVE executive vehicle" fetchpriority="high"></div>
+    <div class="tint" aria-hidden="true" />
     <div class="spot" aria-hidden="true" />
     <div class="ts-wrap in">
       <div class="copy">
-        <span class="ts-greet kicker">{{ h.greet }}</span>
-        <h1 class="ts-display">{{ h.title1 }}<em>{{ h.title2 }}</em></h1>
-        <p class="lead">{{ h.lead }}</p>
+        <h1 class="ts-display">{{ h.title1 }}<br><em>{{ h.title2 }}</em></h1>
         <div class="cta">
           <NuxtLink :to="lp('/contact')" class="ts-btn solid">{{ m.nav.quote }} <span class="ts-arr" /></NuxtLink>
           <a class="ts-btn" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">WhatsApp</a>
         </div>
       </div>
+      <NuxtLink :to="lp('/tarifs')" class="offer"><span>{{ h.viewOffer }}</span><i class="ar" /></NuxtLink>
     </div>
-    <span class="ts-scroll">{{ h.scroll }}</span>
+    <p class="lead">{{ h.lead }}</p>
     <div class="ts-wrap ts-hstats">
       <div v-for="x in stats" :key="x.l" class="st"><b v-count>{{ x.v }}</b><span>{{ x.l }}</span></div>
     </div>
@@ -55,57 +58,56 @@ useHead({
   <section class="ts-pillars">
     <div class="ts-wrap grid5">
       <div v-for="(p, i) in h.pillars" :key="p.t" v-reveal="i * 0.08" class="it">
-        <Icon :name="p.icon" :size="34" />
+        <Icon :name="p.icon" :size="30" />
         <h4>{{ p.t }}</h4>
         <p>{{ p.d }}</p>
       </div>
     </div>
   </section>
 
-  <section id="intro" class="ts-sec ts-light">
+  <section id="services" class="ts-sec ts-black ts-services">
     <div class="ts-wrap">
-      <div class="ts-intro">
-        <h2 v-reveal class="ts-title" style="font-size:clamp(2.6rem,7.4vw,7.6rem)">{{ h.introTitle1 }}<br><em>{{ h.introTitle2 }}</em></h2>
-        <p class="ts-text" data-scrub style="font-size:1.15rem;line-height:1.6;max-width:36ch;opacity:1">{{ h.introText }}</p>
-      </div>
-      <div v-reveal:line class="ts-line" style="margin-top:clamp(64px,9vw,140px)" />
-      <div v-reveal="0.1" class="ts-meta" style="margin-top:28px">
-        <div v-for="x in h.meta" :key="x[0]"><span class="ts-label">{{ x[0] }}</span><b>{{ x[1] }}</b></div>
-      </div>
+      <h2 class="sr-only">{{ h.servicesTitle }}</h2>
+      <div v-reveal class="ts-rule2"><i /><span>{{ h.servicesLabel }}</span><i /></div>
+      <ServiceMosaic :services="content.services" />
+      <div v-reveal class="ts-more"><NuxtLink :to="lp('/services')" class="ts-btn">{{ m.common.discover }} Services <span class="ts-arr" /></NuxtLink></div>
     </div>
   </section>
 
-  <section class="ts-sec ts-black" style="padding-top:0">
+  <section class="ts-sec ts-light ts-cloud">
     <div class="ts-wrap">
-      <div class="ts-gap" style="margin-bottom:clamp(24px,4vw,60px)">
-        <span v-reveal class="ts-label">{{ h.servicesLabel }}</span>
-        <h2 v-reveal="0.1" class="ts-title">{{ h.servicesTitle }}</h2>
+      <div v-reveal class="ts-rule2"><i /><span>{{ h.blockLabel }}</span><i /></div>
+      <div class="ts-duo">
+        <FleetTile :vehicles="content.vehicles" :n="nFleet" />
+        <div class="stack">
+          <NuxtLink v-reveal="0.1" :to="lp('/a-propos')" class="ts-tile about" data-cursor-label="Voir">
+            <span class="num">{{ String(nAbout).padStart(2, '0') }}</span>
+            <div class="bgimg"><img :src="sized(photos.chauffeur, 900)" alt="" loading="lazy" decoding="async"></div>
+            <div class="txt">
+              <h3>{{ h.aboutName }}</h3>
+              <p>{{ h.introText }}</p>
+              <span class="go">{{ h.more }} <span class="ts-arr" /></span>
+            </div>
+          </NuxtLink>
+          <a v-reveal="0.2" class="ts-phone" :href="tel" :aria-label="h.callUs">
+            <Icon name="phone" :size="20" />
+            <span class="sep" />
+            <b>{{ settings.phone }}</b>
+          </a>
+        </div>
       </div>
-      <ServiceMosaic :services="content.services" :limit="4" />
-      <div v-reveal style="margin-top:40px"><NuxtLink :to="lp('/services')" class="ts-btn">{{ m.common.discover }} Services <span class="ts-arr" /></NuxtLink></div>
     </div>
   </section>
 
-  <section class="ts-black ts-sheet">
-    <div class="ts-wrap" style="padding-top:clamp(40px,8vw,120px)">
-      <span v-reveal class="ts-label">{{ h.fleetLabel }}</span>
-      <h2 v-reveal="0.1" class="ts-display" style="margin-top:18px">{{ h.fleetTitle }}</h2>
-    </div>
-    <FleetShowcase :vehicles="content.vehicles" :limit="3" />
-    <div class="ts-wrap ts-light" style="padding-block:60px;text-align:center;background:var(--off)">
-      <NuxtLink :to="lp('/flotte')" class="ts-btn" style="color:var(--black)">{{ h.fleetAll }} <span class="ts-arr" /></NuxtLink>
-    </div>
-  </section>
-
-  <section class="ts-black ts-sheet" style="padding-bottom:0">
-    <div class="ts-wrap" style="margin-bottom:40px">
-      <span v-reveal class="ts-label">{{ h.destLabel }}</span>
-      <h2 v-reveal="0.1" class="ts-title" style="margin-top:18px">{{ h.destTitle1 }}<br>{{ h.destTitle2 }}</h2>
+  <section class="ts-black ts-dests">
+    <div class="ts-wrap head">
+      <div v-reveal class="ts-rule2"><i /><span>{{ h.destLabel }}</span><i /></div>
+      <h2 v-reveal="0.1" class="ts-title">{{ h.destTitle1 }} <em>{{ h.destTitle2 }}</em></h2>
     </div>
     <DestinationExplorer />
   </section>
 
-  <section id="experience" class="ts-sec ts-light">
+  <section id="experience" class="ts-sec ts-light ts-cloud">
     <div class="ts-wrap ts-route">
       <div class="stick">
         <span v-reveal class="ts-label">{{ h.expLabel }}</span>
@@ -138,9 +140,9 @@ useHead({
     </div>
   </section>
 
-  <section v-if="content.partners.length" class="ts-sec ts-light" style="padding-block:clamp(72px,10vw,150px)">
+  <section v-if="content.partners.length" class="ts-sec ts-light ts-cloud" style="padding-block:clamp(64px,8vw,120px)">
     <div class="ts-wrap">
-      <span v-reveal class="ts-label">{{ h.trustLabel }}</span>
+      <div v-reveal class="ts-rule2"><i /><span>{{ h.trustLabel }}</span><i /></div>
       <div v-reveal="0.1" class="ts-marquee" style="margin-top:34px" aria-label="partners"><div class="track"><span v-for="(p, i) in [...content.partners, ...content.partners]" :key="i">{{ p.name }}</span></div></div>
     </div>
   </section>
@@ -160,7 +162,7 @@ useHead({
     </div>
   </section>
 
-  <section v-if="content.faqs.length" class="ts-sec ts-light">
+  <section v-if="content.faqs.length" class="ts-sec ts-light ts-cloud">
     <div class="ts-wrap ts-split">
       <div class="ts-gap">
         <span v-reveal class="ts-label">{{ h.faqLabel }}</span>
