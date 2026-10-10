@@ -59,7 +59,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     wrapWords(el, true)
     el.classList.add('split')
     const r = el.getBoundingClientRect()
-    if (r.top < window.innerHeight * 0.96) requestAnimationFrame(() => requestAnimationFrame(() => el.classList.add('is-in')))
+    // setTimeout plutôt que requestAnimationFrame : le titre se révèle aussi dans un onglet ouvert en arrière-plan
+    if (r.top < window.innerHeight * 0.96) setTimeout(() => el.classList.add('is-in'), 60)
     else pendingSplit.add(el)
   }
 
