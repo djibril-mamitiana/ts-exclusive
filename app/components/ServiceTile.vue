@@ -15,7 +15,7 @@ const withPhoto = computed(() => ['accent', 'mist', 'wide'].includes(props.varia
     <div class="txt">
       <h3>{{ service.title }}</h3>
       <p>{{ service.subtitle }}</p>
-      <p v-if="variant === 'fog' && service.description" class="more">{{ service.description }}</p>
+      <p v-if="variant === 'fog' && service.tagline" class="more">{{ service.tagline }}</p>
       <span class="go">{{ m.common.discover }} <span class="ts-arr" /></span>
     </div>
   </NuxtLink>

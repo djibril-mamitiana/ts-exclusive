@@ -22,8 +22,8 @@ const fr = {
   },
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility à Madagascar',
-    seoDesc: 'Mobilité privée et corporate avec chauffeur à Madagascar : transferts aéroport, mise à disposition, événements, délégations.',
-    lead: "Votre chauffeur vous attend à l'arrivée. Nous nous occupons du reste.",
+    seoDesc: 'Mobilité privée et exécutive à Madagascar : transferts aéroportuaires, solutions pour entreprises, événements, voyage privé et conciergerie privée VIP.',
+    lead: "Des déplacements privés aux missions exécutives, des transferts aéroportuaires aux expériences sur mesure, TS EXCLUSIVE vous accompagne à Madagascar avec une attention particulière portée à votre temps, votre confort et vos exigences.",
     greet: 'Tonga soa, bienvenue',
     statLabels: ['Véhicules', 'Passagers max', 'Assistance', 'Ar / jour dès'],
     faqLabel: 'FAQ', faqTitle: 'Questions fréquentes', testiLabel: 'Témoignages', testiTitle: 'Ils nous font confiance.',
@@ -36,16 +36,12 @@ const fr = {
       ['05', 'Local expertise', 'La connaissance de Madagascar et de ses destinations.']
     ],
     pillars: [
-      { icon: 'shield', t: 'Discrétion', d: 'Votre confidentialité est notre priorité.' },
-      { icon: 'clock', t: 'Ponctualité', d: "Toujours à l'heure, sur tous vos itinéraires." },
-      { icon: 'car', t: 'Confort', d: 'Des véhicules premium et un service soigné.' },
-      { icon: 'user', t: 'Service personnalisé', d: 'Une solution adaptée à chaque besoin.' },
-      { icon: 'diamond', t: 'Fiabilité', d: 'Un service maîtrisé de bout en bout.' }
+      { icon: 'shield', t: 'Discrétion', d: 'Un service respectueux de votre confidentialité.' },
+      { icon: 'clock', t: 'Maîtrise du temps', d: 'Une organisation adaptée à votre programme.' },
+      { icon: 'user', t: 'Attention personnalisée', d: 'Une réponse adaptée à vos besoins.' }
     ],
-    kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
-    introTitle1: 'Private mobility,', introTitle2: 'redefined.',
-    introText: "Dirigeants, voyageurs, entreprises, familles : un chauffeur ponctuel, discret, qui connaît la route. Le reste, c'est notre métier.",
-    meta: [['Madagascar', 'Antananarivo'], ['Executive mobility', 'Private driver'], ['Service', '24/7']],
+    kicker: 'TS EXCLUSIVE', title1: 'Beyond', title2: 'Transportation', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
+    aboutText: "TS EXCLUSIVE est née d'une ambition : proposer une expérience de mobilité et d'accompagnement où chaque détail compte.",
     servicesLabel: 'Ce que nous faisons pour vous', servicesTitle: 'Chaque trajet, sur mesure.',
     viewOffer: 'Voir les offres', blockLabel: 'Votre mobilité, notre engagement', fleetName: 'Notre flotte', aboutName: 'À propos', more: 'Lire la suite', callUs: 'Appelez-nous',
     fleetLabel: 'The fleet', fleetTitle: 'The fleet', fleetAll: 'Toute la flotte',
@@ -92,8 +88,15 @@ const fr = {
     cta: 'Planifier mon événement', finalTitle: 'Votre événement, notre mobilité.'
   },
   about: {
-    seoTitle: 'About | TS EXCLUSIVE', label: 'TS EXCLUSIVE', title: 'Another way to travel.', sub: 'Une expérience de mobilité premium, fiable, confortable et discrète.',
-    valuesLabel: 'Cinq exigences', values: ['Élégance', 'Sécurité', 'Ponctualité', 'Discrétion', 'Confort'],
+    seoTitle: 'À propos | TS EXCLUSIVE', label: 'TS EXCLUSIVE', title: "Bien plus qu'un déplacement.", sub: 'Une attention à chaque instant.',
+    paragraphs: [
+      "TS EXCLUSIVE est née d'une ambition : proposer une expérience de mobilité et d'accompagnement où chaque détail compte.",
+      "Nous réunissons transport privé, mobilité exécutive, solutions pour entreprises, coordination événementielle et conciergerie privée au sein d'une même approche : comprendre vos besoins, anticiper les contraintes et orchestrer des solutions adaptées à vos exigences.",
+      "Au-delà de la prestation, nous cultivons une relation fondée sur la confiance, la discrétion et l'attention portée à chaque client."
+    ],
+    commitment: "Notre engagement : faire de chaque interaction une expérience à la hauteur de vos attentes.",
+    closing: "TS EXCLUSIVE, c'est une autre manière de penser le service : plus attentive, plus personnalisée et résolument tournée vers vos besoins.",
+    valuesLabel: 'Nos valeurs',
     careLabel: 'Chaque véhicule', care: ['Nettoyage quotidien', 'Contrôle mécanique', 'Climatisation vérifiée', 'Documents à jour', 'Assurance appropriée'],
     finalTitle: "Vivez l'expérience TS EXCLUSIVE."
   },
@@ -110,7 +113,7 @@ const fr = {
   form: {
     infoLegend: 'Vous', name: 'Nom *', company: 'Entreprise', email: 'Email', phone: 'Téléphone', whatsapp: 'WhatsApp', whatsappHint: 'Si différent',
     tripLegend: 'Votre trajet', date: 'Date', time: 'Heure', pickup: 'Départ', dropoff: 'Destination', passengers: 'Passagers', bags: 'Bagages',
-    serviceLegend: 'Service', services: ['Transfert aéroport', 'Executive Mobility', 'Corporate', 'Événement', 'Délégation', 'Long terme'],
+    serviceLegend: 'Service', services: ['Transfert aéroportuaire', 'Mobilité exécutive', 'Entreprises', 'Événement', 'Mise à disposition', 'Voyage privé', 'Conciergerie VIP'],
     message: 'Message', messageHint: 'Précisions, chauffeur anglophone…', send: 'Envoyer', sending: 'Envoi…', vehicle: 'Véhicule souhaité',
     okTitle: 'Demande envoyée', okText: 'Merci {name}. Nous revenons vers vous très rapidement.',
     err: "Envoi impossible. Réessayez ou écrivez-nous sur WhatsApp."
@@ -138,8 +141,8 @@ const en: typeof fr = {
   },
   home: {
     seoTitle: 'TS EXCLUSIVE | Executive & Private Mobility in Madagascar',
-    seoDesc: 'Private and corporate chauffeur mobility in Madagascar: airport transfers, chauffeur hire, events and delegations.',
-    lead: 'Your driver is waiting at arrivals. We take care of the rest.',
+    seoDesc: 'Private and executive mobility in Madagascar: airport transfers, solutions for companies, events, private travel and private VIP concierge.',
+    lead: 'From private journeys to executive missions, from airport transfers to tailor-made experiences, TS EXCLUSIVE supports you in Madagascar, with particular attention to your time, your comfort and your requirements.',
     greet: 'Tonga soa, welcome',
     statLabels: ['Vehicles', 'Max passengers', 'Support', 'Ar / day from'],
     faqLabel: 'FAQ', faqTitle: 'Frequently asked questions', testiLabel: 'Testimonials', testiTitle: 'Trusted by professionals.',
@@ -152,16 +155,12 @@ const en: typeof fr = {
       ['05', 'Local expertise', 'Knowledge of Madagascar and its destinations.']
     ],
     pillars: [
-      { icon: 'shield', t: 'Discretion', d: 'Your privacy is our priority.' },
-      { icon: 'clock', t: 'Punctuality', d: 'Always on time, on every route.' },
-      { icon: 'car', t: 'Comfort', d: 'Premium vehicles and a careful service.' },
-      { icon: 'user', t: 'Personalised service', d: 'A solution for every need.' },
-      { icon: 'diamond', t: 'Reliability', d: 'A service managed end to end.' }
+      { icon: 'shield', t: 'Discretion', d: 'A service that respects your confidentiality.' },
+      { icon: 'clock', t: 'Time management', d: 'An organisation adapted to your schedule.' },
+      { icon: 'user', t: 'Personal attention', d: 'A response tailored to your needs.' }
     ],
-    kicker: 'TS EXCLUSIVE', title1: 'More than', title2: 'a ride.', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
-    introTitle1: 'Private mobility,', introTitle2: 'redefined.',
-    introText: 'Executives, travellers, companies, families: a punctual, discreet driver who knows the road. The rest is our job.',
-    meta: [['Madagascar', 'Antananarivo'], ['Executive mobility', 'Private driver'], ['Service', '24/7']],
+    kicker: 'TS EXCLUSIVE', title1: 'Beyond', title2: 'Transportation', sub: 'Private executive mobility, Madagascar', cta: 'Discover TS EXCLUSIVE', scroll: 'Scroll to explore',
+    aboutText: 'TS EXCLUSIVE was born from an ambition: to offer a mobility and support experience where every detail counts.',
     servicesLabel: 'What we can do for you', servicesTitle: 'Every journey, tailored.',
     viewOffer: 'View offers', blockLabel: 'Your mobility, our commitment', fleetName: 'Our fleet', aboutName: 'About', more: 'Read more', callUs: 'Call us',
     fleetLabel: 'The fleet', fleetTitle: 'The fleet', fleetAll: 'Entire fleet',
@@ -208,8 +207,15 @@ const en: typeof fr = {
     cta: 'Plan my event', finalTitle: 'Your event, our mobility.'
   },
   about: {
-    seoTitle: 'About | TS EXCLUSIVE', label: 'TS EXCLUSIVE', title: 'Another way to travel.', sub: 'A premium, reliable, comfortable and discreet mobility experience.',
-    valuesLabel: 'Five commitments', values: ['Elegance', 'Safety', 'Punctuality', 'Discretion', 'Comfort'],
+    seoTitle: 'About | TS EXCLUSIVE', label: 'TS EXCLUSIVE', title: 'Much more than a journey.', sub: 'Attention at every moment.',
+    paragraphs: [
+      'TS EXCLUSIVE was born from an ambition: to offer a mobility and support experience where every detail counts.',
+      'We bring together private transport, executive mobility, solutions for companies, event coordination and private concierge services in a single approach: understanding your needs, anticipating constraints and orchestrating solutions adapted to your requirements.',
+      'Beyond the service itself, we nurture a relationship built on trust, discretion and attention to every client.'
+    ],
+    commitment: 'Our commitment: to make every interaction an experience worthy of your expectations.',
+    closing: 'TS EXCLUSIVE is another way of thinking about service: more attentive, more personal and resolutely focused on your needs.',
+    valuesLabel: 'Our values',
     careLabel: 'Every vehicle', care: ['Daily cleaning', 'Mechanical inspection', 'Air-conditioning checked', 'Up-to-date documents', 'Appropriate insurance'],
     finalTitle: 'Experience TS EXCLUSIVE.'
   },
@@ -226,7 +232,7 @@ const en: typeof fr = {
   form: {
     infoLegend: 'You', name: 'Name *', company: 'Company', email: 'Email', phone: 'Phone', whatsapp: 'WhatsApp', whatsappHint: 'If different',
     tripLegend: 'Your trip', date: 'Date', time: 'Time', pickup: 'Pick-up', dropoff: 'Destination', passengers: 'Passengers', bags: 'Bags',
-    serviceLegend: 'Service', services: ['Airport transfer', 'Executive Mobility', 'Corporate', 'Event', 'Delegation', 'Long term'],
+    serviceLegend: 'Service', services: ['Airport transfer', 'Executive mobility', 'Corporate', 'Event', 'Chauffeur on demand', 'Private travel', 'VIP concierge'],
     message: 'Message', messageHint: 'Details, English-speaking driver…', send: 'Send', sending: 'Sending…', vehicle: 'Requested vehicle',
     okTitle: 'Request sent', okText: 'Thank you {name}. We will get back to you very shortly.',
     err: 'Unable to send. Please try again or write to us on WhatsApp.'

@@ -33,5 +33,6 @@ export const serviceImages: Record<string, string> = {
   'corporate-mobility': photos.hotel,
   'evenements-protocole': photos.events,
   'mise-a-disposition': photos.night,
-  'tourisme-conciergerie': photos.baobabsRoad
+  'voyage-prive': photos.baobabsRoad,
+  'conciergerie-privee-vip': photos.lobby
 }

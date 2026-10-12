@@ -40,6 +40,10 @@ export default defineNitroPlugin(async () => {
     for (const t of ['services', 'offers', 'vehicles', 'testimonials', 'faqs']) {
       await query(`alter table ${t} add column if not exists en jsonb default '{}'::jsonb`)
     }
+    // textes détaillés des services (accroche, titre de liste, note, phrase de clôture, bouton)
+    for (const c of ['tagline', 'bullets_title', 'note', 'closing', 'cta']) {
+      await query(`alter table services add column if not exists ${c} text default ''`)
+    }
     await query('alter table vehicles add column if not exists dark_bg boolean default false')
     await query("update vehicles set image = replace(image, '.jpg', '-hd.jpg') where image like '/img/fleet/%.jpg' and image not like '%-hd.jpg'")
     await query("update vehicles set dark_bg = true where image in ('/img/fleet/prado-hd.jpg', '/img/fleet/hilux-hd.jpg') and dark_bg = false and id <= 6")
@@ -67,7 +71,7 @@ export default defineNitroPlugin(async () => {
     }
 
     const [{ count: seeded }] = await query('select count(*)::int as count from services')
-    if (seeded) { await applySeedTranslations(); return }
+    if (seeded) { await applyFinalContent(); await applySeedTranslations(); return }
 
     const settings: Record<string, string> = {
       phone: '+261 34 90 706 65',
@@ -80,31 +84,8 @@ export default defineNitroPlugin(async () => {
       await query('insert into settings (key, value) values ($1,$2) on conflict do nothing', [k, v])
     }
 
-    const services = [
-      ['transferts-aeroport', 'Transferts aéroportuaires', 'Une prise en charge fluide dès votre arrivée.',
-        "Votre arrivée à Madagascar commence dans le confort. Nous assurons vos transferts avec chauffeur entre l'aéroport international d'Ivato, votre hôtel, votre résidence ou tout autre lieu de destination.",
-        ["Accueil à l'aéroport", 'Transfert privé', 'Assistance bagages', "Suivi de l'arrivée", 'Transfert hôtel', 'Transfert retour'], 'plane'],
-      ['executive-mobility', 'Executive Mobility', 'Pour dirigeants, cadres et personnalités.',
-        "Un chauffeur, un véhicule et une organisation adaptés à votre agenda. Votre mobilité professionnelle, notre responsabilité.",
-        ['Mise à disposition', 'Déplacements professionnels', 'Rendez-vous multiples', 'Accueil des visiteurs', 'Chauffeur dédié', 'Coordination des déplacements'], 'car'],
-      ['corporate-mobility', 'Corporate Mobility', 'Des solutions adaptées à vos missions professionnelles.',
-        "Dirigeants, collaborateurs, visiteurs internationaux, consultants ou délégations : des solutions de transport fiables et flexibles pour les entreprises.",
-        ['Mise à disposition de chauffeur', 'Transferts réguliers', 'Transport de dirigeants', 'Accueil de collaborateurs et visiteurs', 'Abonnements corporate', 'Contrats de transport récurrents'], 'briefcase'],
-      ['evenements-protocole', 'Événements & Protocole', 'Transport et coordination pour vos événements.',
-        "Mariage, conférence, cérémonie, événement institutionnel ou soirée privée : nous assurons le transport de vos invités et personnalités avec professionnalisme et discrétion.",
-        ['Mariages', 'Conférences et séminaires', 'Cérémonies', 'Événements institutionnels', 'Événements privés', 'Tournages et productions'], 'people'],
-      ['mise-a-disposition', 'Mise à disposition', 'Votre véhicule avec chauffeur, selon votre programme.',
-        "Besoin d'un véhicule pendant quelques heures, une journée ou plusieurs jours ? Choisissez la formule adaptée à votre agenda. Votre chauffeur reste à votre disposition selon les modalités définies à la réservation.",
-        ['Demi-journée', 'Journée complète', 'Soirée', 'Plusieurs jours'], 'key'],
-      ['tourisme-conciergerie', 'Tourisme & Conciergerie VIP', "Plus qu'un déplacement, un accompagnement personnalisé.",
-        "Circuits privés, excursions et transferts entre destinations, avec un service de conciergerie pour les dirigeants, personnalités et voyageurs internationaux.",
-        ['Circuits privés', 'Excursions', 'Transferts entre destinations', 'Accueil personnalisé', "Coordination de l'hébergement et des rendez-vous", 'Assistance pendant le séjour'], 'compass']
-    ]
-    let i = 0
-    for (const [slug, title, subtitle, description, bullets, icon] of services) {
-      await query('insert into services (slug,title,subtitle,description,bullets,icon,sort) values ($1,$2,$3,$4,$5,$6,$7)',
-        [slug, title, subtitle, description, JSON.stringify(bullets), icon, ++i])
-    }
+    // services : contenus finaux du client (voir server/utils/finalContent.ts)
+    await applyFinalContent()
 
     const offers = [
       ['Longue route', '250 000 Ar / jour', 'Entreprises, expatriés, grands projets routiers, organismes internationaux, ONG',

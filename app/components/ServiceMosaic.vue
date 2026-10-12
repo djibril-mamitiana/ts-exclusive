@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // Mosaïque de services numérotés (modèle validé) : par groupe de cinq, une grande tuile en haut à gauche,
-// deux tuiles dessous, deux tuiles empilées à droite. Les services au-delà de cinq prennent une tuile pleine largeur.
+// deux tuiles dessous, deux tuiles empilées à droite. Les services au-delà de cinq sont placés en tuiles larges, côte à côte.
 const props = defineProps<{ services: any[]; limit?: number }>()
 const list = computed(() => (props.limit ? props.services.slice(0, props.limit) : props.services))
 const groups = computed(() => {
@@ -26,9 +26,9 @@ const groups = computed(() => {
           <ServiceTile :service="g.items[4]" :n="g.start + 5" variant="slate" :delay="0.2" />
         </div>
       </div>
-      <template v-else>
+      <div v-else class="mosaic-rest">
         <ServiceTile v-for="(s, k) in g.items" :key="s.id" :service="s" :n="g.start + k + 1" variant="wide" :delay="k * 0.08" />
-      </template>
+      </div>
     </template>
   </div>
 </template>

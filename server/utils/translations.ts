@@ -1,28 +1,6 @@
 // Traductions anglaises du contenu de départ (appliquées une seule fois, si la colonne "en" est vide)
 export async function applySeedTranslations() {
-  const services: Record<string, any> = {
-    'transferts-aeroport': { title: 'Airport transfers', subtitle: 'Smooth pick-up from the moment you land.',
-      description: 'Your arrival in Madagascar starts in comfort. We provide chauffeur-driven transfers between Ivato international airport, your hotel, your residence or any other destination.',
-      bullets: ['Airport welcome', 'Private transfer', 'Luggage assistance', 'Arrival follow-up', 'Hotel transfer', 'Return transfer'] },
-    'executive-mobility': { title: 'Executive Mobility', subtitle: 'For executives, managers and public figures.',
-      description: 'A driver, a vehicle and an organisation adapted to your schedule. Your professional mobility, our responsibility.',
-      bullets: ['Chauffeur on demand', 'Business travel', 'Multiple appointments', 'Visitor welcome', 'Dedicated driver', 'Travel coordination'] },
-    'corporate-mobility': { title: 'Corporate Mobility', subtitle: 'Solutions adapted to your business missions.',
-      description: 'Executives, employees, international visitors, consultants or delegations: reliable and flexible transport solutions for companies.',
-      bullets: ['Chauffeur provision', 'Regular transfers', 'Executive transport', 'Welcome of employees and visitors', 'Corporate subscriptions', 'Recurring transport contracts'] },
-    'evenements-protocole': { title: 'Events & Protocol', subtitle: 'Transport and coordination for your events.',
-      description: 'Wedding, conference, ceremony, institutional event or private party: we transport your guests and personalities with professionalism and discretion.',
-      bullets: ['Weddings', 'Conferences and seminars', 'Ceremonies', 'Institutional events', 'Private events', 'Film shoots and productions'] },
-    'mise-a-disposition': { title: 'Chauffeur on demand', subtitle: 'Your vehicle with a driver, following your schedule.',
-      description: 'Need a vehicle for a few hours, a day or several days? Choose the plan that suits your agenda. Your driver stays at your disposal according to the terms agreed at booking.',
-      bullets: ['Half day', 'Full day', 'Evening', 'Several days'] },
-    'tourisme-conciergerie': { title: 'Tourism & VIP Concierge', subtitle: 'More than a trip: personalised support.',
-      description: 'Private tours, excursions and transfers between destinations, with a concierge service for executives, public figures and international travellers.',
-      bullets: ['Private tours', 'Excursions', 'Transfers between destinations', 'Personalised welcome', 'Coordination of accommodation and appointments', 'Assistance during your stay'] }
-  }
-  for (const [slug, en] of Object.entries(services)) {
-    await query("update services set en = $1 where slug = $2 and (en is null or en = '{}'::jsonb)", [JSON.stringify(en), slug])
-  }
+  // les services (7) sont traduits dans server/utils/finalContent.ts
 
   const offers: Record<string, any> = {
     'Longue route': { name: 'Long road', price: '250,000 Ar / day', target: 'Companies, expatriates, major road projects, international organisations, NGOs',

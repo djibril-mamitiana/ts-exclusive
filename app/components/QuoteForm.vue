@@ -9,13 +9,17 @@ const form = reactive<any>({
   services: [] as string[], message: '', website: ''
 })
 // Les services sont enregistrés en français côté admin, quelle que soit la langue du formulaire
-const frServices = ['Transfert aéroport', 'Executive Mobility', 'Corporate', 'Événement', 'Délégation', 'Long terme']
+const frServices = ['Transfert aéroportuaire', 'Mobilité exécutive', 'Entreprises', 'Événement', 'Mise à disposition', 'Voyage privé', 'Conciergerie VIP']
+const slugs = ['transferts-aeroport', 'executive-mobility', 'corporate-mobility', 'evenements-protocole', 'mise-a-disposition', 'voyage-prive', 'conciergerie-privee-vip']
+// anciens libellés encore utilisés par d'autres pages (offres, hospitality...)
+const legacy: Record<string, number> = { 'Transfert aéroport': 0, 'Executive Mobility': 1, Corporate: 2, Délégation: 2, 'Long terme': 4 }
 const options = computed(() => f.value.services.map((label, i) => ({ label, value: frServices[i] })))
 
 if (route.query.vehicule) form.message = `${f.value.vehicle} : ${route.query.vehicule}\n`
 if (route.query.service) {
   const q = String(route.query.service)
-  const hit = frServices.find(s => s === q) || options.value.find(o => o.label === q)?.value
+  const bySlug = slugs.indexOf(q)
+  const hit = (bySlug >= 0 ? frServices[bySlug] : undefined) || frServices.find(s => s === q) || options.value.find(o => o.label === q)?.value || (q in legacy ? frServices[legacy[q]] : undefined)
   if (hit) form.services = [hit]
 }
 

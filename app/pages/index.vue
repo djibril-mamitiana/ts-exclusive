@@ -49,14 +49,16 @@ useHead({
       </div>
       <NuxtLink :to="lp('/tarifs')" class="offer"><span>{{ h.viewOffer }}</span><i class="ar" /></NuxtLink>
     </div>
-    <p class="lead">{{ h.lead }}</p>
     <div class="ts-wrap ts-hstats">
       <div v-for="x in stats" :key="x.l" class="st"><b v-count>{{ x.v }}</b><span>{{ x.l }}</span></div>
     </div>
   </section>
 
   <section class="ts-pillars">
-    <div class="ts-wrap grid5">
+    <div class="ts-wrap">
+      <p v-reveal class="lead">{{ h.lead }}</p>
+    </div>
+    <div class="ts-wrap grid3">
       <div v-for="(p, i) in h.pillars" :key="p.t" v-reveal="i * 0.08" class="it">
         <Icon :name="p.icon" :size="30" />
         <h4>{{ p.t }}</h4>
@@ -85,7 +87,7 @@ useHead({
             <div class="bgimg"><img :src="sized(photos.chauffeur, 900)" alt="" loading="lazy" decoding="async"></div>
             <div class="txt">
               <h3>{{ h.aboutName }}</h3>
-              <p>{{ h.introText }}</p>
+              <p>{{ h.aboutText }}</p>
               <span class="go">{{ h.more }} <span class="ts-arr" /></span>
             </div>
           </NuxtLink>

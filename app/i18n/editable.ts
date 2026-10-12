@@ -2,10 +2,8 @@
 export const editableTexts: { group: string; key: string; label: string; long?: boolean }[] = [
   { group: 'Accueil', key: 'home.title1', label: 'Titre du hero, ligne 1' },
   { group: 'Accueil', key: 'home.title2', label: 'Titre du hero, ligne 2' },
-  { group: 'Accueil', key: 'home.lead', label: 'Phrase sous le titre du hero', long: true },
-  { group: 'Accueil', key: 'home.introTitle1', label: "Titre d'introduction, ligne 1" },
-  { group: 'Accueil', key: 'home.introTitle2', label: "Titre d'introduction, ligne 2" },
-  { group: 'Accueil', key: 'home.introText', label: "Texte d'introduction", long: true },
+  { group: 'Accueil', key: 'home.lead', label: "Accroche sous le hero (au-dessus des valeurs)", long: true },
+  { group: 'Accueil', key: 'home.aboutText', label: 'Texte de la tuile À propos', long: true },
   { group: 'Accueil', key: 'home.servicesTitle', label: 'Titre de la section services' },
   { group: 'Accueil', key: 'home.destTitle1', label: 'Titre destinations, ligne 1' },
   { group: 'Accueil', key: 'home.destTitle2', label: 'Titre destinations, ligne 2' },
