@@ -71,7 +71,7 @@ export default defineNitroPlugin(async () => {
     }
 
     const [{ count: seeded }] = await query('select count(*)::int as count from services')
-    if (seeded) { await applyFinalContent(); await applySeedTranslations(); return }
+    if (seeded) { await applyFinalContent(); await applySeedTranslations(); await applyFleetContent(); return }
 
     const settings: Record<string, string> = {
       phone: '+261 34 90 706 65',
@@ -130,6 +130,7 @@ export default defineNitroPlugin(async () => {
       await query('insert into faqs (question,answer,sort) values ($1,$2,$3)', [question, answer, ++i])
     }
     await applySeedTranslations()
+    await applyFleetContent()
     console.log('[init-db] base initialisée')
   } catch (e) {
     console.error('[init-db] erreur', e)

@@ -5,11 +5,12 @@ const { m, lp } = useLang()
 const i = ref(0)
 const len = computed(() => props.vehicles.length)
 const cur = computed(() => props.vehicles[i.value] || props.vehicles[0])
+const isCut = computed(() => /\.(png|webp)(\?|$)/i.test(cur.value?.image || ''))
 const go = (d: number) => { if (len.value) i.value = (i.value + d + len.value) % len.value }
 </script>
 
 <template>
-  <article v-if="cur" v-reveal class="ts-tile fleet" :class="cur.dark_bg ? 'is-dark' : 'is-light'">
+  <article v-if="cur" v-reveal class="ts-tile fleet" :class="[cur.dark_bg ? 'is-dark' : 'is-light', { cut: isCut }]">
     <span class="num">{{ String(n).padStart(2, '0') }}</span>
     <h3>{{ m.home.fleetName }}</h3>
     <div v-if="len > 1" class="arrows">
