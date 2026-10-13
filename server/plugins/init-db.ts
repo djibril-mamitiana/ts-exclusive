@@ -41,6 +41,7 @@ export default defineNitroPlugin(async () => {
       await query(`alter table ${t} add column if not exists en jsonb default '{}'::jsonb`)
     }
     // textes détaillés des services (accroche, titre de liste, note, phrase de clôture, bouton)
+    await query('alter table services add column if not exists apart boolean default false')
     for (const c of ['tagline', 'bullets_title', 'note', 'closing', 'cta']) {
       await query(`alter table services add column if not exists ${c} text default ''`)
     }
@@ -71,7 +72,7 @@ export default defineNitroPlugin(async () => {
     }
 
     const [{ count: seeded }] = await query('select count(*)::int as count from services')
-    if (seeded) { await applyFinalContent(); await applySeedTranslations(); await applyFleetContent(); return }
+    if (seeded) { await applyFinalContent(); await applySeedTranslations(); await applyFleetContent(); await applyContentV3(); await applyContentPatches(); return }
 
     const settings: Record<string, string> = {
       phone: '+261 34 90 706 65',
@@ -131,6 +132,8 @@ export default defineNitroPlugin(async () => {
     }
     await applySeedTranslations()
     await applyFleetContent()
+    await applyContentV3()
+    await applyContentPatches()
     console.log('[init-db] base initialisée')
   } catch (e) {
     console.error('[init-db] erreur', e)

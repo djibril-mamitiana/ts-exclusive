@@ -12,6 +12,7 @@ const fields = [
   { key: 'note', label: 'Note sous la liste (facultatif)', type: 'textarea', tr: true },
   { key: 'closing', label: 'Phrase de clôture', type: 'textarea', tr: true, hint: 'Une deuxième ligne est possible.' },
   { key: 'cta', label: 'Texte du bouton', tr: true, hint: 'Ex : Organiser mon transfert' },
+  { key: 'apart', label: 'Service à part (sans numéro, présenté dans son propre bloc)', type: 'bool' },
   { key: 'icon', label: 'Icône', hint: 'plane, car, briefcase, people, key, compass, diamond' },
   { key: 'image', label: 'Image (facultatif)', type: 'image', hint: "Remplace l'image par défaut du service" }
 ]

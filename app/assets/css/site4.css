@@ -17,6 +17,8 @@
   --cloud: #e1e6ed;
   --off: #e1e6ed;
   --champ: #8aa4bd;
+  /* Touche dorée : discrète, en détail (filets, numéros, boutons d'action), jamais en grand aplat */
+  --gold: #c9a45c; --gold-l: #e3cb92; --gold-d: #a07a30;
   /* Coins : à peine adoucis. Une seule valeur à changer pour tout le site (0 = angles droits) */
   --r-s: 4px; --r-m: 6px; --r-l: 8px; --r-xl: 0px;
   --r-tile: 8px; --r-btn: 6px;
@@ -104,16 +106,6 @@
 }
 .ts-hero h1.ts-display em { display: inline; font-style: normal; color: #cfe0f1; padding-left: 0; }
 .ts-hero .cta { justify-content: flex-end; margin-top: clamp(22px, 2.4vw, 34px); }
-.ts-hero .offer {
-  align-self: stretch; display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 18px;
-  margin-left: clamp(22px, 2.6vw, 42px); padding-left: clamp(22px, 2.6vw, 42px); border-left: 1px solid rgba(255, 255, 255, .3);
-  color: var(--steel); animation: rise 1.2s var(--ease) calc(var(--intro) + 1.1s) both;
-}
-.ts-hero .offer span { writing-mode: vertical-rl; transform: rotate(180deg); font: 500 11px/1 var(--sans); letter-spacing: .34em; text-transform: uppercase; }
-.ts-hero .offer .ar { position: relative; width: 28px; height: 1px; background: currentColor; transition: transform .6s var(--ease); }
-.ts-hero .offer .ar::after { content: ''; position: absolute; left: 0; top: -3px; width: 7px; height: 7px; border-left: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); }
-.ts-hero .offer:hover { color: #fff; }
-.ts-hero .offer:hover .ar { transform: translateX(-8px); }
 .ts-scroll { display: none; }
 .ts-hstats { padding-top: 26px; z-index: 3; }
 .ts-hstats::before { content: ''; position: absolute; left: var(--gut); right: var(--gut); top: 0; height: 1px; background: rgba(255, 255, 255, .2); }
@@ -173,7 +165,7 @@
 .ts-tile:hover .bgimg { scale: 1.06; }
 
 /* 01 : grande tuile bleu acier, photo à droite fondue dans la couleur */
-.ts-tile.accent, .ts-tile.wide { background: linear-gradient(115deg, #3d6184 0%, var(--steel-d) 52%, #6f92b3 100%); min-height: clamp(250px, 23vw, 340px); }
+.ts-tile.accent, .ts-tile.wide { background: linear-gradient(115deg, #3d6184 0%, var(--steel-d) 52%, #6f92b3 100%); min-height: clamp(280px, 25vw, 360px); }
 .mosaic-rest { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 480px), 1fr)); gap: var(--tg); }
 .mosaic-g + .mosaic-rest { margin-top: var(--tg); }
 .ts-tile.wide { background: linear-gradient(115deg, #17304f 0%, #2d5075 55%, #4b7096 100%); }
@@ -183,19 +175,19 @@
 .ts-tile.accent .bgimg img, .ts-tile.wide .bgimg img { -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 58%); mask-image: linear-gradient(90deg, transparent 0, #000 58%); }
 .ts-tile.accent .txt, .ts-tile.wide .txt { max-width: min(48%, 400px); }
 /* 02 : tuile filaire avec dessin au trait */
-.ts-tile.line { background: transparent; border: 1px solid rgba(138, 164, 189, .5); min-height: clamp(300px, 31vw, 450px); }
+.ts-tile.line { background: transparent; border: 1px solid rgba(138, 164, 189, .5); min-height: clamp(340px, 34vw, 480px); }
 .ts-tile.line .art { position: absolute; right: 6%; bottom: 6%; width: 64%; height: auto; color: var(--steel); opacity: .5; stroke-width: .45; transition: transform 1.2s var(--ease), opacity .8s; }
 .ts-tile.line:hover .art { transform: translate(-6px, -6px) scale(1.04); opacity: .85; }
 /* 03 : gris bleu, photo en pied de tuile */
-.ts-tile.mist { background: var(--mist); color: var(--navy); min-height: clamp(330px, 34vw, 490px); }
+.ts-tile.mist { background: var(--mist); color: var(--navy); min-height: clamp(360px, 37vw, 520px); }
 .ts-tile.mist .num { color: rgba(255, 255, 255, .7); }
 .ts-tile.mist .bgimg { inset: auto 0 0 0; height: 46%; mix-blend-mode: multiply; }
 .ts-tile.mist .bgimg img { filter: grayscale(.7) contrast(1.08); -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 42%); mask-image: linear-gradient(180deg, transparent 0, #000 42%); }
 /* 04 : clair */
-.ts-tile.fog { background: var(--fog); color: var(--navy); min-height: clamp(270px, 29vw, 410px); }
+.ts-tile.fog { background: var(--fog); color: var(--navy); min-height: clamp(320px, 33vw, 460px); }
 .ts-tile.fog .num { color: rgba(12, 38, 70, .3); }
 /* 05 : ardoise */
-.ts-tile.slate { background: var(--slate); min-height: clamp(210px, 22vw, 320px); }
+.ts-tile.slate { background: var(--slate); min-height: clamp(260px, 26vw, 360px); }
 
 /* ---------- Bloc clair : flotte (06/07), à propos, téléphone ---------- */
 .ts-duo { display: grid; grid-template-columns: 1fr 1fr; gap: var(--tg); align-items: start; }
@@ -311,7 +303,6 @@
 @media (max-width: 700px) {
   .ts-hero .cta { display: none; }
   .ts-hero h1.ts-display { font-size: clamp(2.2rem, 11vw, 3.4rem); }
-  .ts-hero .offer { margin-left: 18px; padding-left: 18px; }
   .ts-pillars .ts-wrap.grid3 { grid-template-columns: 1fr; }
   .ts-pillars .it, .ts-pillars .it:first-child { border-right: 0; }
   .ts-tile .go { opacity: 1; transform: none; }
@@ -369,3 +360,118 @@
 .ts-car .tagline { font-family: var(--sans); font-weight: 300; text-transform: uppercase; letter-spacing: .06em; font-size: clamp(.9rem, 1.2vw, 1.1rem); line-height: 1.5; color: var(--steel); max-width: 34ch; }
 .ts-car.ts-light .tagline { color: var(--steel-d); }
 .ts-car .desc { font-family: var(--slab); font-weight: 300; font-size: 13.5px; line-height: 1.85; max-width: 46ch; opacity: .82; }
+
+/* =====================================================================
+   Version du 13 octobre : touche dorée, bouton « Voir les offres » visible,
+   boutons d'action des services, bloc conciergerie, blocs de la page Services
+   ===================================================================== */
+.ts ::selection { background: var(--gold); color: #0a1830; }
+
+/* ---------- Touche dorée (détails seulement) ---------- */
+.ts-header .ts-progress { background: var(--gold); }
+.ts-label::before { background: var(--gold); opacity: 1; }
+.ts-light .ts-label::before, .ts-cloud .ts-label::before { background: var(--gold-d); }
+.ts-rule2 i { opacity: .9; }
+.ts-rule2 i:first-child { background: linear-gradient(90deg, rgba(255, 255, 255, .1), var(--gold)); }
+.ts-rule2 i:last-child { background: linear-gradient(90deg, var(--gold), rgba(255, 255, 255, .1)); }
+.ts-light .ts-rule2 i:first-child, .ts-cloud .ts-rule2 i:first-child { background: linear-gradient(90deg, rgba(12, 38, 70, .1), var(--gold-d)); }
+.ts-light .ts-rule2 i:last-child, .ts-cloud .ts-rule2 i:last-child { background: linear-gradient(90deg, var(--gold-d), rgba(12, 38, 70, .1)); }
+.ts-hstats::before { background: linear-gradient(90deg, var(--gold), rgba(255, 255, 255, .22) 45%, rgba(255, 255, 255, .12)); }
+.ts-tile .num { color: var(--gold-l); }
+.ts-tile.mist .num, .ts-tile.fog .num { color: var(--gold-d); }
+.ts-menu .group h4 { color: var(--gold); }
+.ts-menu .group a.apart { color: var(--gold-l); opacity: .9; }
+.ts-car .brand { color: var(--gold); }
+.ts-car.ts-light .brand { color: var(--gold-d); }
+.ts-faq summary::after { color: var(--gold-d); }
+.ts-footer { box-shadow: inset 0 3px 0 var(--gold); }
+.ts-footer h4 { color: var(--gold-d); }
+
+/* ---------- Bouton « Voir les offres » : onglet doré, bien visible ---------- */
+.ts-hero .in.ts-wrap { padding-right: calc(var(--gut) + 92px); }
+.ts-hero .offer {
+  position: absolute; z-index: 5; top: clamp(112px, 15vh, 190px);
+  right: max(var(--gut), calc((100% - 1560px) / 2 + var(--gut)));
+  display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 22px 14px 16px;
+  border: 1px solid var(--gold); border-radius: var(--r-btn); background: rgba(7, 24, 46, .62);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); color: var(--gold-l);
+  animation: rise 1.2s var(--ease) calc(var(--intro) + 1.1s) both;
+  transition: background .5s var(--ease), color .5s var(--ease), border-color .5s var(--ease);
+}
+.ts-hero .offer .t { writing-mode: vertical-rl; transform: rotate(180deg); font: 500 12px/1 var(--sans); letter-spacing: .3em; text-transform: uppercase; white-space: nowrap; }
+.ts-hero .offer .ar { position: relative; width: 26px; height: 1px; background: currentColor; transition: transform .6s var(--ease); }
+.ts-hero .offer .ar::after { content: ''; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+.ts-hero .offer:hover { background: var(--gold); border-color: var(--gold); color: #0a1830; }
+.ts-hero .offer:hover .ar { transform: translateX(5px); }
+
+/* ---------- Tuiles de service : accroche percutante, phrase courte, bouton d'action visible ---------- */
+.ts-tile h3 a.stretch { color: inherit; }
+.ts-tile h3 a.stretch::after { content: ''; position: absolute; inset: 0; z-index: 2; }
+.ts-tile .hook { font-family: var(--sans); font-weight: 300; font-size: clamp(1rem, 1.4vw, 1.3rem); line-height: 1.35; letter-spacing: .01em; max-width: 24ch; margin-top: 16px; opacity: 1; }
+.ts-tile p.more { font-size: 12px; opacity: .74; margin-top: 12px; max-width: 32ch; }
+.ts-tile .cta {
+  position: relative; z-index: 3; display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; padding: 12px 16px;
+  border: 1px solid currentColor; border-radius: var(--r-btn); font: 500 10px/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; text-align: left;
+  transition: background .45s var(--ease), color .45s var(--ease), border-color .45s var(--ease);
+}
+.ts-tile .cta .ts-arr { color: var(--gold-l); flex: none; }
+.ts-tile.mist .cta .ts-arr, .ts-tile.fog .cta .ts-arr { color: var(--gold-d); }
+.ts-tile .cta:hover { background: #fff; color: var(--navy); border-color: #fff; }
+.ts-tile.mist .cta:hover, .ts-tile.fog .cta:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.ts-tile.accent .txt, .ts-tile.wide .txt { max-width: min(52%, 420px); }
+
+/* ---------- Bloc « service à part » : conciergerie privée VIP ---------- */
+.ts-concierge { position: relative; isolation: isolate; overflow: hidden; background: #050f1f; color: #fff; padding: clamp(72px, 9vw, 130px) 0; border-block: 1px solid rgba(201, 164, 92, .4); }
+.ts-concierge .bgimg { position: absolute; inset: 0; z-index: -1; }
+.ts-concierge .bgimg img { width: 100%; height: 100%; object-fit: cover; opacity: .2; filter: grayscale(.85) contrast(1.05); -webkit-mask-image: linear-gradient(90deg, transparent 10%, #000 90%); mask-image: linear-gradient(90deg, transparent 10%, #000 90%); }
+.ts-concierge .grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 100px); align-items: center; }
+.ts-concierge .ts-label.gold { color: var(--gold); }
+.ts-concierge .ts-title { margin: 18px 0 14px; font-size: clamp(1.9rem, 3.6vw, 3.4rem); }
+.ts-concierge .hook { font-family: var(--sans); font-weight: 300; font-size: clamp(1.15rem, 1.8vw, 1.7rem); line-height: 1.3; color: var(--gold-l); margin-bottom: 18px; }
+.ts-concierge .ts-para { max-width: 52ch; }
+.ts-concierge .act { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; margin-top: 30px; }
+.ts-btn.gold { background: var(--gold); border-color: var(--gold); color: #0a1830; }
+.ts-btn.gold:hover { background: transparent; border-color: var(--gold); color: var(--gold-l); }
+.ts-concierge .items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ts-concierge .items li { display: flex; align-items: center; gap: 14px; padding: 18px 20px; border: 1px solid rgba(201, 164, 92, .35); border-radius: var(--r-tile); background: rgba(255, 255, 255, .03); font: 500 11px/1.55 var(--sans); letter-spacing: .14em; text-transform: uppercase; transition: border-color .5s var(--ease), background .5s var(--ease), transform .6s var(--ease); }
+.ts-concierge .items li i { flex: none; width: 7px; height: 7px; border: 1px solid var(--gold); transform: rotate(45deg); transition: background .5s; }
+.ts-concierge .items li:hover { border-color: var(--gold); background: rgba(201, 164, 92, .1); transform: translateY(-3px); }
+.ts-concierge .items li:hover i { background: var(--gold); }
+
+/* ---------- Page Services : un bloc de contenu par service ---------- */
+.ts-sblock { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: clamp(28px, 5vw, 80px); align-items: center; padding: clamp(36px, 5vw, 72px) 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.ts-sblock:first-child { border-top: 0; }
+.ts-sblock .media { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--r-l); background: var(--dark); }
+.ts-sblock .media img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.5) contrast(1.05); transition: transform 2s var(--ease); }
+.ts-sblock:hover .media img { transform: scale(1.05); }
+.ts-sblock.flip .media { order: 2; }
+.ts-sblock .num { display: block; font-family: var(--sans); font-weight: 100; font-size: clamp(2.6rem, 4.6vw, 4.6rem); line-height: 1; color: var(--gold-l); }
+.ts-sblock h3 { font-family: var(--sans); font-weight: 300; text-transform: uppercase; letter-spacing: .04em; font-size: clamp(1.6rem, 2.8vw, 2.8rem); line-height: 1.12; margin: 10px 0 12px; }
+.ts-sblock h3 a { color: inherit; }
+.ts .ts-sblock .hook { font-family: var(--sans); font-weight: 300; font-size: clamp(1.05rem, 1.5vw, 1.35rem); line-height: 1.35; color: var(--steel); }
+.ts .ts-sblock .ts-para { margin-top: 16px; }
+.ts-sblock .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 26px; }
+.ts-sblock .chips li { padding: 9px 14px; border: 1px solid rgba(255, 255, 255, .26); border-radius: var(--r-btn); font: 400 11px/1.3 var(--sans); letter-spacing: .08em; }
+.ts-sblock .act { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.ts-sblock .ts-btn.solid, .ts-pagehero .ts-btn.solid { background: #fff; color: var(--navy); border-color: #fff; }
+.ts-sblock .ts-btn.solid:hover, .ts-pagehero .ts-btn.solid:hover { background: transparent; color: #fff; }
+.ts-sblock .ts-link { display: inline-flex; align-items: center; gap: 12px; color: var(--gold-l); }
+.ts-pagehero .hero-cta { margin-top: 26px; }
+.ts-marquee-dark { border-color: rgba(255, 255, 255, .2); }
+
+@media (max-width: 900px) {
+  .ts-concierge .grid, .ts-sblock { grid-template-columns: 1fr; }
+  .ts-sblock.flip .media { order: 0; }
+  .ts-concierge .items { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .ts-hero .in.ts-wrap { padding-right: calc(var(--gut) + 62px); }
+  .ts-hero .offer { top: 104px; padding: 16px 10px 12px; gap: 12px; }
+  .ts-hero .offer .t { font-size: 10px; letter-spacing: .24em; }
+  .ts-tile .cta { width: 100%; justify-content: space-between; }
+}
+/* Tuiles 02 et 03 : le dessin au trait et la photo ne passent plus sous le bouton d'action */
+.ts-tile.line .art { right: 5%; bottom: 5%; width: 44%; opacity: .32; }
+.ts-tile.line .txt { padding-bottom: clamp(70px, 9vw, 130px); }
+.ts-tile.mist .bgimg { height: clamp(110px, 13vw, 190px); }
+.ts-tile.mist .txt { padding-bottom: clamp(110px, 13vw, 190px); }

@@ -55,8 +55,13 @@ export const useContent = () => {
   })
 }
 
-export const waLink = (number?: string, text = 'Bonjour TS EXCLUSIVE, je souhaite un devis.') =>
-  `https://wa.me/${(number || '').replace(/\D/g, '')}?text=${encodeURIComponent(text)}`
+// Message prérempli dans la langue de la page (français ou anglais)
+export const waLink = (number?: string, text?: string) => {
+  const path = useRoute().path
+  const en = path === '/en' || path.startsWith('/en/')
+  const msg = text || messages[en ? 'en' : 'fr'].common.waText
+  return `https://wa.me/${(number || '').replace(/\D/g, '')}?text=${encodeURIComponent(msg)}`
+}
 
 // SEO : titre, description, balises sociales, canonical et hreflang
 export const usePageSeo = (title: string, description?: string, image = '/img/baobabs.jpg') => {

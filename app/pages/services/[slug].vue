@@ -7,12 +7,10 @@ if (!service.value) throw createError({ statusCode: 404, statusMessage: 'Service
 const image = computed(() => service.value?.image || serviceImages[service.value?.slug] || photos.night)
 
 // Le texte est saisi dans l'admin : paragraphes séparés par une ligne vide, points sous la forme « Titre : détail » (facultatif)
-const paragraphs = computed(() => String(service.value?.description || '').split(/\n\s*\n/).map(p => p.trim()).filter(Boolean))
-const points = computed(() => (service.value?.bullets || []).map((b: string) => {
-  const hit = /^(.{3,70}?)\s*:\s+(.+)$/.exec(b)
-  return hit ? { t: hit[1], d: hit[2] } : { t: b, d: '' }
-}))
+const paragraphs = computed(() => paragraphsOf(service.value?.description))
+const points = computed(() => (service.value?.bullets || []).map(splitPoint))
 const closing = computed(() => String(service.value?.closing || '').split('\n').map(l => l.trim()).filter(Boolean))
+const ctaTo = computed(() => ({ path: lp('/contact'), query: { service: service.value?.slug } }))
 usePageSeo(`${service.value.title} | TS EXCLUSIVE`, `${service.value.subtitle} ${paragraphs.value[0] || ''}`.slice(0, 200), '/img/baobabs.jpg')
 
 const isAirport = computed(() => service.value?.slug === 'transferts-aeroport')
@@ -21,7 +19,10 @@ const others = computed(() => content.value.services.filter(s => s.slug !== serv
 
 <template>
   <template v-if="service">
-    <PageHero :label="m.services.label" :title="service.title" :sub="service.subtitle" :image="image" />
+    <PageHero
+      :label="service.apart ? m.home.apartLabel : m.services.label" :title="service.title" :sub="service.subtitle" :image="image"
+      :cta="service.cta || m.common.quote" :cta-to="ctaTo"
+    />
 
     <section class="ts-sec ts-black ts-detail">
       <div class="ts-wrap ts-split">
@@ -41,7 +42,7 @@ const others = computed(() => content.value.services.filter(s => s.slug !== serv
         <div class="ts-closing">
           <p v-for="(l, i) in closing" :key="i" v-reveal="i * 0.1" :class="i ? 'sub' : 'main'">{{ l }}</p>
           <div v-reveal="0.2" class="act">
-            <NuxtLink :to="{ path: lp('/contact'), query: { service: service.slug } }" class="ts-btn solid">{{ service.cta || m.common.quote }} <span class="ts-arr" /></NuxtLink>
+            <NuxtLink :to="ctaTo" class="ts-btn solid">{{ service.cta || m.common.quote }} <span class="ts-arr" /></NuxtLink>
           </div>
         </div>
       </div>
@@ -52,7 +53,7 @@ const others = computed(() => content.value.services.filter(s => s.slug !== serv
         <span class="ts-label">{{ m.services.airportLabel }}</span>
         <div class="ts-list" style="margin-top:28px">
           <ul>
-            <li v-for="(s, i) in m.services.airportSteps" :key="s" v-reveal="i * 0.08"><span>{{ s }}</span><small>0{{ i + 1 }}</small></li>
+            <li v-for="(s, i) in m.services.airportSteps" :key="s" v-reveal="i * 0.08"><span>{{ s }}</span></li>
           </ul>
         </div>
       </div>
@@ -61,7 +62,7 @@ const others = computed(() => content.value.services.filter(s => s.slug !== serv
     <section class="ts-sec ts-black">
       <div class="ts-wrap">
         <span v-reveal class="ts-label" style="margin-bottom:10px">{{ m.common.otherServices }}</span>
-        <ServiceEditorial :services="others" />
+        <ServiceEditorial :services="others" :all="content.services" />
       </div>
     </section>
 

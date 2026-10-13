@@ -20,7 +20,7 @@ export async function query<T = any>(text: string, params: any[] = []): Promise<
 // "en" contient les traductions anglaises ({ champ: valeur }).
 export const adminTables: Record<string, { cols: string[]; json?: string[]; order: string }> = {
   vehicles: { cols: ['name', 'category', 'tagline', 'description', 'passengers', 'bags', 'usage', 'image', 'dark_bg', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },
-  services: { cols: ['slug', 'title', 'subtitle', 'tagline', 'description', 'bullets_title', 'bullets', 'note', 'closing', 'cta', 'icon', 'image', 'sort', 'active', 'en'], json: ['bullets', 'en'], order: 'sort, id' },
+  services: { cols: ['slug', 'title', 'subtitle', 'tagline', 'description', 'bullets_title', 'bullets', 'note', 'closing', 'cta', 'icon', 'image', 'apart', 'sort', 'active', 'en'], json: ['bullets', 'en'], order: 'sort, id' },
   offers: { cols: ['name', 'price', 'target', 'options', 'highlight', 'sort', 'active', 'en'], json: ['options', 'en'], order: 'sort, id' },
   testimonials: { cols: ['name', 'role', 'org', 'quote', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },
   faqs: { cols: ['question', 'answer', 'sort', 'active', 'en'], json: ['en'], order: 'sort, id' },

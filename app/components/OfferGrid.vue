@@ -9,7 +9,7 @@ const { m, lp } = useLang()
       <h3>{{ o.name }}</h3>
       <div class="price"><small>{{ m.common.from }}</small>{{ o.price }}</div>
       <ul><li v-for="opt in o.options" :key="opt">{{ opt }}</li></ul>
-      <div><NuxtLink :to="{ path: lp('/contact'), query: { service: 'Long terme' } }" class="ts-btn sm">{{ m.common.quote }} <span class="ts-arr" /></NuxtLink></div>
+      <div><NuxtLink :to="{ path: lp('/contact'), query: { service: 'mise-a-disposition' } }" class="ts-btn sm">{{ m.common.quote }} <span class="ts-arr" /></NuxtLink></div>
     </article>
   </div>
 </template>

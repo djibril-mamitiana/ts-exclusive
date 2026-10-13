@@ -1,6 +1,7 @@
 <script setup lang="ts">
-// Tuile « flotte » : un véhicule à la fois, flèches pour passer au suivant (comme la tuile Realizations du modèle)
-const props = defineProps<{ vehicles: any[]; n: number }>()
+// Tuile « flotte » : un véhicule à la fois, flèches pour passer au suivant (comme la tuile Realizations du modèle).
+// Pas de numéro : seuls les services sont numérotés.
+const props = defineProps<{ vehicles: any[] }>()
 const { m, lp } = useLang()
 const i = ref(0)
 const len = computed(() => props.vehicles.length)
@@ -11,11 +12,10 @@ const go = (d: number) => { if (len.value) i.value = (i.value + d + len.value) %
 
 <template>
   <article v-if="cur" v-reveal class="ts-tile fleet" :class="[cur.dark_bg ? 'is-dark' : 'is-light', { cut: isCut }]">
-    <span class="num">{{ String(n).padStart(2, '0') }}</span>
     <h3>{{ m.home.fleetName }}</h3>
     <div v-if="len > 1" class="arrows">
-      <button type="button" aria-label="Précédent" @click="go(-1)"><i class="chev l" /></button>
-      <button type="button" aria-label="Suivant" @click="go(1)"><i class="chev r" /></button>
+      <button type="button" :aria-label="m.common.prev" @click="go(-1)"><i class="chev l" /></button>
+      <button type="button" :aria-label="m.common.next" @click="go(1)"><i class="chev r" /></button>
     </div>
     <div class="stage">
       <Transition name="swap" mode="out-in">

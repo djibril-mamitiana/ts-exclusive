@@ -1,8 +1,12 @@
 <script setup lang="ts">
 // Mosaïque de services numérotés (modèle validé) : par groupe de cinq, une grande tuile en haut à gauche,
 // deux tuiles dessous, deux tuiles empilées à droite. Les services au-delà de cinq sont placés en tuiles larges, côte à côte.
+// Un service « à part » (conciergerie) n'entre pas dans la mosaïque : il a son propre bloc.
 const props = defineProps<{ services: any[]; limit?: number }>()
-const list = computed(() => (props.limit ? props.services.slice(0, props.limit) : props.services))
+const list = computed(() => {
+  const all = numberedServices(props.services)
+  return props.limit ? all.slice(0, props.limit) : all
+})
 const groups = computed(() => {
   const out: { start: number; items: any[] }[] = []
   for (let i = 0; i < list.value.length; i += 5) out.push({ start: i, items: list.value.slice(i, i + 5) })

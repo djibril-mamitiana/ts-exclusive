@@ -59,7 +59,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
 <template>
   <header class="ts-header" :class="{ scrolled }">
     <div class="ts-wrap row">
-      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.svg" :alt="m.common.logoAlt" width="256" height="48"></NuxtLink>
       <div class="ts-tools">
         <NuxtLink :to="otherPath" class="ts-link" :aria-label="lang === 'fr' ? 'English' : 'Français'">{{ lang === 'fr' ? 'EN' : 'FR' }}</NuxtLink>
         <NuxtLink :to="lp('/contact')" class="ts-btn sm hide-m">{{ m.nav.quote }}</NuxtLink>
@@ -78,7 +78,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
       <div class="cols" @mouseleave="hover = ''">
         <div class="group">
           <h4 class="reveal-i" :style="{ '--i': 0 }">{{ m.menu.services }}</h4>
-          <NuxtLink v-for="(s, n) in content.services" :key="s.id" class="reveal-i" :style="{ '--i': n + 1 }" :to="lp('/services/' + s.slug)" @mouseenter="hover = 's:' + s.slug">{{ s.title }}</NuxtLink>
+          <NuxtLink v-for="(s, n) in content.services" :key="s.id" class="reveal-i" :class="{ apart: s.apart }" :style="{ '--i': n + 1 }" :to="lp('/services/' + s.slug)" @mouseenter="hover = 's:' + s.slug">{{ s.title }}</NuxtLink>
         </div>
         <div class="group">
           <h4 class="reveal-i" :style="{ '--i': 2 }">{{ m.menu.fleet }}</h4>

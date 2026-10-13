@@ -49,7 +49,7 @@ const toTop = () => {
             </ul>
           </div>
           <div class="mark">
-            <img src="/img/logo.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="230" height="53">
+            <img src="/img/logo.svg" :alt="m.common.logoAlt" width="230" height="53">
             <p class="ts-thanks">{{ m.home.thanks }}</p>
           </div>
         </div>
@@ -57,7 +57,7 @@ const toTop = () => {
           <span>© {{ new Date().getFullYear() }} TS EXCLUSIVE · {{ m.footer.place }}. {{ m.footer.rights }}</span>
           <span class="right">
             <a href="/admin">{{ m.footer.admin }}</a>
-            <button type="button" class="totop" :aria-label="lang === 'fr' ? 'Haut de page' : 'Back to top'" @click="toTop"><i /></button>
+            <button type="button" class="totop" :aria-label="m.footer.top" @click="toTop"><i /></button>
           </span>
         </div>
       </div>
