@@ -475,3 +475,7 @@
 .ts-tile.line .txt { padding-bottom: clamp(70px, 9vw, 130px); }
 .ts-tile.mist .bgimg { height: clamp(110px, 13vw, 190px); }
 .ts-tile.mist .txt { padding-bottom: clamp(110px, 13vw, 190px); }
+
+/* Parcours « L'expérience TS » : l'intérieur du rond se colore quand la ligne l'atteint */
+.ts-step::before { transition: background .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease), transform .6s var(--ease); }
+.ts-step.is-on::before, .ts-step.is-on:hover::before { background: var(--navy); border-color: var(--navy); box-shadow: 0 0 0 5px rgba(201, 164, 92, .3); }

@@ -101,7 +101,13 @@ export default defineNuxtPlugin((nuxtApp) => {
       progresses.forEach((el) => {
         if (!el.isConnected) { progresses.delete(el); return }
         const r = el.getBoundingClientRect()
-        el.style.setProperty('--p', clamp((vh * 0.72 - r.top) / Math.max(1, r.height * 0.92)).toFixed(3))
+        const p = clamp((vh * 0.72 - r.top) / Math.max(1, r.height * 0.92))
+        el.style.setProperty('--p', p.toFixed(3))
+        // La ligne dessinée (haut : 14 px, hauteur : p × (hauteur − 28 px)) colore l'intérieur des ronds qu'elle a atteints
+        const reach = 14 + p * (r.height - 28)
+        el.querySelectorAll<HTMLElement>('.ts-step').forEach((step) => {
+          step.classList.toggle('is-on', p > 0 && step.offsetTop + 16 <= reach)
+        })
       })
     })
   }
