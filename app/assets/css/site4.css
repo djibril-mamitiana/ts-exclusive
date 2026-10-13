@@ -479,3 +479,14 @@
 /* Parcours « L'expérience TS » : l'intérieur du rond se colore quand la ligne l'atteint */
 .ts-step::before { transition: background .6s var(--ease), border-color .6s var(--ease), box-shadow .6s var(--ease), transform .6s var(--ease); }
 .ts-step.is-on::before, .ts-step.is-on:hover::before { background: var(--navy); border-color: var(--navy); box-shadow: 0 0 0 5px rgba(201, 164, 92, .3); }
+
+/* Destinations : le bloc de droite est decale vers la gauche et ne depasse plus jamais de l ecran */
+@media (min-width: 901px) {
+  .ts-dest .in { grid-template-columns: minmax(0, 1fr) minmax(300px, 470px); gap: clamp(24px, 4vw, 80px); }
+  .ts-dest .side { justify-items: start; min-width: 0; margin-right: clamp(24px, 6vw, 130px); }
+}
+.ts-dest .mapcard { grid-template-columns: clamp(96px, 8vw, 128px); padding: 18px 22px; }
+.ts-dest .mapcard svg { width: clamp(96px, 8vw, 128px); height: auto; }
+.ts-dest .detail { max-width: none; width: 100%; min-width: 0; justify-self: start; }
+.ts-dest .detail h3 { font-size: clamp(1.7rem, 2.6vw, 2.8rem); line-height: 1.1; overflow-wrap: anywhere; }
+.ts-dest .detail p { overflow-wrap: anywhere; }
