@@ -39,7 +39,7 @@ const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'nu
 <template>
   <div class="admin-shell">
     <aside class="admin-side">
-      <a href="/admin" class="brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="174" height="40"><small>Espace de gestion</small></a>
+      <a href="/admin" class="brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="222" height="40"><small>Espace de gestion</small></a>
       <template v-for="g in visible" :key="g.title">
         <div class="grp">{{ g.title }}</div>
         <NuxtLink v-for="n in g.items" :key="n.to" :to="n.to" :exact-active-class="n.exact ? 'router-link-active' : ''" :active-class="n.exact ? '' : 'router-link-active'">

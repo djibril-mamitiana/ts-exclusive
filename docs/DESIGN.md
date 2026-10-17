@@ -10,15 +10,16 @@
 | Rôle | Couleur |
 |---|---|
 | Marine profond (fonds sombres) | `#07182e` |
-| Marine (logo, boutons) | `#0c2646` |
-| Bleu acier (accent principal, tuile 01) | `#4b7096` / `#8aa4bd` |
+| Marine (fonds, titres sur fond clair) | `#0c2646` (marine du logo : `#0d2e5b`) |
+| Bleu acier (logo, tuile 01) | `#93acb9` (logo) / `#4b7096` (sur fond clair) |
 | Gris-bleu (tuile 03) | `#a7b5c6` |
 | Gris clair (tuile 04) | `#c9d2de` |
 | Ardoise (tuile 05) | `#33465e` |
 | Fond clair des sections | `#e1e6ed` |
 | Blanc | `#ffffff` |
+| Or (logo, accent fort) | `#c9a45c` ; clair `#e3cb92` sur fond sombre, foncé `#a07a30` sur fond clair |
 
-Le doré n'est plus utilisé : l'accent est le bleu acier.
+L'or est accentué depuis le 17 octobre : boutons d'action principaux en aplat or (en-tête, hero, services, appel final), mot mis en avant des titres, chiffres du hero, icônes des piliers, contour des boutons des tuiles avec filet d'or au survol, ligne et ronds du parcours, repère actif de la carte, bandeau du pied de page. Le ruban incliné acier + or du logo sert de repère (étiquettes de section, hero, pied de page).
 
 ## Typographie
 - Titres : Roboto fin (100 à 300), majuscules, espacement des lettres léger. Grands chiffres des tuiles en Roboto 100.
@@ -42,4 +43,4 @@ Le doré n'est plus utilisé : l'accent est le bleu acier.
 - `wireframes-mobile.svg` : page d'accueil sur téléphone.
 
 ## Éléments graphiques
-Logo en deux versions (`public/img/logo.png` pour fond clair, `logo-light.png` pour fond sombre), icônes en traits fins (`app/components/Icon.vue`), photographies Unsplash et Pexels (identifiants dans `app/utils/images.ts`, photo du hero dans `public/img/hero-maybach.jpg`).
+Logo fourni par le client (bleu marine, acier, or), vectorisé en deux versions (`public/img/logo.svg` pour fond clair, `logo-light.svg` pour fond sombre, avec exports PNG), monogramme TS pour l'icône du site (`public/favicon.svg`, `favicon.ico`, `apple-touch-icon.png`), icônes en traits fins (`app/components/Icon.vue`), photographies Unsplash et Pexels (identifiants dans `app/utils/images.ts`, photo du hero dans `public/img/hero-maybach.jpg`).

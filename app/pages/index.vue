@@ -115,7 +115,7 @@ useHead({
         <span v-reveal class="ts-label">{{ h.expLabel }}</span>
         <h2 v-reveal="0.1" class="ts-title">{{ h.expTitle }}</h2>
         <div v-reveal="0.2" class="ts-board" aria-hidden="true">
-          <img src="/img/logo.svg" alt="" width="130" height="30">
+          <img src="/img/logo.svg" alt="" width="167" height="30">
           <b>Tonga soa</b>
           <span>{{ h.board }}</span>
         </div>

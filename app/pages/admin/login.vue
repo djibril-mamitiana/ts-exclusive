@@ -34,7 +34,7 @@ async function login() {
     </aside>
     <section class="login-form">
       <form @submit.prevent="login">
-        <a href="/" class="brand"><img src="/img/logo.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="244" height="56"></a>
+        <a href="/" class="brand"><img src="/img/logo.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="311" height="56"></a>
         <h1>Content de vous <em>revoir.</em></h1>
         <p class="hint">Connectez-vous pour gérer le site et répondre aux demandes de vos clients.</p>
         <label class="f">Email<input v-model="email" type="email" required autocomplete="username"></label>

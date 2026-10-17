@@ -16,8 +16,8 @@ const toTop = () => {
 
 <template>
   <div class="ts">
-    <div class="ts-curtain" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="280" height="64"><i /></div>
-    <div class="ts-wipe" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="200" height="46"></div>
+    <div class="ts-curtain" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="280" height="50"><i /></div>
+    <div class="ts-wipe" aria-hidden="true"><img src="/img/logo-light.svg" alt="" width="200" height="36"></div>
     <SiteHeader />
     <CustomCursor />
     <main><slot /></main>
@@ -49,7 +49,7 @@ const toTop = () => {
             </ul>
           </div>
           <div class="mark">
-            <img src="/img/logo.svg" :alt="m.common.logoAlt" width="230" height="53">
+            <img src="/img/logo.svg" :alt="m.common.logoAlt" width="230" height="41">
             <p class="ts-thanks">{{ m.home.thanks }}</p>
           </div>
         </div>

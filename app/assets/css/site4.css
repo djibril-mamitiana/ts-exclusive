@@ -1,6 +1,6 @@
 /* ============ Refonte 7 : modèle validé par le client (type « Detailing ») ============
    Fonds marine très sombres, titres fins en capitales espacées, tuiles numérotées presque droites,
-   bloc clair, pied de page clair. L'accent est le bleu acier : pas de doré mis en avant.
+   bloc clair, pied de page clair. Couleurs du logo : bleu marine, bleu acier et or (l'or est accentué en fin de feuille).
    Cette feuille passe après site / site2 / site3 et remplace leurs formes arrondies. */
 
 /* Variables posées sur .ts (et non :root) pour ne jamais être écrasées par l'administration */
@@ -490,3 +490,66 @@
 .ts-dest .detail { max-width: none; width: 100%; min-width: 0; justify-self: start; }
 .ts-dest .detail h3 { font-size: clamp(1.7rem, 2.6vw, 2.8rem); line-height: 1.1; overflow-wrap: anywhere; }
 .ts-dest .detail p { overflow-wrap: anywhere; }
+
+/* =====================================================================
+   Version du 17 octobre : nouveau logo (bleu marine, bleu acier, or) et doré accentué.
+   Le ruban incliné acier + or du logo revient dans les repères du site (étiquettes, hero, pied de page).
+   ===================================================================== */
+.ts { --steel: #93acb9; }
+
+/* ---------- Ruban du logo : repère de section, hero, pied de page ---------- */
+.ts-label::before { width: 46px; height: 7px; opacity: 1; transform: skewX(-18deg); background: linear-gradient(90deg, var(--steel) 0 50%, var(--gold) 50% 100%); }
+.ts-light .ts-label::before, .ts-cloud .ts-label::before { background: linear-gradient(90deg, var(--steel-d) 0 50%, var(--gold) 50% 100%); }
+.ts-hero .copy::before { content: ''; display: block; margin: 0 0 clamp(18px, 2vw, 28px) auto; width: clamp(96px, 9vw, 150px); height: 10px; transform: skewX(-18deg); background: linear-gradient(90deg, var(--steel) 0 50%, var(--gold) 50% 100%); }
+.ts-footer { position: relative; box-shadow: none; }
+.ts-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--steel) 0 34%, var(--gold) 34% 100%); }
+
+/* ---------- Titres : le mot mis en avant passe en or ---------- */
+.ts-title em, .ts-display em, h2 em, .ts-hero h1.ts-display em { color: var(--gold); }
+.ts-light .ts-title em, .ts-light h2 em { color: var(--gold-d); }
+.ts-rule2 span { color: var(--gold-l); }
+.ts-light .ts-rule2 span, .ts-cloud .ts-rule2 span { color: var(--navy); }
+
+/* ---------- Boutons d'action principaux en or (aplat), contour or au survol ---------- */
+.ts-header .ts-btn, .ts-hero .cta .ts-btn.solid, .ts-pagehero .ts-btn.solid, .ts-sblock .ts-btn.solid, .ts-closing .ts-btn.solid,
+.ts-mbar .ts-btn.solid, .ts-final .btns .ts-btn:first-child { background: var(--gold); border-color: var(--gold); color: #0a1830; }
+.ts-header .ts-btn:hover, .ts-hero .cta .ts-btn.solid:hover, .ts-pagehero .ts-btn.solid:hover, .ts-sblock .ts-btn.solid:hover, .ts-closing .ts-btn.solid:hover,
+.ts-mbar .ts-btn.solid:hover, .ts-final .btns .ts-btn:first-child:hover { background: transparent; border-color: var(--gold); color: var(--gold-l); }
+.ts-btn.gold { box-shadow: 0 10px 30px -14px rgba(201, 164, 92, .7); }
+.ts-btn .ts-arr { color: inherit; }
+.ts-more .ts-btn, .ts-dest .ts-btn:not(:hover) { border-color: rgba(201, 164, 92, .6); }
+.ts-more .ts-btn .ts-arr { color: var(--gold-l); }
+.ts-more .ts-btn:hover .ts-arr { color: inherit; }
+
+/* ---------- En-tête, hero, chiffres ---------- */
+.ts-header .ts-progress { height: 2px; }
+.ts-hero .offer { box-shadow: 0 0 0 1px rgba(201, 164, 92, .22), 0 14px 44px -12px rgba(201, 164, 92, .4); }
+.ts-hstats b { color: var(--gold-l); }
+.ts-hstats::before { height: 2px; }
+
+/* ---------- Piliers : icône et filet en or ---------- */
+.ts-pillars .it { position: relative; }
+.ts-pillars .it::before { content: ''; position: absolute; top: -1px; left: 50%; margin-left: -28px; width: 56px; height: 3px; background: var(--gold); }
+.ts-pillars .it svg { color: var(--gold); }
+
+/* ---------- Tuiles de service : bouton à contour or, filet d'or qui se trace au survol ---------- */
+.ts-tile::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .8s var(--ease); z-index: 3; pointer-events: none; }
+.ts-tile:hover::after { transform: scaleX(1); }
+.ts-tile .cta { border-color: var(--gold); }
+.ts-tile.mist .cta, .ts-tile.fog .cta { border-color: var(--gold-d); }
+.ts-tile .cta:hover, .ts-tile.mist .cta:hover, .ts-tile.fog .cta:hover { background: var(--gold); border-color: var(--gold); color: #0a1830; }
+.ts-tile .cta:hover .ts-arr, .ts-tile.mist .cta:hover .ts-arr, .ts-tile.fog .cta:hover .ts-arr { color: #0a1830; }
+.ts-sblock .chips li { border-color: rgba(201, 164, 92, .5); }
+.ts-sblock { border-top-color: rgba(201, 164, 92, .28); }
+
+/* ---------- Parcours, carte, intro : l'or comme fil conducteur ---------- */
+.ts-path::after { background: linear-gradient(180deg, var(--gold-d), var(--gold)); }
+.ts-step::before { border-color: var(--gold-d); }
+.ts-step.is-on::before, .ts-step.is-on:hover::before { background: var(--gold); border-color: var(--gold-d); box-shadow: 0 0 0 5px rgba(201, 164, 92, .32); }
+.ts-step .tag { color: var(--gold-d); }
+.ts-dest .mapcard .pin.on { fill: var(--gold-l); }
+.ts-dest .mapcard .ring { stroke: var(--gold); }
+.ts-curtain i::after { background: var(--gold); }
+.ts-faq summary::after { color: var(--gold-d); }
+.ts-quote { border-top: 2px solid var(--gold); }
+.ts-footer li a:hover { color: var(--gold-d); }

@@ -59,7 +59,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
 <template>
   <header class="ts-header" :class="{ scrolled }">
     <div class="ts-wrap row">
-      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.svg" :alt="m.common.logoAlt" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img src="/img/logo-light.svg" :alt="m.common.logoAlt" width="267" height="48"></NuxtLink>
       <div class="ts-tools">
         <NuxtLink :to="otherPath" class="ts-link" :aria-label="lang === 'fr' ? 'English' : 'Français'">{{ lang === 'fr' ? 'EN' : 'FR' }}</NuxtLink>
         <NuxtLink :to="lp('/contact')" class="ts-btn sm hide-m">{{ m.nav.quote }}</NuxtLink>
@@ -71,7 +71,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
 
   <div class="ts-menu" :class="{ open }" :aria-hidden="!open" role="dialog" aria-label="Menu">
     <div class="top">
-      <NuxtLink :to="lp('/')" class="ts-brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="256" height="48"></NuxtLink>
+      <NuxtLink :to="lp('/')" class="ts-brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="267" height="48"></NuxtLink>
       <button class="ts-burger is-close" type="button" :aria-label="m.nav.close" @click="open = false"><i /><i /></button>
     </div>
     <div class="body">
