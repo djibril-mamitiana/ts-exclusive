@@ -4,6 +4,8 @@ import '~/assets/css/admin2.css'
 import '~/assets/css/admin3.css'
 definePageMeta({ layout: false })
 useHead({ title: 'Connexion | TS EXCLUSIVE', meta: [{ name: 'robots', content: 'noindex' }] })
+await useImages()
+const img = useImg()
 const email = ref('')
 const password = ref('')
 const error = ref('')
@@ -26,7 +28,7 @@ async function login() {
 <template>
   <div class="login-split">
     <aside class="login-photo">
-      <img class="bg" :src="sized(photos.hero, 1600)" alt="" fetchpriority="high">
+      <img class="bg" :src="img('login.bg', 1600)" alt="" fetchpriority="high">
       <div class="txt">
         <em>Tonga soa.</em>
         <p>Bienvenue dans l'espace de gestion de TS EXCLUSIVE. Devis, flotte, destinations et textes du site, tout est ici.</p>
@@ -34,7 +36,7 @@ async function login() {
     </aside>
     <section class="login-form">
       <form @submit.prevent="login">
-        <a href="/" class="brand"><img src="/img/logo.svg" alt="TS EXCLUSIVE Executive & Private Mobility" width="311" height="56"></a>
+        <a href="/" class="brand"><img :src="img('logo.light')" alt="TS EXCLUSIVE Executive & Private Mobility" width="311" height="56"></a>
         <h1>Content de vous <em>revoir.</em></h1>
         <p class="hint">Connectez-vous pour gérer le site et répondre aux demandes de vos clients.</p>
         <label class="f">Email<input v-model="email" type="email" required autocomplete="username"></label>

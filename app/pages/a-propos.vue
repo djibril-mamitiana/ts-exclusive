@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const img = useImg()
 const { m } = useLang()
 const c = computed(() => m.value.about)
-usePageSeo(c.value.seoTitle, c.value.paragraphs[0], '/img/baobabs.jpg')
+usePageSeo(c.value.seoTitle, c.value.paragraphs[0])
 </script>
 
 <template>
-  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="photos.doorHandle" />
+  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="img('about.hero')" />
 
   <section class="ts-sec ts-black">
     <div class="ts-wrap ts-split">
@@ -42,5 +43,5 @@ usePageSeo(c.value.seoTitle, c.value.paragraphs[0], '/img/baobabs.jpg')
     </div>
   </section>
 
-  <FinalCta :line1="c.finalTitle" :image="photos.hero" />
+  <FinalCta :line1="c.finalTitle" :image="img('about.final')" />
 </template>

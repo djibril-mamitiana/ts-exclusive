@@ -44,3 +44,6 @@ L'or est accentué depuis le 17 octobre : boutons d'action principaux en aplat o
 
 ## Éléments graphiques
 Logo fourni par le client (bleu marine, acier, or), vectorisé en deux versions (`public/img/logo.svg` pour fond clair, `logo-light.svg` pour fond sombre, avec exports PNG), monogramme TS pour l'icône du site (`public/favicon.svg`, `favicon.ico`, `apple-touch-icon.png`), icônes en traits fins (`app/components/Icon.vue`), photographies Unsplash et Pexels (identifiants dans `app/utils/images.ts`, photo du hero dans `public/img/hero-maybach.jpg`).
+
+## Images gérées depuis l'admin
+Toutes les images affichées sur le site se remplacent dans l'admin, page « Images du site » (`/admin/images`) : photos d'en-tête et bandeaux finaux de chaque page, aperçus du menu, logos, image de partage, fond de la page de connexion, puis les photos de la flotte, des services et des destinations. Chaque emplacement a une image par défaut (`app/utils/images.ts`, liste `imageSlots`) ; l'image choisie est enregistrée dans la table `site_images` et lue par `useImg()`. Les images sont stockées en base (médiathèque) ; les photos trop lourdes sont réduites dans le navigateur avant l'envoi (2400 px, limite d'envoi Vercel de 4,5 Mo).

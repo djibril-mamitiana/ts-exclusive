@@ -1,9 +1,10 @@
 <script setup lang="ts">
+const img = useImg()
 const { data: settings } = await useSettings()
 const { data: content } = await useContent()
 const { m, lp } = useLang()
 const h = computed(() => m.value.home)
-usePageSeo(h.value.seoTitle, h.value.seoDesc, '/img/baobabs.jpg')
+usePageSeo(h.value.seoTitle, h.value.seoDesc)
 
 // Chiffres issus des données réelles (flotte, offres)
 const stats = computed(() => {
@@ -35,7 +36,7 @@ useHead({
 
 <template>
   <section class="ts-hero">
-    <div class="bg"><img v-parallax="0.08" :src="photos.hero" :alt="m.common.heroAlt" fetchpriority="high"></div>
+    <div class="bg"><img v-parallax="0.08" :src="img('home.hero')" :alt="m.common.heroAlt" fetchpriority="high"></div>
     <div class="tint" aria-hidden="true" />
     <div class="spot" aria-hidden="true" />
     <div class="ts-wrap in">
@@ -84,7 +85,7 @@ useHead({
         <FleetTile :vehicles="content.vehicles" />
         <div class="stack">
           <NuxtLink v-reveal="0.1" :to="lp('/a-propos')" class="ts-tile about" :data-cursor-label="m.common.view">
-            <div class="bgimg"><img :src="sized(photos.chauffeur, 900)" alt="" loading="lazy" decoding="async"></div>
+            <div class="bgimg"><img :src="img('home.about', 900)" alt="" loading="lazy" decoding="async"></div>
             <div class="txt">
               <h3>{{ h.aboutName }}</h3>
               <p>{{ h.aboutText }}</p>
@@ -115,7 +116,7 @@ useHead({
         <span v-reveal class="ts-label">{{ h.expLabel }}</span>
         <h2 v-reveal="0.1" class="ts-title">{{ h.expTitle }}</h2>
         <div v-reveal="0.2" class="ts-board" aria-hidden="true">
-          <img src="/img/logo.svg" alt="" width="167" height="30">
+          <img :src="img('logo.light')" alt="" width="167" height="30">
           <b>Tonga soa</b>
           <span>{{ h.board }}</span>
         </div>
@@ -163,5 +164,5 @@ useHead({
     </div>
   </section>
 
-  <FinalCta :line1="h.finalTitle1" :line2="h.finalTitle2" :image="photos.night" :primary="h.quote" />
+  <FinalCta :line1="h.finalTitle1" :line2="h.finalTitle2" :image="img('home.final')" :primary="h.quote" />
 </template>

@@ -9,6 +9,7 @@ const editing = ref<any>(null)
 const isNew = computed(() => editing.value && !editing.value.id)
 const saving = ref(false)
 const uploading = ref(false)
+const pickKey = ref('')
 const hasTr = computed(() => props.fields.some(f => f.tr))
 const tab = ref<'fr' | 'en'>('fr')
 
@@ -67,10 +68,7 @@ async function upload(e: Event, key: string) {
   if (!file) return
   uploading.value = true
   try {
-    const fd = new FormData()
-    fd.append('file', file)
-    const res = await $fetch<{ url: string }>('/api/admin/media', { method: 'POST', body: fd })
-    editing.value[key] = res.url
+    editing.value[key] = await uploadImage(file)
   } catch (err: any) {
     alert(err?.data?.statusMessage || "Échec de l'envoi")
   } finally {
@@ -119,7 +117,10 @@ const hasEn = (r: any) => r.en && Object.keys(r.en).length > 0
             <label v-else-if="f.type === 'bool'" style="display:flex;gap:8px;align-items:center;font-weight:400"><input v-model="editing[f.key]" type="checkbox" style="width:auto"> Oui</label>
             <template v-else-if="f.type === 'image'">
               <input v-model="editing[f.key]" placeholder="/api/media/1 ou URL">
-              <input type="file" accept="image/*" :disabled="uploading" @change="upload($event, f.key)">
+              <div class="actions" style="gap:8px;flex-wrap:wrap">
+                <label class="icon-btn" style="cursor:pointer">{{ uploading ? 'Envoi…' : 'Téléverser une image' }}<input type="file" accept="image/*" hidden :disabled="uploading" @change="upload($event, f.key)"></label>
+                <button type="button" class="icon-btn" @click="pickKey = f.key">Médiathèque</button>
+              </div>
               <img v-if="editing[f.key]" :src="editing[f.key]" alt="" style="max-height:120px;object-fit:contain;align-self:flex-start;border:1px solid var(--line);padding:4px">
             </template>
             <input v-else v-model="editing[f.key]" :type="f.type === 'number' ? 'number' : 'text'">
@@ -143,4 +144,5 @@ const hasEn = (r: any) => r.en && Object.keys(r.en).length > 0
       </form>
     </div>
   </div>
+  <AdminMediaPicker v-if="pickKey" @pick="(u: string) => { editing[pickKey] = u; pickKey = '' }" @close="pickKey = ''" />
 </template>

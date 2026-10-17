@@ -1,14 +1,15 @@
 <script setup lang="ts">
+const img = useImg()
 const { data: content } = await useContent()
 const { m } = useLang()
 const s = computed(() => m.value.services)
-usePageSeo(s.value.seoTitle, s.value.sub, '/img/baobabs.jpg')
+usePageSeo(s.value.seoTitle, s.value.sub)
 const numbered = computed(() => numberedServices(content.value.services))
 const apart = computed(() => apartService(content.value.services))
 </script>
 
 <template>
-  <PageHero :label="s.label" :title="s.title" :sub="s.sub" :image="photos.chauffeur" />
+  <PageHero :label="s.label" :title="s.title" :sub="s.sub" :image="img('services.hero')" />
 
   <section class="ts-sec ts-black ts-sblocks" style="padding-top:clamp(40px,6vw,90px)">
     <div class="ts-wrap">
@@ -30,5 +31,5 @@ const apart = computed(() => apartService(content.value.services))
     </div>
   </section>
 
-  <FinalCta :line1="s.finalTitle" :image="photos.night" />
+  <FinalCta :line1="s.finalTitle" :image="img('services.final')" />
 </template>

@@ -11,7 +11,7 @@ const paragraphs = computed(() => paragraphsOf(service.value?.description))
 const points = computed(() => (service.value?.bullets || []).map(splitPoint))
 const closing = computed(() => String(service.value?.closing || '').split('\n').map(l => l.trim()).filter(Boolean))
 const ctaTo = computed(() => ({ path: lp('/contact'), query: { service: service.value?.slug } }))
-usePageSeo(`${service.value.title} | TS EXCLUSIVE`, `${service.value.subtitle} ${paragraphs.value[0] || ''}`.slice(0, 200), '/img/baobabs.jpg')
+usePageSeo(`${service.value.title} | TS EXCLUSIVE`, `${service.value.subtitle} ${paragraphs.value[0] || ''}`.slice(0, 200))
 
 const isAirport = computed(() => service.value?.slug === 'transferts-aeroport')
 const others = computed(() => content.value.services.filter(s => s.slug !== service.value?.slug).slice(0, 3))

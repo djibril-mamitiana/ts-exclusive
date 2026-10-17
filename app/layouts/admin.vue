@@ -2,6 +2,8 @@
 import '~/assets/css/admin.css'
 import '~/assets/css/admin2.css'
 import '~/assets/css/admin3.css'
+await useImages()
+const img = useImg()
 const { data: me } = await useFetch<any>('/api/admin/me', { key: 'me' })
 if (!me.value) await navigateTo('/admin/login')
 
@@ -16,6 +18,7 @@ const groups = [
     { to: '/admin/devis', label: 'Demandes de devis', icon: 'inbox' }
   ] },
   { title: 'Contenu du site', items: [
+    { to: '/admin/images', label: 'Images du site', icon: 'image' },
     { to: '/admin/flotte', label: 'Flotte', icon: 'car' },
     { to: '/admin/services', label: 'Services', icon: 'briefcase' },
     { to: '/admin/offres', label: 'Offres et prix', icon: 'diamond' },
@@ -39,7 +42,7 @@ const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'nu
 <template>
   <div class="admin-shell">
     <aside class="admin-side">
-      <a href="/admin" class="brand"><img src="/img/logo-light.svg" alt="TS EXCLUSIVE" width="222" height="40"><small>Espace de gestion</small></a>
+      <a href="/admin" class="brand"><img :src="img('logo.dark')" alt="TS EXCLUSIVE" width="222" height="40"><small>Espace de gestion</small></a>
       <template v-for="g in visible" :key="g.title">
         <div class="grp">{{ g.title }}</div>
         <NuxtLink v-for="n in g.items" :key="n.to" :to="n.to" :exact-active-class="n.exact ? 'router-link-active' : ''" :active-class="n.exact ? '' : 'router-link-active'">

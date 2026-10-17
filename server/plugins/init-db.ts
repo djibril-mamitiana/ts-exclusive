@@ -61,6 +61,8 @@ export default defineNitroPlugin(async () => {
       id serial primary key, name text not null, sort int default 0, active boolean default true, en jsonb default '{}'::jsonb
     )`)
     await query(`create table if not exists texts (key text primary key, fr text default '', en text default '')`)
+    // Images des pages choisies depuis l'admin (une ligne par emplacement : clé -> adresse de l'image)
+    await query(`create table if not exists site_images (key text primary key, url text not null, updated_at timestamptz default now())`)
     await seedDestinationsAndPartners()
 
     const config = useRuntimeConfig()

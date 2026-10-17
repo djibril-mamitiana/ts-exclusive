@@ -1,12 +1,13 @@
 <script setup lang="ts">
+const img = useImg()
 const { data: content } = await useContent()
 const { m } = useLang()
 const c = computed(() => m.value.pricing)
-usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
+usePageSeo(c.value.seoTitle, c.value.sub)
 </script>
 
 <template>
-  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="photos.night" />
+  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="img('tarifs.hero')" />
 
   <section class="ts-sec ts-light" style="padding-bottom:clamp(60px,8vw,120px)">
     <div class="ts-wrap"><OfferGrid :offers="content.offers" /></div>
@@ -19,5 +20,5 @@ usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
     </div>
   </section>
 
-  <FinalCta :line1="c.finalTitle" :image="photos.hero" />
+  <FinalCta :line1="c.finalTitle" :image="img('tarifs.final')" />
 </template>

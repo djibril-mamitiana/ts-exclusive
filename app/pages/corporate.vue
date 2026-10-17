@@ -1,11 +1,12 @@
 <script setup lang="ts">
+const img = useImg()
 const { m, lp } = useLang()
 const c = computed(() => m.value.corporate)
-usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
+usePageSeo(c.value.seoTitle, c.value.sub)
 </script>
 
 <template>
-  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="photos.hotel" />
+  <PageHero :label="c.label" :title="c.title" :sub="c.sub" :image="img('corporate.hero')" />
 
   <section class="ts-sec ts-black">
     <div class="ts-wrap ts-split">
@@ -13,7 +14,7 @@ usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
         <span v-reveal class="ts-label" style="color:var(--champ);opacity:1">{{ c.whoLabel }}</span>
         <ul v-reveal="0.1" class="ts-list"><li v-for="w in c.who" :key="w">{{ w }}</li></ul>
       </div>
-      <div v-reveal:img class="ts-photo"><img :src="sized(photos.lobby, 1200)" alt="" loading="lazy"></div>
+      <div v-reveal:img class="ts-photo"><img :src="img('corporate.photo', 1200)" alt="" loading="lazy"></div>
     </div>
   </section>
 
@@ -30,5 +31,5 @@ usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
     </div>
   </section>
 
-  <FinalCta :line1="c.finalTitle" :image="photos.hotel" :primary="c.cta" to="/contact?service=Corporate" />
+  <FinalCta :line1="c.finalTitle" :image="img('corporate.final')" :primary="c.cta" to="/contact?service=Corporate" />
 </template>

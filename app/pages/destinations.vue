@@ -1,7 +1,8 @@
 <script setup lang="ts">
+const img = useImg()
 const { m } = useLang()
 const d = computed(() => m.value.destinations)
-usePageSeo(d.value.seoTitle, d.value.sub, '/img/baobabs.jpg')
+usePageSeo(d.value.seoTitle, d.value.sub)
 </script>
 
 <template>
@@ -12,5 +13,5 @@ usePageSeo(d.value.seoTitle, d.value.sub, '/img/baobabs.jpg')
     </div>
     <DestinationExplorer />
   </section>
-  <FinalCta :line1="m.home.finalTitle1" :line2="m.home.finalTitle2" :image="photos.baobabsRoad" />
+  <FinalCta :line1="m.home.finalTitle1" :line2="m.home.finalTitle2" :image="img('destinations.final')" />
 </template>

@@ -1,4 +1,5 @@
 import { messages, type Lang } from '~/i18n/messages'
+import { slotDefault, sized } from '~/utils/images'
 
 export const useSettings = () =>
   useFetch<Record<string, string>>('/api/settings', { key: 'settings', default: () => ({}) })
@@ -6,6 +7,19 @@ export const useSettings = () =>
 // Textes modifiés depuis l'admin (voir /admin/textes). Chargés une fois dans le layout.
 export const useTexts = () =>
   useFetch<Record<string, { fr: string; en: string }>>('/api/texts', { key: 'texts', default: () => ({}) })
+
+// Images des pages choisies dans l'admin (voir /admin/images). Chargées une fois dans le layout.
+export const useImages = () =>
+  useFetch<Record<string, string>>('/api/images', { key: 'images', default: () => ({}) })
+
+// img('home.hero') : image choisie dans l'admin pour cet emplacement, sinon image par défaut ; img(clé, 1400) pour une taille donnée
+export const useImg = () => {
+  const { data } = useNuxtData<Record<string, string>>('images')
+  return (key: string, width?: number) => {
+    const url = data.value?.[key] || slotDefault(key)
+    return width ? sized(url, width) : url
+  }
+}
 
 function setPath(obj: any, path: string, value: string) {
   const parts = path.split('.')
@@ -64,7 +78,8 @@ export const waLink = (number?: string, text?: string) => {
 }
 
 // SEO : titre, description, balises sociales, canonical et hreflang
-export const usePageSeo = (title: string, description?: string, image = '/img/baobabs.jpg') => {
+export const usePageSeo = (title: string, description?: string, image?: string) => {
+  const img = useImg()
   const { lang, otherPath } = useLang()
   const route = useRoute()
   const site = (useRuntimeConfig().public.siteUrl as string || '').replace(/\/$/, '')
@@ -73,7 +88,7 @@ export const usePageSeo = (title: string, description?: string, image = '/img/ba
   const enPath = lang.value === 'en' ? route.path : otherPath.value
   useSeoMeta({
     title, description: desc, ogTitle: title, ogDescription: desc, ogType: 'website',
-    ogImage: site + image, ogLocale: lang.value === 'en' ? 'en_US' : 'fr_FR', twitterCard: 'summary_large_image'
+    ogImage: /^https?:/.test(image || img('seo.share')) ? (image || img('seo.share')) : site + (image || img('seo.share')), ogLocale: lang.value === 'en' ? 'en_US' : 'fr_FR', twitterCard: 'summary_large_image'
   })
   useHead({
     htmlAttrs: { lang: lang.value },

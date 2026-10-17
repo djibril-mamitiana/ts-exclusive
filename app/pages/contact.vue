@@ -1,8 +1,9 @@
 <script setup lang="ts">
+const img = useImg()
 const { data: settings } = await useSettings()
 const { m } = useLang()
 const c = computed(() => m.value.contact)
-usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
+usePageSeo(c.value.seoTitle, c.value.sub)
 </script>
 
 <template>
@@ -13,7 +14,7 @@ usePageSeo(c.value.seoTitle, c.value.sub, '/img/baobabs.jpg')
       <div class="ts-split">
         <div class="ts-gap">
           <p class="ts-subtitle" style="opacity:.8">{{ c.sub }}</p>
-          <div v-reveal:img class="ts-contact-photo" style="margin-top:34px"><img :src="sized(photos.airport, 1000)" alt="" decoding="async"></div>
+          <div v-reveal:img class="ts-contact-photo" style="margin-top:34px"><img :src="img('contact.photo', 1000)" alt="" decoding="async"></div>
           <ul class="ts-gap" style="padding-top:24px">
             <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.phone }}</span>{{ settings.phone }}</li>
             <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.whatsapp }}</span><a class="ts-link" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">{{ c.writeWa }}</a></li>
