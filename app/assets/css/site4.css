@@ -553,3 +553,8 @@
 .ts-faq summary::after { color: var(--gold-d); }
 .ts-quote { border-top: 2px solid var(--gold); }
 .ts-footer li a:hover { color: var(--gold-d); }
+
+/* Tuile flotte : le véhicule monte pour ne plus passer sur le nom, la catégorie et « Toute la flotte » */
+.ts-tile.fleet .stage { top: 27%; bottom: clamp(132px, 11vw, 168px); }
+.ts-tile.fleet.cut .stage img { filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .45)); }
+.ts-tile.fleet.cut.is-light .stage img { filter: drop-shadow(0 10px 12px rgba(7, 24, 46, .28)); }
