@@ -12,7 +12,7 @@ const fr = {
   },
   common: {
     discover: 'Découvrir', explore: 'Explorer le véhicule', quote: 'Demander un devis', contactUs: 'Nous contacter', requestAvailability: 'Demander la disponibilité',
-    passengers: 'Passagers', bags: 'Bagages', from: 'À partir de', included: 'Inclus', otherServices: 'Autres services', all: 'Tous',
+    passengers: 'Passagers', bags: 'Bagages', included: 'Inclus', otherServices: 'Autres services', all: 'Tous',
     view: 'Voir', zoom: 'Zoom', prev: 'Précédent', next: 'Suivant', heroAlt: 'Véhicule de direction TS EXCLUSIVE', partnersAria: 'Partenaires', logoAlt: 'TS EXCLUSIVE',
     waText: 'Bonjour TS EXCLUSIVE, je souhaite un devis.',
     notFound: 'Page introuvable', notFoundText: "Cette page n'existe pas ou a été déplacée.", backHome: "Retour à l'accueil"
@@ -124,7 +124,7 @@ const en: typeof fr = {
   },
   common: {
     discover: 'Discover', explore: 'Explore vehicle', quote: 'Request a quote', contactUs: 'Contact us', requestAvailability: 'Check availability',
-    passengers: 'Passengers', bags: 'Bags', from: 'From', included: 'Included', otherServices: 'Other services', all: 'All',
+    passengers: 'Passengers', bags: 'Bags', included: 'Included', otherServices: 'Other services', all: 'All',
     view: 'View', zoom: 'Zoom', prev: 'Previous', next: 'Next', heroAlt: 'TS EXCLUSIVE executive vehicle', partnersAria: 'Partners', logoAlt: 'TS EXCLUSIVE',
     waText: 'Hello TS EXCLUSIVE, I would like a quote.',
     notFound: 'Page not found', notFoundText: 'This page does not exist or has moved.', backHome: 'Back to home'
