@@ -2,6 +2,9 @@
 
 Site vitrine bilingue (FR / EN) avec espace administrateur. Nuxt 4, Node.js, PostgreSQL (Neon).
 
+- Code source : https://github.com/gingerrhr-ui/ts-exclusive
+- Site en ligne : https://ts-exclusive.vercel.app (espace de gestion : `/admin`)
+
 ## Lancer en local
 
     npm install
@@ -34,7 +37,8 @@ Public (FR à la racine, EN sous `/en`) : accueil, services (+ une page par serv
 - Tableau de bord, demandes de devis (statuts, notes internes, export CSV)
 - Flotte, services, offres, destinations, partenaires, témoignages, FAQ : édition en français et en anglais
 - Textes du site : titres et phrases de l'accueil et des pages, en français et en anglais
-- Médiathèque : envoi d'images (stockées en base, 5 Mo max)
+- Images du site : remplacement de toutes les images affichées (pages, menu, logos, flotte, services, destinations) avec retour à l'image d'origine
+- Médiathèque : envoi d'images (stockées en base, 4 Mo max ; les grandes photos sont réduites automatiquement avant l'envoi)
 - Utilisateurs : rôles Administrateur (accès complet) et Éditeur (contenu et devis)
 - Paramètres : téléphone, WhatsApp, email, adresse, réseaux sociaux
 
@@ -47,4 +51,4 @@ Le serveur écoute sur le port 3000 (variable `PORT`). Penser à définir toutes
 
 ## Documentation
 
-Voir le dossier `docs/` : architecture, backlog, identité visuelle, wireframes et suivi tâche par tâche de l'estimation.
+Voir le dossier `docs/` : cahier des charges (`CAHIER-DES-CHARGES.docx`), architecture, backlog, identité visuelle, wireframes et suivi tâche par tâche de l'estimation.

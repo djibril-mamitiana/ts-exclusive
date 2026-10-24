@@ -1,21 +1,94 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1500" font-family="Arial, sans-serif" font-size="14">
-  <rect width="900" height="1500" fill="#eef2f7"/>
-  <g fill="none" stroke="#0c2646" stroke-width="1.5">
-    <rect x="20" y="20" width="860" height="560" fill="#c5d3e0"/>
-    <path d="M20 20 H430 L330 580 H20 Z" fill="#0c2646" stroke="none"/>
-    <rect x="620" y="30" width="60" height="26"/><rect x="700" y="30" width="60" height="26"/><rect x="780" y="30" width="80" height="26"/>
-    <rect x="40" y="440" width="150" height="40"/><rect x="200" y="440" width="110" height="40"/>
-    <rect x="20" y="580" width="860" height="110" fill="#fff"/>
-    <rect x="20" y="710" width="860" height="260" fill="#fff"/>
-    <rect x="20" y="990" width="520" height="220" fill="#8aa4bd"/><rect x="550" y="990" width="330" height="220" fill="#0c2646"/>
-    <rect x="20" y="1220" width="330" height="200" fill="#0c2646"/><rect x="360" y="1220" width="520" height="200" fill="#8aa4bd"/>
-  </g>
-  <g fill="#fff"><text x="40" y="52" font-size="16">TS EXCLUSIVE</text><text x="40" y="330" font-size="34">MORE THAN</text><text x="40" y="372" font-size="34">A RIDE.</text></g>
-  <g fill="#0c2646">
-    <text x="40" y="460">Demander un devis</text>
-    <text x="40" y="620">Les 5 piliers : discrétion, ponctualité, confort, service personnalisé, fiabilité</text>
-    <text x="40" y="760" font-size="28">PRIVATE MOBILITY, redefined.</text>
-    <text x="40" y="1010">01 Services en mosaïque numérotée</text>
-    <text x="40" y="1470">Flotte, destinations avec carte, expérience, partenaires, FAQ, appel final, footer</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 2580" font-family="Arial, sans-serif" font-size="12">
+  <title>Accueil TS EXCLUSIVE, ordinateur (schéma, version du 24 octobre 2026)</title>
+  <!-- Légende des couleurs : marine #0c2646 / #07182e, bleu acier #93acb9, or #c9a45c, fond clair #e1e6ed -->
+  <rect width="900" height="2580" fill="#e1e6ed"/>
+
+  <!-- En-tête : logo à gauche, langue, bouton Devis en or, menu burger -->
+  <rect x="0" y="0" width="900" height="56" fill="#07182e"/>
+  <rect x="24" y="14" width="150" height="28" fill="none" stroke="#93acb9"/><text x="36" y="33" fill="#fff" font-size="13">TS EXCLUSIVE</text>
+  <text x="640" y="33" fill="#fff" font-size="11">EN</text>
+  <rect x="670" y="14" width="150" height="28" rx="4" fill="#c9a45c"/><text x="688" y="33" fill="#07182e" font-size="10">DEMANDER UN DEVIS</text>
+  <g stroke="#fff" stroke-width="1.5"><path d="M840 20h34M840 28h34M840 36h34"/></g>
+
+  <!-- Hero : voiture à gauche, ruban acier + or, titre à droite, onglet « Voir les offres », chiffres clés -->
+  <rect x="0" y="56" width="900" height="440" fill="#0c2646"/>
+  <rect x="30" y="230" width="430" height="170" rx="40" fill="#16335c"/><text x="150" y="322" fill="#93acb9">Photo de voiture sombre</text>
+  <polygon points="590,96 650,96 644,112 584,112" fill="#93acb9"/><polygon points="650,96 710,96 704,112 644,112" fill="#c9a45c"/>
+  <text x="560" y="168" fill="#fff" font-size="34" font-weight="300">AU-DELÀ</text>
+  <text x="498" y="210" fill="#c9a45c" font-size="34" font-weight="300">DU TRANSPORT</text>
+  <rect x="520" y="240" width="130" height="34" rx="4" fill="#c9a45c"/><text x="535" y="261" fill="#07182e" font-size="11">Demander un devis</text>
+  <rect x="662" y="240" width="90" height="34" rx="4" fill="none" stroke="#fff"/><text x="676" y="261" fill="#fff" font-size="11">WhatsApp</text>
+  <rect x="826" y="120" width="40" height="150" rx="4" fill="none" stroke="#c9a45c"/><text x="0" y="0" fill="#c9a45c" font-size="10" transform="translate(850 135) rotate(90)">VOIR LES OFFRES</text>
+  <path d="M30 420H870" stroke="#c9a45c" stroke-width="2"/>
+  <g fill="#e3cb92" font-size="26" font-weight="300"><text x="30" y="458">4</text><text x="250" y="458">7</text><text x="470" y="458">24/7</text><text x="690" y="458">250K</text></g>
+  <g fill="#93acb9" font-size="9"><text x="30" y="480">VÉHICULES</text><text x="250" y="480">PASSAGERS MAX</text><text x="470" y="480">ASSISTANCE</text><text x="690" y="480">AR / JOUR DÈS</text></g>
+
+  <!-- Accroche et trois valeurs -->
+  <rect x="0" y="496" width="900" height="150" fill="#07182e"/>
+  <g fill="#fff" opacity=".8"><rect x="230" y="514" width="440" height="6"/><rect x="260" y="528" width="380" height="6"/></g>
+  <g stroke="#c9a45c" stroke-width="3"><path d="M105 560h40M405 560h40M705 560h40"/></g>
+  <g fill="none" stroke="#c9a45c"><circle cx="125" cy="586" r="9"/><circle cx="425" cy="586" r="9"/><circle cx="725" cy="586" r="9"/></g>
+  <g fill="#fff" font-size="10"><text x="86" y="620">DISCRÉTION</text><text x="368" y="620">MAÎTRISE DU TEMPS</text><text x="640" y="620">ATTENTION PERSONNALISÉE</text></g>
+
+  <!-- Services : mosaïque de tuiles numérotées 01 à 06, bouton d'action sur chacune -->
+  <rect x="0" y="646" width="900" height="470" fill="#07182e"/>
+  <path d="M30 666h250M620 666h250" stroke="#c9a45c"/><text x="318" y="670" fill="#e3cb92" font-size="10">CE QUE NOUS FAISONS POUR VOUS</text>
+  <rect x="30" y="690" width="560" height="190" rx="8" fill="#4b7096"/><text x="46" y="730" fill="#e3cb92" font-size="30" font-weight="300">01</text><text x="46" y="760" fill="#fff">Transferts aéroportuaires</text>
+  <rect x="46" y="830" width="150" height="30" rx="4" fill="none" stroke="#c9a45c"/><text x="58" y="849" fill="#fff" font-size="10">Organiser mon transfert</text>
+  <rect x="600" y="690" width="270" height="260" rx="8" fill="#c9d2de"/><text x="616" y="730" fill="#a07a30" font-size="30" font-weight="300">04</text><text x="616" y="760" fill="#0c2646">Mobilité événementielle</text>
+  <rect x="30" y="890" width="275" height="200" rx="8" fill="none" stroke="#93acb9"/><text x="46" y="930" fill="#e3cb92" font-size="30" font-weight="300">02</text><text x="46" y="960" fill="#fff">Mobilité exécutive</text>
+  <rect x="315" y="890" width="275" height="200" rx="8" fill="#a7b5c6"/><text x="331" y="930" fill="#a07a30" font-size="30" font-weight="300">03</text><text x="331" y="960" fill="#0c2646">Solutions entreprises</text>
+  <rect x="600" y="960" width="270" height="130" rx="8" fill="#33465e"/><text x="616" y="1000" fill="#e3cb92" font-size="30" font-weight="300">05</text><text x="616" y="1030" fill="#fff">Mise à disposition</text>
+  <text x="30" y="1108" fill="#93acb9" font-size="10">Tuile 06 (Voyage privé) en pleine largeur sous la mosaïque ; bouton « Découvrir Services »</text>
+
+  <!-- Conciergerie privée VIP : service à part, sans numéro -->
+  <rect x="0" y="1116" width="900" height="190" fill="#050f1f"/><path d="M0 1116H900M0 1306H900" stroke="#c9a45c" opacity=".5"/>
+  <polygon points="36,1146 66,1146 62,1154 32,1154" fill="#93acb9"/><polygon points="66,1146 96,1146 92,1154 62,1154" fill="#c9a45c"/><text x="108" y="1154" fill="#c9a45c" font-size="9">UN SERVICE À PART</text>
+  <text x="36" y="1190" fill="#fff" font-size="22" font-weight="300">CONCIERGERIE PRIVÉE VIP</text>
+  <g fill="#fff" opacity=".7"><rect x="36" y="1206" width="330" height="5"/><rect x="36" y="1218" width="300" height="5"/></g>
+  <rect x="36" y="1244" width="170" height="32" rx="4" fill="#c9a45c"/><text x="50" y="1264" fill="#07182e" font-size="10">Répondre à mes besoins</text>
+  <g fill="none" stroke="#c9a45c" opacity=".7"><rect x="480" y="1150" width="190" height="42" rx="6"/><rect x="680" y="1150" width="190" height="42" rx="6"/><rect x="480" y="1202" width="190" height="42" rx="6"/><rect x="680" y="1202" width="190" height="42" rx="6"/><rect x="480" y="1254" width="190" height="42" rx="6"/><rect x="680" y="1254" width="190" height="42" rx="6"/></g>
+
+  <!-- Bloc clair : tuile flotte, à propos, téléphone -->
+  <rect x="0" y="1306" width="900" height="330" fill="#e1e6ed"/>
+  <text x="318" y="1340" fill="#0c2646" font-size="10">VOTRE MOBILITÉ, NOTRE ENGAGEMENT</text>
+  <rect x="30" y="1360" width="430" height="250" rx="8" fill="#eef2f7"/><text x="46" y="1388" fill="#0c2646" font-size="11" font-weight="bold">NOTRE FLOTTE</text>
+  <rect x="46" y="1398" width="26" height="26" fill="none" stroke="#0c2646"/><rect x="78" y="1398" width="26" height="26" fill="none" stroke="#0c2646"/>
+  <rect x="90" y="1440" width="300" height="100" rx="30" fill="#c5d3e0"/><text x="170" y="1496" fill="#0c2646">Véhicule détouré</text>
+  <text x="46" y="1578" fill="#0c2646" font-size="10" font-weight="bold">TOYOTA PRADO TLX</text><text x="46" y="1594" fill="#0c2646" font-size="9">SUV haut de gamme · 7 passagers</text><text x="350" y="1594" fill="#0c2646" font-size="9">TOUTE LA FLOTTE →</text>
+  <rect x="470" y="1360" width="400" height="170" rx="8" fill="#4b7096"/><text x="486" y="1388" fill="#fff" font-size="11" font-weight="bold">À PROPOS</text>
+  <g fill="#fff" opacity=".8"><rect x="486" y="1402" width="190" height="5"/><rect x="486" y="1414" width="170" height="5"/></g>
+  <rect x="470" y="1544" width="230" height="52" rx="8" fill="none" stroke="#33465e" stroke-width="1.5"/><text x="520" y="1576" fill="#0c2646" font-size="16">+261 34 90 706 65</text>
+
+  <!-- Destinations : liste, grande image, texte et carte de Madagascar -->
+  <rect x="0" y="1636" width="900" height="260" fill="#07182e"/>
+  <text x="270" y="1676" fill="#fff" font-size="20" font-weight="300">MADAGASCAR, <tspan fill="#c9a45c">EN MOUVEMENT.</tspan></text>
+  <rect x="0" y="1696" width="900" height="200" fill="#33465e"/><text x="320" y="1796" fill="#c9d2de">Grande image de la destination survolée</text>
+  <g fill="#fff" font-size="13"><text x="36" y="1740">Antananarivo</text><text x="36" y="1768">Nosy Be</text><text x="36" y="1796">Morondava</text><text x="36" y="1824">Antsirabe</text></g>
+  <rect x="640" y="1716" width="230" height="160" rx="6" fill="#0c2646" opacity=".85"/><path d="M742 1730l30 40-8 50-22 30-20-50 8-40z" fill="none" stroke="#fff"/><circle cx="748" cy="1782" r="5" fill="#e3cb92"/>
+
+  <!-- Parcours « L'expérience TS » : ligne dorée, ronds qui se colorent -->
+  <rect x="0" y="1896" width="900" height="250" fill="#e1e6ed"/>
+  <polygon points="36,1926 66,1926 62,1934 32,1934" fill="#4b7096"/><polygon points="66,1926 96,1926 92,1934 62,1934" fill="#c9a45c"/><text x="108" y="1934" fill="#4b7096" font-size="9">L'EXPÉRIENCE TS</text>
+  <text x="36" y="1976" fill="#0c2646" font-size="22" font-weight="300">PAS SEULEMENT</text><text x="36" y="2004" fill="#0c2646" font-size="22" font-weight="300">UN TRANSPORT.</text>
+  <rect x="36" y="2030" width="190" height="80" fill="#fff" transform="rotate(-3 130 2070)"/><text x="60" y="2078" fill="#0c2646" font-style="italic" font-size="20">Tonga soa</text>
+  <path d="M500 1920V2120" stroke="#c9a45c" stroke-width="2"/>
+  <g stroke="#a07a30" stroke-width="2"><circle cx="500" cy="1930" r="8" fill="#c9a45c"/><circle cx="500" cy="1986" r="8" fill="#c9a45c"/><circle cx="500" cy="2042" r="8" fill="#e1e6ed"/><circle cx="500" cy="2098" r="8" fill="#e1e6ed"/></g>
+  <g fill="#0c2646" font-size="14"><text x="540" y="1935">Chauffeur dédié</text><text x="540" y="1991">Assistance personnelle</text><text x="540" y="2047">Événements privés</text><text x="540" y="2103">Voyages sur mesure</text></g>
+
+  <!-- Partenaires (bandeau défilant), FAQ, appel final -->
+  <rect x="0" y="2146" width="900" height="80" fill="#07182e"/><text x="200" y="2192" fill="#fff" font-size="22" font-weight="300">ORGANISATIONS INTERNATIONALES ◇ INSTITUTIONS</text>
+  <rect x="0" y="2226" width="900" height="130" fill="#e1e6ed"/>
+  <g fill="#fff" stroke="#c9d2de"><rect x="120" y="2240" width="660" height="30"/><rect x="120" y="2278" width="660" height="30"/><rect x="120" y="2316" width="660" height="30"/></g>
+  <g fill="#a07a30" font-size="16"><text x="750" y="2261">+</text><text x="750" y="2299">+</text><text x="750" y="2337">+</text></g>
+  <rect x="0" y="2356" width="900" height="130" fill="#16335c"/><text x="200" y="2412" fill="#fff" font-size="20" font-weight="300">VOTRE PROCHAIN TRAJET COMMENCE ICI.</text>
+  <rect x="330" y="2430" width="130" height="34" rx="4" fill="#c9a45c"/><text x="345" y="2451" fill="#07182e" font-size="11">Demander un devis</text><rect x="472" y="2430" width="90" height="34" rx="4" fill="none" stroke="#fff"/><text x="486" y="2451" fill="#fff" font-size="11">WhatsApp</text>
+
+  <!-- Pied de page clair : ruban acier + or en haut, réseaux, deux colonnes, logo -->
+  <rect x="0" y="2486" width="900" height="94" fill="#eef1f5"/>
+  <rect x="0" y="2486" width="306" height="6" fill="#93acb9"/><rect x="306" y="2486" width="594" height="6" fill="#c9a45c"/>
+  <g fill="#a07a30" font-size="9"><text x="150" y="2520">NAVIGATION</text><text x="400" y="2520">CONTACT</text></g>
+  <g fill="#0c2646" font-size="9" opacity=".8"><text x="150" y="2538">Services · Flotte · Destinations · Tarifs</text><text x="400" y="2538">Téléphone · email · adresse</text></g>
+  <rect x="700" y="2506" width="150" height="26" fill="none" stroke="#4b7096"/><text x="716" y="2523" fill="#0c2646" font-size="10">TS EXCLUSIVE</text>
+  <text x="30" y="2566" fill="#0c2646" font-size="9" opacity=".7">© TS EXCLUSIVE · Madagascar · retour en haut ↑</text>
 </svg>

@@ -1,7 +1,8 @@
 # Identité visuelle et interface
 
 ## Sources
-- Visuel client TS EXCLUSIVE : logo, bleu marine et acier, bandeau des cinq piliers, carte de Madagascar, forme diagonale du hero.
+- Visuel client TS EXCLUSIVE : logo (version sur fond clair et sur fond bleu, palette `#0d2e5b`, `#93acb9`, `#c9a45c`), valeurs, carte de Madagascar.
+- Contenus finaux du client : slogan « Au-delà du transport », accroche, trois valeurs, sept services avec boutons d'action, à propos.
 - Modèle Detailing : mosaïque de services numérotés avec grands chiffres fins.
 - Modèle Tesla : grands chiffres fins séparés par des pointillés, blocs image / texte alternés.
 - Brief premium : minimalisme, photographie, typographie éditoriale, animations lentes.
@@ -29,18 +30,20 @@ L'or est accentué depuis le 17 octobre : boutons d'action principaux en aplat o
 
 ## Composants (modèle validé par le client, type « Detailing »)
 - En-tête : logo à gauche, menu burger à droite, filet fin dessous (la barre de lecture le remplit). Plein et flouté au scroll.
-- Hero : photo sombre teintée marine (voiture à gauche), titre fin en capitales à droite, lien vertical « Voir les offres », chiffres clés en bas.
-- Mosaïque de services numérotés : tuile 01 bleu acier avec photo, 02 filaire avec dessin au trait, 03 gris-bleu avec photo en pied, 04 clair, 05 ardoise. Les services suivants passent en tuile pleine largeur.
-- Bloc clair : tuile flotte (flèches pour parcourir les véhicules), tuile à propos, cadre téléphone.
-- Pied de page clair : réseaux, deux colonnes, logo, barre du bas avec retour en haut.
+- Hero : photo sombre teintée marine (voiture à gauche), ruban acier + or au-dessus du titre fin en capitales à droite (seconde ligne en or), boutons Devis (or) et WhatsApp, onglet vertical doré « Voir les offres », chiffres clés en or en bas.
+- Trois valeurs sous l'accroche (icône et filet en or) puis mosaïque de services numérotés : tuile 01 bleu acier avec photo, 02 filaire avec dessin au trait, 03 gris-bleu avec photo en pied, 04 clair, 05 ardoise. Les services suivants passent en tuile pleine largeur. Chaque tuile a une accroche, une phrase courte et un bouton d'action ; la conciergerie privée VIP est un bloc à part, sans numéro.
+- Bloc clair : tuile flotte (flèches pour parcourir les véhicules ; le véhicule est cadré au-dessus du nom et de la catégorie pour ne jamais les recouvrir), tuile à propos, cadre téléphone.
+- Pied de page clair : ruban acier + or en haut, réseaux, deux colonnes, logo, barre du bas avec retour en haut.
+- Pages de services : un bloc image et texte par service (accroche, paragraphes, liste en pastilles, bouton d'action), puis offres sans mention « À partir de ».
 - Coins : presque droits (8 px sur les tuiles, 6 px sur les boutons). Une seule variable à changer dans `app/assets/css/site4.css` (`--r-tile`, `--r-btn`, `--r-l`) pour durcir ou adoucir tout le site.
-- Boutons : toujours avec bordure fine, inversion de couleur au survol.
+- Boutons : appel à l'action principal en aplat or (texte marine) ; boutons secondaires à bordure fine ; au survol le fond or disparaît et le contour reste or.
 - Menu plein écran avec apparition échelonnée et image au survol.
 - Animations : rideau d'intro, rideau entre les pages, défilement fluide, titres mot à mot, apparition au scroll, parallax léger. Uniquement `transform` et `opacity`, désactivées si l'utilisateur préfère moins de mouvement.
 
 ## Wireframes
+Refaits le 24 octobre 2026 d'après la page d'accueil actuelle (hero, trois valeurs, mosaïque de services, conciergerie, bloc clair, destinations, parcours, partenaires, FAQ, appel final, pied de page).
 - `wireframes-desktop.svg` : page d'accueil sur ordinateur.
-- `wireframes-mobile.svg` : page d'accueil sur téléphone.
+- `wireframes-mobile.svg` : page d'accueil sur téléphone, avec la barre d'action fixe (Devis et WhatsApp).
 
 ## Éléments graphiques
 Logo fourni par le client (bleu marine, acier, or), vectorisé en deux versions (`public/img/logo.svg` pour fond clair, `logo-light.svg` pour fond sombre, avec exports PNG), monogramme TS pour l'icône du site (`public/favicon.svg`, `favicon.ico`, `apple-touch-icon.png`), icônes en traits fins (`app/components/Icon.vue`), photographies Unsplash et Pexels (identifiants dans `app/utils/images.ts`, photo du hero dans `public/img/hero-maybach.jpg`).

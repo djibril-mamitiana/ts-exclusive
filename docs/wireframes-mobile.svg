@@ -1,14 +1,51 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 1200" font-family="Arial, sans-serif" font-size="12">
-  <rect width="390" height="1200" fill="#eef2f7"/>
-  <g fill="none" stroke="#0c2646" stroke-width="1.5">
-    <rect x="10" y="10" width="370" height="640" fill="#c5d3e0"/>
-    <path d="M10 330 L380 290 V650 H10 Z" fill="#0c2646" stroke="none"/>
-    <rect x="260" y="22" width="52" height="24"/><rect x="322" y="22" width="48" height="24"/>
-    <rect x="28" y="560" width="150" height="38"/>
-    <rect x="10" y="660" width="370" height="150" fill="#fff"/>
-    <rect x="10" y="820" width="370" height="260" fill="#8aa4bd"/>
-    <rect x="10" y="1090" width="370" height="100" fill="#0c2646"/>
-  </g>
-  <g fill="#fff"><text x="28" y="42">TS EXCLUSIVE</text><text x="28" y="470" font-size="28">MORE THAN</text><text x="28" y="504" font-size="28">A RIDE.</text></g>
-  <g fill="#0c2646"><text x="28" y="580">Devis</text><text x="28" y="690">Piliers, intro, services, flotte, destinations</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 390 1760" font-family="Arial, sans-serif" font-size="11">
+  <title>Accueil TS EXCLUSIVE, téléphone (schéma, version du 24 octobre 2026)</title>
+  <!-- Légende des couleurs : marine #0c2646 / #07182e, bleu acier #93acb9, or #c9a45c, fond clair #e1e6ed -->
+  <rect width="390" height="1760" fill="#e1e6ed"/>
+
+  <!-- En-tête : logo, langue, menu burger -->
+  <rect x="0" y="0" width="390" height="52" fill="#07182e"/>
+  <rect x="16" y="12" width="140" height="28" fill="none" stroke="#93acb9"/><text x="28" y="31" fill="#fff" font-size="12">TS EXCLUSIVE</text>
+  <text x="290" y="31" fill="#fff" font-size="10">EN</text><g stroke="#fff" stroke-width="1.5"><path d="M330 19h30M330 27h30M330 35h30"/></g>
+
+  <!-- Hero : titre, onglet « Voir les offres », voiture, chiffres en deux colonnes -->
+  <rect x="0" y="52" width="390" height="500" fill="#0c2646"/>
+  <polygon points="150,86 190,86 186,98 146,98" fill="#93acb9"/><polygon points="190,86 230,86 226,98 186,98" fill="#c9a45c"/>
+  <text x="90" y="140" fill="#fff" font-size="30" font-weight="300">AU-DELÀ</text><text x="64" y="176" fill="#c9a45c" font-size="30" font-weight="300">DU TRANSPORT</text>
+  <rect x="342" y="90" width="34" height="120" rx="4" fill="none" stroke="#c9a45c"/><text x="0" y="0" fill="#c9a45c" font-size="9" transform="translate(364 102) rotate(90)">VOIR LES OFFRES</text>
+  <rect x="20" y="230" width="350" height="110" rx="34" fill="#16335c"/><text x="120" y="290" fill="#93acb9">Photo de voiture</text>
+  <path d="M20 370H370" stroke="#c9a45c" stroke-width="2"/>
+  <g fill="#e3cb92" font-size="24" font-weight="300"><text x="20" y="408">4</text><text x="210" y="408">7</text><text x="20" y="476">24/7</text><text x="210" y="476">250K</text></g>
+  <g fill="#93acb9" font-size="8"><text x="20" y="424">VÉHICULES</text><text x="210" y="424">PASSAGERS MAX</text><text x="20" y="492">ASSISTANCE</text><text x="210" y="492">AR / JOUR DÈS</text></g>
+
+  <!-- Accroche, valeurs -->
+  <rect x="0" y="552" width="390" height="230" fill="#07182e"/>
+  <g fill="#fff" opacity=".8"><rect x="40" y="572" width="310" height="5"/><rect x="60" y="584" width="270" height="5"/></g>
+  <g stroke="#c9a45c" stroke-width="3"><path d="M165 612h60M165 676h60M165 740h60"/></g>
+  <g fill="#fff" font-size="10" text-anchor="middle"><text x="195" y="640">DISCRÉTION</text><text x="195" y="704">MAÎTRISE DU TEMPS</text><text x="195" y="768">ATTENTION PERSONNALISÉE</text></g>
+
+  <!-- Services : tuiles empilées, bouton d'action sur chacune -->
+  <rect x="0" y="782" width="390" height="500" fill="#07182e"/>
+  <rect x="14" y="800" width="362" height="150" rx="8" fill="#4b7096"/><text x="28" y="836" fill="#e3cb92" font-size="26" font-weight="300">01</text><text x="28" y="860" fill="#fff">Transferts aéroportuaires</text><rect x="28" y="900" width="170" height="30" rx="4" fill="none" stroke="#c9a45c"/>
+  <rect x="14" y="958" width="362" height="100" rx="8" fill="none" stroke="#93acb9"/><text x="28" y="994" fill="#e3cb92" font-size="26" font-weight="300">02</text><text x="28" y="1018" fill="#fff">Mobilité exécutive</text>
+  <rect x="14" y="1066" width="362" height="100" rx="8" fill="#a7b5c6"/><text x="28" y="1102" fill="#a07a30" font-size="26" font-weight="300">03</text><text x="28" y="1126" fill="#0c2646">Solutions pour entreprises</text>
+  <rect x="14" y="1174" width="362" height="100" rx="8" fill="#c9d2de"/><text x="28" y="1210" fill="#a07a30" font-size="26" font-weight="300">04</text><text x="28" y="1234" fill="#0c2646">Mobilité événementielle</text>
+  <text x="14" y="1300" fill="#4b7096" font-size="9">Puis 05 et 06, puis la conciergerie privée VIP (bloc à part, sans numéro)</text>
+
+  <rect x="0" y="1310" width="390" height="130" fill="#050f1f"/><path d="M0 1310H390M0 1440H390" stroke="#c9a45c" opacity=".5"/>
+  <text x="20" y="1350" fill="#fff" font-size="16" font-weight="300">CONCIERGERIE PRIVÉE VIP</text><rect x="20" y="1380" width="160" height="30" rx="4" fill="#c9a45c"/><text x="34" y="1399" fill="#07182e" font-size="10">Répondre à mes besoins</text>
+
+  <!-- Bloc clair : flotte, à propos -->
+  <rect x="0" y="1440" width="390" height="190" fill="#e1e6ed"/>
+  <rect x="14" y="1456" width="362" height="160" rx="8" fill="#eef2f7"/><text x="28" y="1480" fill="#0c2646" font-size="10" font-weight="bold">NOTRE FLOTTE</text><rect x="60" y="1504" width="270" height="62" rx="24" fill="#c5d3e0"/><text x="28" y="1598" fill="#0c2646" font-size="9" font-weight="bold">TOYOTA PRADO TLX · TOUTE LA FLOTTE →</text>
+
+  <!-- Destinations, parcours, FAQ, appel final, pied de page -->
+  <rect x="0" y="1630" width="390" height="40" fill="#07182e"/><text x="20" y="1655" fill="#fff" font-size="12">MADAGASCAR, <tspan fill="#c9a45c">EN MOUVEMENT.</tspan></text>
+  <rect x="0" y="1670" width="390" height="30" fill="#16335c"/><text x="20" y="1690" fill="#fff" font-size="9">Destinations, parcours, partenaires, FAQ, appel final</text>
+  <rect x="0" y="1700" width="390" height="30" fill="#eef1f5"/><rect x="0" y="1700" width="130" height="5" fill="#93acb9"/><rect x="130" y="1700" width="260" height="5" fill="#c9a45c"/><text x="20" y="1722" fill="#0c2646" font-size="9">Pied de page : navigation, contact, logo</text>
+
+  <!-- Barre d'action fixe en bas de l'écran, visible pendant tout le défilement : Devis (or) et WhatsApp -->
+  <rect x="0" y="1730" width="390" height="30" fill="#07182e"/>
+  <rect x="14" y="1735" width="170" height="20" rx="4" fill="#c9a45c"/><text x="46" y="1749" fill="#07182e" font-size="9">DEMANDER UN DEVIS</text>
+  <rect x="196" y="1735" width="180" height="20" rx="4" fill="none" stroke="#fff"/><text x="254" y="1749" fill="#fff" font-size="9">WHATSAPP</text>
 </svg>
