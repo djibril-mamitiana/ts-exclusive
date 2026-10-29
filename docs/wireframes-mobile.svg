@@ -15,8 +15,8 @@
   <rect x="342" y="90" width="34" height="120" rx="4" fill="none" stroke="#c9a45c"/><text x="0" y="0" fill="#c9a45c" font-size="9" transform="translate(364 102) rotate(90)">VOIR LES OFFRES</text>
   <rect x="20" y="230" width="350" height="110" rx="34" fill="#16335c"/><text x="120" y="290" fill="#93acb9">Photo de voiture</text>
   <path d="M20 370H370" stroke="#c9a45c" stroke-width="2"/>
-  <g fill="#e3cb92" font-size="24" font-weight="300"><text x="20" y="408">4</text><text x="210" y="408">7</text><text x="20" y="476">24/7</text><text x="210" y="476">250K</text></g>
-  <g fill="#93acb9" font-size="8"><text x="20" y="424">VÉHICULES</text><text x="210" y="424">PASSAGERS MAX</text><text x="20" y="492">ASSISTANCE</text><text x="210" y="492">AR / JOUR DÈS</text></g>
+  <g fill="#e3cb92" font-size="24" font-weight="300"><text x="20" y="408">7j/7</text><text x="210" y="408">100%</text><text x="20" y="476">24/7</text></g>
+  <g fill="#93acb9" font-size="8"><text x="20" y="424">DISPONIBILITÉ DE SERVICE</text><text x="210" y="424">ACCOMPAGNEMENT</text><text x="20" y="492">ASSISTANCE</text></g>
 
   <!-- Accroche, valeurs -->
   <rect x="0" y="552" width="390" height="230" fill="#07182e"/>

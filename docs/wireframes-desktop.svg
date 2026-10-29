@@ -20,8 +20,8 @@
   <rect x="662" y="240" width="90" height="34" rx="4" fill="none" stroke="#fff"/><text x="676" y="261" fill="#fff" font-size="11">WhatsApp</text>
   <rect x="826" y="120" width="40" height="150" rx="4" fill="none" stroke="#c9a45c"/><text x="0" y="0" fill="#c9a45c" font-size="10" transform="translate(850 135) rotate(90)">VOIR LES OFFRES</text>
   <path d="M30 420H870" stroke="#c9a45c" stroke-width="2"/>
-  <g fill="#e3cb92" font-size="26" font-weight="300"><text x="30" y="458">4</text><text x="250" y="458">7</text><text x="470" y="458">24/7</text><text x="690" y="458">250K</text></g>
-  <g fill="#93acb9" font-size="9"><text x="30" y="480">VÉHICULES</text><text x="250" y="480">PASSAGERS MAX</text><text x="470" y="480">ASSISTANCE</text><text x="690" y="480">AR / JOUR DÈS</text></g>
+  <g fill="#e3cb92" font-size="26" font-weight="300"><text x="30" y="458">7j/7</text><text x="330" y="458">100%</text><text x="630" y="458">24/7</text></g>
+  <g fill="#93acb9" font-size="9"><text x="30" y="480">DISPONIBILITÉ DE SERVICE</text><text x="330" y="480">ACCOMPAGNEMENT</text><text x="630" y="480">ASSISTANCE</text></g>
 
   <!-- Accroche et trois valeurs -->
   <rect x="0" y="496" width="900" height="150" fill="#07182e"/>

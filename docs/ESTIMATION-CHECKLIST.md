@@ -96,4 +96,5 @@ Les tâches « Tests, debug et Sprint Review » de chaque sprint correspondent a
 | Nouveau logo du client et doré accentué | Fait | `public/img/logo*.svg`, `public/favicon.svg`, fin de `site4.css` |
 | Gestion de toutes les images depuis l'administration | Fait | `/admin/images`, `app/utils/images.ts`, `server/api/images.get.ts`, `server/api/admin/images.put.ts` |
 | Page Tarifs sans « À partir de » ; véhicule de la tuile flotte remonté | Fait | `OfferGrid.vue`, `site4.css` |
-| Cahier des charges (version 2.5) | Fait | `docs/CAHIER-DES-CHARGES.docx` |
+| Chiffres clés de l'accueil : 7j/7 disponibilité de service, 100 % accompagnement, 24/7 assistance (fixes, FR et EN) | Fait | `app/i18n/messages.ts` (`home.stats`), `app/pages/index.vue` |
+| Cahier des charges (version 2.6) | Fait | `docs/CAHIER-DES-CHARGES.docx` |

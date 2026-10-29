@@ -30,6 +30,7 @@ Travail réalisé en octobre 2026 à la demande du client, en plus de l'estimati
 | 17 octobre | Nouveau logo fourni par le client et doré accentué sur tout le site | En ligne |
 | 17 octobre | Gestion de toutes les images du site depuis l'administration (page Images du site) | En ligne |
 | 22 octobre | Page Tarifs sans « À partir de », véhicule de la tuile flotte remonté pour ne plus recouvrir son nom | En ligne |
+| 29 octobre | Chiffres clés de l'accueil : 7j/7 disponibilité de service, 100 % accompagnement, 24/7 assistance | En ligne |
 
 ## User stories (extrait, par priorité)
 1. En tant que visiteur, je demande un devis en moins de deux minutes (formulaire, WhatsApp).

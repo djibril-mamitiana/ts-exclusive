@@ -30,7 +30,7 @@ L'or est accentué depuis le 17 octobre : boutons d'action principaux en aplat o
 
 ## Composants (modèle validé par le client, type « Detailing »)
 - En-tête : logo à gauche, menu burger à droite, filet fin dessous (la barre de lecture le remplit). Plein et flouté au scroll.
-- Hero : photo sombre teintée marine (voiture à gauche), ruban acier + or au-dessus du titre fin en capitales à droite (seconde ligne en or), boutons Devis (or) et WhatsApp, onglet vertical doré « Voir les offres », chiffres clés en or en bas.
+- Hero : photo sombre teintée marine (voiture à gauche), ruban acier + or au-dessus du titre fin en capitales à droite (seconde ligne en or), boutons Devis (or) et WhatsApp, onglet vertical doré « Voir les offres », trois chiffres clés en or en bas (7j/7 disponibilité de service, 100 % accompagnement, 24/7 assistance ; 7/7 en anglais), trois colonnes sur grand écran et deux sur mobile.
 - Trois valeurs sous l'accroche (icône et filet en or) puis mosaïque de services numérotés : tuile 01 bleu acier avec photo, 02 filaire avec dessin au trait, 03 gris-bleu avec photo en pied, 04 clair, 05 ardoise. Les services suivants passent en tuile pleine largeur. Chaque tuile a une accroche, une phrase courte et un bouton d'action ; la conciergerie privée VIP est un bloc à part, sans numéro.
 - Bloc clair : tuile flotte (flèches pour parcourir les véhicules ; le véhicule est cadré au-dessus du nom et de la catégorie pour ne jamais les recouvrir), tuile à propos, cadre téléphone.
 - Pied de page clair : ruban acier + or en haut, réseaux, deux colonnes, logo, barre du bas avec retour en haut.
