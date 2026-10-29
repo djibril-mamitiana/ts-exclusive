@@ -6,18 +6,6 @@ const { m, lp } = useLang()
 const h = computed(() => m.value.home)
 usePageSeo(h.value.seoTitle, h.value.seoDesc)
 
-// Chiffres issus des données réelles (flotte, offres)
-const stats = computed(() => {
-  const v = content.value.vehicles
-  const pax = v.length ? Math.max(...v.map((x: any) => Number(x.passengers) || 0)) : 0
-  const prices = content.value.offers.map((o: any) => parseInt(String(o.price).replace(/[^0-9]/g, ''), 10)).filter((n: number) => n > 0)
-  const from = prices.length ? Math.min(...prices) : 0
-  const l = h.value.statLabels
-  return [
-    { v: String(v.length), l: l[0] }, { v: String(pax), l: l[1] }, { v: '24/7', l: l[2] },
-    { v: from >= 1000 ? Math.round(from / 1000) + 'K' : String(from), l: l[3] }
-  ].filter(x => x.v && x.v !== '0')
-})
 // Le service « à part » (conciergerie) a son propre bloc, sans numéro
 const apart = computed(() => apartService(content.value.services))
 const tel = computed(() => 'tel:' + String(settings.value.phone || '').replace(/[^+\d]/g, ''))
@@ -50,7 +38,7 @@ useHead({
     </div>
     <NuxtLink :to="lp('/tarifs')" class="offer"><span class="t">{{ h.viewOffer }}</span><i class="ar" /></NuxtLink>
     <div class="ts-wrap ts-hstats">
-      <div v-for="x in stats" :key="x.l" class="st"><b v-count>{{ x.v }}</b><span>{{ x.l }}</span></div>
+      <div v-for="x in h.stats" :key="x.l" class="st"><b v-count>{{ x.v }}</b><span>{{ x.l }}</span></div>
     </div>
   </section>
 

@@ -558,3 +558,7 @@
 .ts-tile.fleet .stage { top: 27%; bottom: clamp(132px, 11vw, 168px); }
 .ts-tile.fleet.cut .stage img { filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .45)); }
 .ts-tile.fleet.cut.is-light .stage img { filter: drop-shadow(0 10px 12px rgba(7, 24, 46, .28)); }
+
+/* Accueil : trois chiffres clés (7j/7, 100 %, 24/7), trois colonnes sur grand écran, deux sur mobile */
+.ts-hstats { grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 900px) { .ts-hstats { grid-template-columns: repeat(2, 1fr); } }

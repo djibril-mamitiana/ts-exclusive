@@ -27,7 +27,7 @@ const fr = {
     seoDesc: 'Mobilité privée et exécutive à Madagascar : transferts aéroportuaires, solutions pour entreprises, événements, voyage privé et conciergerie privée VIP.',
     lead: "Des déplacements privés aux missions exécutives, des transferts aéroportuaires aux expériences sur mesure, TS EXCLUSIVE vous accompagne à Madagascar avec une attention particulière portée à votre temps, votre confort et vos exigences.",
     greet: 'Tonga soa, bienvenue',
-    statLabels: ['Véhicules', 'Passagers max', 'Assistance', 'Ar / jour dès'],
+    stats: [{ v: '7j/7', l: 'Disponibilité de service' }, { v: '100%', l: 'Accompagnement' }, { v: '24/7', l: 'Assistance' }],
     faqLabel: 'FAQ', faqTitle: 'Questions fréquentes', testiLabel: 'Témoignages', testiTitle: 'Ils nous font confiance.',
     pillars: [
       { icon: 'shield', t: 'Discrétion', d: 'Un service respectueux de votre confidentialité.' },
@@ -139,7 +139,7 @@ const en: typeof fr = {
     seoDesc: 'Private and executive mobility in Madagascar: airport transfers, solutions for companies, events, private travel and private VIP concierge.',
     lead: 'From private journeys to executive missions, from airport transfers to tailor-made experiences, TS EXCLUSIVE supports you in Madagascar, with particular attention to your time, your comfort and your requirements.',
     greet: 'Tonga soa, welcome',
-    statLabels: ['Vehicles', 'Max passengers', 'Support', 'Ar / day from'],
+    stats: [{ v: '7/7', l: 'Service availability' }, { v: '100%', l: 'Personal support' }, { v: '24/7', l: 'Assistance' }],
     faqLabel: 'FAQ', faqTitle: 'Frequently asked questions', testiLabel: 'Testimonials', testiTitle: 'Trusted by professionals.',
     pillars: [
       { icon: 'shield', t: 'Discretion', d: 'A service that respects your confidentiality.' },
