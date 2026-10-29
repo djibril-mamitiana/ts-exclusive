@@ -296,9 +296,11 @@
   .ts-tile.fleet { min-height: 460px; }
   .ts-hero .in { padding-top: 120px; }
   .ts-hero .copy { max-width: none; flex: 1; }
-  .ts-hero .bg img { object-position: 22% 55%; }
+  /* photo moins agrandie et centrée sur le chauffeur (milieu de l'image) ; le bas se fond dans le noir sous les chiffres */
+  .ts-hero .bg { inset: 0 0 auto 0; height: 80%; -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 100%); mask-image: linear-gradient(180deg, #000 72%, transparent 100%); }
+  .ts-hero .bg img { top: -3%; height: 106%; object-position: 54% 30%; }
   .ts-hero .tint { opacity: .8; }
-  .ts-hero::after { background: linear-gradient(180deg, rgba(7, 24, 46, .82) 0%, rgba(7, 24, 46, .5) 30%, rgba(7, 24, 46, .1) 52%, rgba(7, 24, 46, .86) 84%, var(--black) 100%); }
+  .ts-hero::after { background: linear-gradient(180deg, rgba(7, 24, 46, .74) 0%, rgba(7, 24, 46, .36) 28%, rgba(7, 24, 46, .06) 50%, rgba(7, 24, 46, .86) 84%, var(--black) 100%); }
 }
 @media (max-width: 700px) {
   .ts-hero .cta { display: none; }
