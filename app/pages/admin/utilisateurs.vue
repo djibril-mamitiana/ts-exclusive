@@ -49,9 +49,9 @@ async function remove(u: any) {
       <thead><tr><th>Nom</th><th>Email</th><th>Rôle</th><th>Créé le</th><th /></tr></thead>
       <tbody>
         <tr v-for="u in users" :key="u.id">
-          <td>{{ u.name || '-' }}</td><td>{{ u.email }}</td>
-          <td><span class="badge">{{ u.role === 'admin' ? 'Administrateur' : 'Éditeur' }}</span></td>
-          <td>{{ fmt(u.created_at) }}</td>
+          <td data-label="Nom">{{ u.name || '-' }}</td><td data-label="Email">{{ u.email }}</td>
+          <td data-label="Rôle"><span class="badge">{{ u.role === 'admin' ? 'Administrateur' : 'Éditeur' }}</span></td>
+          <td data-label="Créé le">{{ fmt(u.created_at) }}</td>
           <td><div class="actions" style="justify-content:flex-end"><button class="icon-btn" @click="open(u)">Modifier</button><button v-if="u.id !== me?.id" class="icon-btn danger" @click="remove(u)">Supprimer</button></div></td>
         </tr>
       </tbody>

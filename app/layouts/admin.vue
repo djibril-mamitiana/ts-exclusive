@@ -2,10 +2,20 @@
 import '~/assets/css/admin.css'
 import '~/assets/css/admin2.css'
 import '~/assets/css/admin3.css'
+import '~/assets/css/admin4.css'
 await useImages()
 const img = useImg()
 const { data: me } = await useFetch<any>('/api/admin/me', { key: 'me' })
 if (!me.value) await navigateTo('/admin/login')
+
+// Téléphone : le menu latéral devient un tiroir ouvert par la barre du haut
+const menu = ref(false)
+const route = useRoute()
+watch(() => route.fullPath, () => { menu.value = false })
+useHead({ bodyAttrs: { class: computed(() => (menu.value ? 'adm-lock' : '')) } })
+const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') menu.value = false }
+onMounted(() => window.addEventListener('keydown', onKey))
+onBeforeUnmount(() => window.removeEventListener('keydown', onKey))
 
 async function logout() {
   await $fetch('/api/admin/logout', { method: 'POST' })
@@ -41,7 +51,9 @@ const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'nu
 
 <template>
   <div class="admin-shell">
-    <aside class="admin-side">
+    <div v-if="menu" class="m-scrim" @click="menu = false" />
+    <aside id="adm-side" class="admin-side" :class="{ open: menu }">
+      <button type="button" class="m-close" aria-label="Fermer le menu" @click="menu = false"><span /><span /></button>
       <a href="/admin" class="brand"><img :src="img('logo.dark')" alt="TS EXCLUSIVE" width="222" height="40"><small>Espace de gestion</small></a>
       <template v-for="g in visible" :key="g.title">
         <div class="grp">{{ g.title }}</div>
@@ -59,6 +71,11 @@ const today = new Date().toLocaleDateString('fr-FR', { weekday: 'long', day: 'nu
       </div>
     </aside>
     <main class="admin-main">
+      <header class="m-bar">
+        <button type="button" class="m-burger" :aria-expanded="menu" aria-controls="adm-side" aria-label="Ouvrir le menu" @click="menu = !menu"><span /><span /><span /></button>
+        <a href="/admin" class="m-brand"><img :src="img('logo.dark')" alt="TS EXCLUSIVE" width="144" height="26"></a>
+        <span class="m-av" aria-hidden="true">{{ initial }}</span>
+      </header>
       <div class="topbar"><span class="hello">Tonga soa, {{ (me?.name || '').split(' ')[0] || 'bienvenue' }}</span><span>{{ today }}</span></div>
       <div class="content"><slot /></div>
     </main>

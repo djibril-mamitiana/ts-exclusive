@@ -29,15 +29,15 @@ async function remove() {
     </div>
   </div>
   <div class="box">
-    <table class="tbl">
+    <table class="tbl quotes">
       <thead><tr><th>Date</th><th>Client</th><th>Trajet</th><th>Services</th><th>Statut</th></tr></thead>
       <tbody>
         <tr v-for="q in quotes" :key="q.id" class="click" @click="sel = { ...q }">
-          <td>{{ fmt(q.created_at) }}</td>
-          <td><b style="color:var(--ink)">{{ q.name }}</b><br><span class="muted">{{ q.company }}</span></td>
-          <td>{{ q.pickup || '-' }} → {{ q.dropoff || '-' }}<br><span class="muted">{{ q.trip_date }} {{ q.trip_time }}</span></td>
-          <td>{{ (q.services || []).join(', ') || '-' }}</td>
-          <td><span class="badge" :class="q.status">{{ q.status }}</span></td>
+          <td data-label="Date">{{ fmt(q.created_at) }}</td>
+          <td data-label="Client"><b style="color:var(--ink)">{{ q.name }}</b><br><span class="muted">{{ q.company }}</span></td>
+          <td data-label="Trajet">{{ q.pickup || '-' }} → {{ q.dropoff || '-' }}<br><span class="muted">{{ q.trip_date }} {{ q.trip_time }}</span></td>
+          <td data-label="Services">{{ (q.services || []).join(', ') || '-' }}</td>
+          <td data-label="Statut"><span class="badge" :class="q.status">{{ q.status }}</span></td>
         </tr>
         <tr v-if="!quotes?.length"><td colspan="5" class="muted">Aucune demande.</td></tr>
       </tbody>

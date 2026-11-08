@@ -61,4 +61,11 @@ onMounted(() => {
 .th { display: grid; place-items: center; aspect-ratio: 4 / 3; background: repeating-conic-gradient(#eef1f5 0 25%, #fff 0 50%) 0 0 / 14px 14px; border-radius: 8px; overflow: hidden; }
 .th img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .nm { display: block; margin-top: 8px; font-size: 12px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@media (max-width: 640px) {
+  .picker-bg { padding: 0; align-items: flex-end; }
+  .picker { border-radius: 24px 24px 0 0; max-height: 92vh; max-height: 92dvh; padding: 20px 16px calc(24px + env(safe-area-inset-bottom)); }
+  .acts { width: 100%; }
+  .acts > * { flex: 1; justify-content: center; }
+  .list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+}
 </style>

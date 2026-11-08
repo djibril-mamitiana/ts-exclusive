@@ -88,13 +88,13 @@ const hasEn = (r: any) => r.en && Object.keys(r.en).length > 0
     <button class="btn sm" @click="open()">+ Ajouter</button>
   </div>
   <div class="box">
-    <table class="tbl">
+    <table class="tbl crud">
       <thead><tr><th v-for="c in columns" :key="c">{{ label(c) }}</th><th v-if="hasTr">EN</th><th>Actif</th><th /></tr></thead>
       <tbody>
         <tr v-for="r in rows" :key="r.id">
-          <td v-for="c in columns" :key="c" style="max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ cell(r, c) }}</td>
-          <td v-if="hasTr"><span class="badge" :class="hasEn(r) ? 'Accepté' : ''">{{ hasEn(r) ? 'Oui' : 'Non' }}</span></td>
-          <td><button class="icon-btn" @click="toggle(r)">{{ r.active ? 'Visible' : 'Masqué' }}</button></td>
+          <td v-for="c in columns" :key="c" :data-label="label(c)" style="max-width:320px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ cell(r, c) }}</td>
+          <td v-if="hasTr" data-label="Traduction anglaise"><span class="badge" :class="hasEn(r) ? 'Accepté' : ''">{{ hasEn(r) ? 'Oui' : 'Non' }}</span></td>
+          <td data-label="Affichage sur le site"><button class="icon-btn" @click="toggle(r)">{{ r.active ? 'Visible' : 'Masqué' }}</button></td>
           <td><div class="actions" style="justify-content:flex-end"><button class="icon-btn" @click="open(r)">Modifier</button><button class="icon-btn danger" @click="remove(r)">Supprimer</button></div></td>
         </tr>
         <tr v-if="!rows?.length"><td :colspan="columns.length + 3" class="muted">Aucun élément.</td></tr>

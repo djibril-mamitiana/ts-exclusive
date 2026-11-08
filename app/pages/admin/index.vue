@@ -39,14 +39,14 @@ const hello = hour < 12 ? 'Bonjour' : hour < 18 ? 'Bon après-midi' : 'Bonsoir'
   <div v-if="stats" class="two">
     <div class="box">
       <div class="toolbar" style="margin-bottom:6px"><h3 style="margin:0">Dernières demandes</h3><NuxtLink to="/admin/devis" class="icon-btn">Tout voir</NuxtLink></div>
-      <table v-if="stats.recent.length" class="tbl">
+      <table v-if="stats.recent.length" class="tbl quotes">
         <thead><tr><th>Date</th><th>Client</th><th>Services</th><th>Statut</th></tr></thead>
         <tbody>
           <tr v-for="q in stats.recent" :key="q.id">
-            <td>{{ fmt(q.created_at) }}</td>
-            <td><b style="color:var(--adm-ink)">{{ q.name }}</b><span v-if="q.company" class="muted"> · {{ q.company }}</span></td>
-            <td>{{ (q.services || []).join(', ') || '-' }}</td>
-            <td><span class="badge" :class="q.status">{{ q.status }}</span></td>
+            <td data-label="Date">{{ fmt(q.created_at) }}</td>
+            <td data-label="Client"><b style="color:var(--adm-ink)">{{ q.name }}</b><span v-if="q.company" class="muted"> · {{ q.company }}</span></td>
+            <td data-label="Services">{{ (q.services || []).join(', ') || '-' }}</td>
+            <td data-label="Statut"><span class="badge" :class="q.status">{{ q.status }}</span></td>
           </tr>
         </tbody>
       </table>
