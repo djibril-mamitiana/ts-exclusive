@@ -2,7 +2,6 @@
 import '~/assets/css/admin.css'
 import '~/assets/css/admin2.css'
 import '~/assets/css/admin3.css'
-import '~/assets/css/admin4.css'
 await useImages()
 const img = useImg()
 const { data: me } = await useFetch<any>('/api/admin/me', { key: 'me' })

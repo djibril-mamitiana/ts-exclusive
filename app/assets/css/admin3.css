@@ -1,4 +1,4 @@
-/* Admin v3 : formes douces et mouvement discret, même identité que le site */
+/* Admin v3 : formes douces et mouvement discret, même identité que le site. La fin du fichier regroupe la version téléphone et tablette (v4) : elle doit rester en dernier, car les règles ci-dessus ne sont pas conditionnées par la largeur. */
 :root { --a-r: 18px; --a-r-l: 28px; }
 
 .admin-shell { grid-template-columns: 284px 1fr; }
@@ -62,3 +62,157 @@ textarea { border-radius: 18px; }
   .login-split { padding: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .admin-main .content > *, .stats .stat, .statusbar i, .login-form form, .drawer, .login-photo img.bg { animation: none !important; } }
+
+/* Admin v4 : version téléphone et tablette.
+   Le menu latéral devient un tiroir ouvert par la barre du haut, les tableaux deviennent des cartes, les fiches s'ouvrent en plein écran.
+   Chargée après admin3.css, qui impose la grille à deux colonnes sans condition de largeur. */
+
+/* Éléments propres au téléphone : cachés sur ordinateur */
+.m-bar, .m-scrim, .m-close { display: none; }
+
+@media (max-width: 860px) {
+  body.adm-lock { overflow: hidden; }
+  .admin-shell { grid-template-columns: minmax(0, 1fr); min-height: 100vh; }
+
+  /* Barre du haut */
+  .m-bar {
+    display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 120;
+    min-height: 62px; padding: env(safe-area-inset-top) 14px 0; background: #07182e; border-bottom: 1px solid rgba(255, 255, 255, .1);
+  }
+  .m-burger { flex: none; width: 46px; height: 46px; display: grid; place-content: center; gap: 5px; background: transparent; border: 1px solid rgba(255, 255, 255, .28); border-radius: 15px; cursor: pointer; padding: 0; }
+  .m-burger span { display: block; width: 20px; height: 2px; border-radius: 2px; background: #fff; transition: transform .35s, opacity .25s; }
+  .m-burger[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .m-burger[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .m-burger[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .m-brand { flex: 1; display: flex; align-items: center; min-width: 0; }
+  .m-brand img { height: 26px; width: auto; max-width: 100%; }
+  .m-av { flex: none; width: 38px; height: 38px; border: 1px solid #8aa4bd; border-radius: 50%; display: grid; place-items: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; color: #8aa4bd; }
+
+  /* Tiroir de navigation */
+  .admin-side {
+    position: fixed; inset: 0 auto 0 0; z-index: 210; width: min(88vw, 340px); height: 100vh; height: 100dvh; margin: 0;
+    border-radius: 0 var(--a-r-l) var(--a-r-l) 0; flex-direction: column; flex-wrap: nowrap; overflow-y: auto; overscroll-behavior: contain;
+    padding: calc(22px + env(safe-area-inset-top)) 14px calc(20px + env(safe-area-inset-bottom));
+    transform: translateX(-104%); visibility: hidden; transition: transform .45s cubic-bezier(.2, .7, .2, 1), visibility 0s linear .45s;
+  }
+  .admin-side.open { transform: none; visibility: visible; transition-delay: 0s; box-shadow: 30px 0 70px -20px rgba(0, 0, 0, .65); }
+  .admin-side a, .admin-side button.out { min-height: 46px; }
+  .admin-side a:hover { transform: none; }
+  .admin-side .me { margin-top: 22px; }
+  .m-close { display: block; position: absolute; z-index: 2; top: 14px; right: 14px; width: 40px; height: 40px; border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; background: transparent; cursor: pointer; padding: 0; }
+  .m-close span { position: absolute; left: 11px; top: 19px; width: 16px; height: 2px; background: #fff; border-radius: 2px; transform: rotate(45deg); }
+  .m-close span + span { transform: rotate(-45deg); }
+  .m-scrim { display: block; position: fixed; inset: 0; z-index: 200; background: rgba(7, 24, 46, .6); animation: m-fade .3s both; }
+  @keyframes m-fade { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Contenu */
+  .admin-main { overflow: visible; overflow-x: clip; min-width: 0; }
+  .admin-main .topbar { display: none; }
+  .admin-main .content { padding: 18px 14px calc(48px + env(safe-area-inset-bottom)); }
+  .admin-main h1 { font-size: 2.15rem; }
+  .admin-main .sub { margin-bottom: 18px; font-size: 14px; line-height: 1.5; }
+  .box { padding: 18px 16px; border-radius: 22px; }
+  .box h3 { font-size: 1.35rem; }
+  .box + .box { margin-top: 16px; }
+
+  /* Tableau de bord */
+  .dash-hero { padding: 24px 20px; gap: 18px; border-radius: 24px; }
+  .dash-hero::before { inset: 8px; }
+  .dash-hero h1 { font-size: 2.2rem; }
+  .dash-hero .acts .btn { flex: 1 1 140px; justify-content: center; text-align: center; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat { padding: 16px 14px; border-radius: 22px; }
+  .stat b { font-size: 2.5rem; }
+  .stat span { letter-spacing: .1em; font-size: 10.5px; line-height: 1.4; }
+  .two { gap: 16px; }
+  .quick a { min-height: 50px; padding: 12px 0; }
+
+  /* Barres d'outils, boutons et champs : zones tactiles de 44 px et pas de zoom automatique sur iPhone */
+  .toolbar { flex-direction: column; align-items: stretch; gap: 14px; }
+  .toolbar > .btn { justify-content: center; }
+  .toolbar > .actions { width: 100%; flex-wrap: wrap; }
+  .toolbar > .actions > * { flex: 1 1 140px; justify-content: center; text-align: center; }
+  .btn, .btn.sm, .icon-btn, .chip { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; }
+  .icon-btn { padding: 10px 16px; }
+  input, select, textarea { font-size: 16px; padding: 13px 14px; }
+  .filters { flex-wrap: nowrap; overflow-x: auto; margin-inline: -14px; padding: 0 14px 8px; scrollbar-width: none; }
+  .filters::-webkit-scrollbar { display: none; }
+  .filters .chip { flex: none; }
+  .actions { flex-wrap: wrap; }
+
+  /* Fiches et fenêtres : plein écran */
+  .drawer-bg { z-index: 260; }
+  .drawer { width: 100%; height: 100vh; height: 100dvh; border-radius: 0; border-left: 0; padding: 22px 16px calc(36px + env(safe-area-inset-bottom)); animation: m-sheet .45s cubic-bezier(.2, .7, .2, 1) both; }
+  .drawer h2 { font-size: 1.8rem; }
+  @keyframes m-sheet { from { transform: translateY(26px); opacity: 0; } to { transform: none; opacity: 1; } }
+  .kv { grid-template-columns: 1fr; gap: 2px; }
+  .kv dt { margin-top: 12px; font-size: 10.5px; letter-spacing: .16em; text-transform: uppercase; }
+  .kv dd { padding-bottom: 2px; word-break: break-word; }
+
+  /* Grilles de cartes (médiathèque, images, etc.) : deux colonnes */
+  .admin-main .grid.g3, .admin-main .grid.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .admin-main .row, .admin-main .row.r3 { grid-template-columns: 1fr; }
+}
+
+/* Tableaux en cartes sur téléphone */
+@media (max-width: 860px) {
+  .tbl, .tbl tbody { display: block; width: 100%; }
+  .tbl thead { display: none; }
+  .tbl tr { display: block; padding: 14px 2px; border-bottom: 1px solid var(--adm-line); }
+  .tbl tbody tr:last-child { border-bottom: 0; }
+  .tbl td { display: block; border: 0; padding: 3px 0; white-space: normal !important; max-width: none !important; overflow: visible !important; text-overflow: clip !important; }
+  .tbl td[data-label]::before { content: attr(data-label); display: block; margin-bottom: 1px; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: #6b7f94; }
+  .tbl td:first-child::before { content: none; }
+  .tbl td:first-child { font-size: 16px; font-weight: 600; color: var(--adm-ink); }
+  .tbl td[data-label='Date'] { font-size: 12.5px; font-weight: 400; color: #6b7f94; letter-spacing: .03em; }
+  .tbl td:last-child:not([data-label]) { padding-top: 10px; }
+  .tbl td .actions { justify-content: flex-start !important; }
+  .tbl tr.click:active td, .tbl tbody tr:hover td { background: transparent; }
+  .tbl tr:hover td:first-child, .tbl tr:hover td:last-child { border-radius: 0; }
+  .tbl tr.click { -webkit-tap-highlight-color: rgba(138, 164, 189, .25); }
+}
+
+/* Listes de contenus (flotte, services, destinations…) : les champs courts se partagent une ligne */
+@media (max-width: 860px) {
+  .tbl.crud tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 14px; }
+  .tbl.crud td { grid-column: 1 / -1; min-width: 0; }
+  .tbl.crud td[data-label='Passagers'], .tbl.crud td[data-label='Bagages'],
+  .tbl.crud td[data-label='Traduction anglaise'], .tbl.crud td[data-label='Affichage sur le site'] { grid-column: auto; }
+  .tbl.crud td:last-child:not([data-label]) { margin-top: 4px; }
+}
+
+/* Demandes de devis : date et statut sur la première ligne, puis client, trajet et services */
+@media (max-width: 860px) {
+  .tbl.quotes tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; align-items: center; }
+  .tbl.quotes td { grid-column: 1 / -1; }
+  .tbl.quotes td[data-label='Date'] { grid-column: 1; grid-row: 1; }
+  .tbl.quotes td[data-label='Statut'] { grid-column: 2; grid-row: 1; justify-self: end; }
+  .tbl.quotes td[data-label='Date']::before, .tbl.quotes td[data-label='Client']::before, .tbl.quotes td[data-label='Statut']::before { content: none; }
+  .tbl.quotes td[data-label='Client'] { font-size: 16px; padding-top: 6px; }
+  .tbl.quotes td[data-label='Trajet'], .tbl.quotes td[data-label='Services'] { font-size: 14px; }
+}
+
+@media (max-width: 860px) {
+  /* tiroir : tout tient plus facilement sur un petit écran */
+  .admin-side .brand { padding: 4px 52px 22px 8px; margin-bottom: 10px; }
+  .admin-side .brand img { max-width: 100%; }
+  .admin-side > * { flex-shrink: 0; }
+  .admin-side a, .admin-side button.out { min-height: 42px; padding-block: 8px; }
+  .admin-side .grp { padding: 12px 12px 4px; }
+  .admin-side .me { margin-top: 14px; }
+}
+
+/* Tablette : les cartes se rangent sur deux colonnes */
+@media (min-width: 601px) and (max-width: 860px) {
+  .tbl tbody { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; align-items: start; }
+  .tbl tbody tr:nth-last-child(2):nth-child(odd) { border-bottom: 0; }
+  .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .admin-main .grid.g3, .admin-main .grid.g4 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .admin-main .content { padding-inline: 22px; }
+}
+
+@media (max-width: 420px) {
+  .admin-main h1 { font-size: 1.95rem; }
+  .dash-hero h1 { font-size: 2rem; }
+  .m-brand img { height: 24px; }
+}
