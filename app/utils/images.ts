@@ -2,7 +2,14 @@
 // ou utiliser une image téléversée dans la médiathèque de l'admin (ex : /api/media/12).
 const u = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=72`
 
-export const sized = (src: string, w: number) => (src.includes('images.unsplash.com') ? `${src}&w=${w}` : src)
+// Largeur utile d'une image : Unsplash la redimensionne, et les images de la médiathèque sont servies en WebP à cette largeur
+// (voir server/api/media/[id].get.ts). Les autres adresses restent inchangées.
+const MEDIA = /^\/api\/media\/(\d+)(?:\.\w+)?$/
+export const sized = (src: string, w: number) => {
+  if (src.includes('images.unsplash.com')) return `${src}&w=${w}`
+  const m = MEDIA.exec(src)
+  return m ? `/api/media/${m[1]}.webp?w=${w}` : src
+}
 
 export const photos = {
   // Maybach S-Class, format paysage, voiture à gauche (Pexels, licence libre) : même cadrage que le visuel validé
