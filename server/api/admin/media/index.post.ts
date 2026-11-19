@@ -1,4 +1,4 @@
-// Les photos sont stockées en base. Vercel limite le corps d'une requête à 4,5 Mo : l'admin réduit les grandes photos avant l'envoi.
+// Les photos sont stockées en base. Le corps d'une requête est limité à 4,5 Mo : l'admin réduit les grandes photos avant l'envoi.
 const allowed: Record<string, string> = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/gif': 'gif', 'image/svg+xml': 'svg' }
 const MAX = 4 * 1024 * 1024
 

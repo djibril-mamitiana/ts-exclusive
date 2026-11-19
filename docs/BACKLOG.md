@@ -13,7 +13,7 @@ Code source : https://github.com/gingerrhr-ui/ts-exclusive · Mise à jour : 24 
 | 3 | Accueil | Page d'accueil complète et responsive | 8 | Livré |
 | 4 | Services | Toutes les pages services en ligne et modifiables | 10 | Livré |
 | 5 | Flotte | Flotte présentée par usage | 5 | Livré |
-| 6 | Demande de devis et contact | Recevoir et suivre les demandes | 10 | Livré (emails à configurer) |
+| 6 | Demande de devis et contact | Recevoir et suivre les demandes | 10 | Livré |
 | 7 | Gestion de contenu | Modifier le contenu sans développeur | 7 | Livré |
 | 8 | Langues, SEO et performance | Site en FR/EN et bien référencé | 5 | Livré |
 
@@ -42,11 +42,14 @@ Travail réalisé en octobre 2026 à la demande du client, en plus de l'estimati
 7. En tant qu'administrateur, je crée des comptes avec un rôle (administrateur ou éditeur).
 8. En tant que responsable, je reçois un email à chaque nouvelle demande (si SMTP configuré).
 
-## À venir (à décider avec le client)
-- Configurer l'envoi des emails (paramètres SMTP).
-- Remplacer les photos d'ambiance provisoires par des photos propres à l'entreprise (page Images du site).
-- Faire relire la traduction anglaise des contenus finaux.
-- Nom de domaine, pages légales, témoignages et réseaux sociaux.
-- Changer le mot de passe administrateur provisoire avant le lancement officiel.
+## Éléments fournis et validés
+- Envoi des emails configuré (paramètres SMTP).
+- Photos propres à l'entreprise, témoignages et réseaux sociaux fournis.
+- Traduction anglaise des contenus finaux relue et validée par le client.
+- Nom de domaine et pages légales fournis.
+- Recette finale validée par le client ; site en ligne sur Hostinger.
+
+## À venir
+- Changer le mot de passe administrateur provisoire.
 
 Le suivi tâche par tâche est dans `ESTIMATION-CHECKLIST.md`.

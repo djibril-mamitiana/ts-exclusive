@@ -1,5 +1,5 @@
 // Prépare une photo avant l'envoi (navigateur uniquement) : 2400 px maximum, JPEG ou WebP si l'image est transparente.
-// Vercel refuse les envois de plus de 4,5 Mo : une photo de téléphone de 8 Mo est donc réduite sans perte visible.
+// L'envoi est limité à 4,5 Mo : une photo de téléphone de 8 Mo est donc réduite sans perte visible.
 const LIMIT = 3.8 * 1024 * 1024
 
 const toBlob = (canvas: HTMLCanvasElement, type: string, quality: number) =>

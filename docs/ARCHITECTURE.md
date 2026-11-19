@@ -1,6 +1,6 @@
 # Architecture TS EXCLUSIVE
 
-Code source : https://github.com/gingerrhr-ui/ts-exclusive · Site en ligne : https://ts-exclusive.vercel.app
+Code source : https://github.com/gingerrhr-ui/ts-exclusive · Site en ligne : https://velys-group.com
 
 ## Stack
 - **Front et serveur :** Nuxt 4 (Vue 3, rendu serveur) avec Nitro (Node.js).
@@ -9,7 +9,7 @@ Code source : https://github.com/gingerrhr-ui/ts-exclusive · Site en ligne : ht
 - **Emails :** nodemailer, activé uniquement si les variables SMTP sont définies.
 - **Mouvement :** `lenis` (défilement fluide) et deux plugins maison, sans autre bibliothèque d'animation.
 - **Compilation :** `npm run build` (Nuxt, Vite, Nitro) compile et minifie le projet vers `.output` : JavaScript en 42 fichiers (372 Ko, 126 Ko en brotli), CSS minifié, HTML compact, serveur Node.js autonome (`.output/server/index.mjs`). Elle est exécutée à chaque déploiement.
-- **Hébergement :** Vercel (compilation et déploiement automatiques à chaque `git push` sur `main`) et Hostinger. Le serveur Nitro se configure par variables d'environnement, le même code s'héberge donc sur les deux.
+- **Hébergement :** Hostinger (serveur Node.js). Le serveur Nitro se configure uniquement par variables d'environnement, le build de production s'héberge donc sur n'importe quel hébergement Node.js.
 - **Langues :** français et anglais sans module externe (voir « Langues »).
 
 ## Dossiers
@@ -63,7 +63,7 @@ Les contenus traduisibles ont une colonne `en` (JSON) : le français est la vale
 - Chaque image du site est un **emplacement** défini dans `app/utils/images.ts` (`imageSlots`) avec une image par défaut. L'admin enregistre un remplacement dans `site_images` ; `useImg('home.hero')` renvoie le remplacement s'il existe, sinon l'image par défaut.
 - Les images des services, des véhicules et des destinations sont dans leurs tables (colonne `image`) ; les services sans image utilisent une photo par défaut.
 - Les images téléversées sont servies par `/api/media/12.jpg` (l'extension permet de reconnaître un détourage PNG ou WebP) avec un cache d'un an.
-- Avant l'envoi, le navigateur réduit les grandes photos à 2400 px (JPEG, ou WebP si l'image est transparente) pour rester sous la limite de 4,5 Mo de Vercel ; le serveur refuse au-delà de 4 Mo.
+- Avant l'envoi, le navigateur réduit les grandes photos à 2400 px (JPEG, ou WebP si l'image est transparente) pour rester sous la limite d'envoi de 4,5 Mo ; le serveur refuse au-delà de 4 Mo.
 - **Images allégées à l'affichage.** Le site demande chaque photo de la médiathèque à la largeur utile de son emplacement : `sized()` (`app/utils/images.ts`) transforme `/api/media/12.jpg` en `/api/media/12.webp?w=1400`, et `server/api/media/[id].get.ts` renvoie une variante WebP redimensionnée (largeurs par paliers de 200 px entre 400 et 2400, jamais agrandie, qualité 78) avec le module `sharp`. Chaque variante est calculée une fois, gardée en mémoire dans l'instance et mise en cache un an par le réseau de diffusion. Si `sharp` échoue ou ne gagne rien, l'image d'origine est servie ; l'administration et l'image de partage utilisent toujours l'original. Mesure : environ 75 % d'octets d'images en moins sur les pages publiques, rendu identique.
 - **Minification.** Le build de production minifie déjà le JavaScript, le CSS et le HTML (servis en brotli avec cache d'un an). Les SVG du dossier `public` (logos, icône) sont minifiés avec SVGO (précision 2) : environ 56 % plus légers, rendu identique au pixel près.
 - Supprimer une image de la médiathèque remet les emplacements des pages et des services à leur image par défaut ; elle est refusée tant qu'un véhicule ou une destination l'utilise.

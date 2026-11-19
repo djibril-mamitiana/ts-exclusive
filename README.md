@@ -3,7 +3,7 @@
 Site vitrine bilingue (FR / EN) avec espace administrateur. Nuxt 4, Node.js, PostgreSQL (Neon).
 
 - Code source : https://github.com/gingerrhr-ui/ts-exclusive
-- Site en ligne : https://ts-exclusive.vercel.app (espace de gestion : `/admin`)
+- Site en ligne : https://velys-group.com (espace de gestion : `/admin`)
 
 ## Lancer en local
 
@@ -49,7 +49,7 @@ Public (FR à la racine, EN sous `/en`) : accueil, services (+ une page par serv
 
 `npm run build` compile le projet pour la production : le JavaScript est minifié (42 fichiers, 372 Ko, soit 126 Ko en brotli), les feuilles de style du site sont fusionnées en un fichier minifié (81 Ko), le HTML est compact et le serveur Nitro est empaqueté dans `.output`. Les SVG de `public/` sont minifiés avec SVGO et les images de la médiathèque sont servies en WebP à la largeur utile.
 
-Le projet est déployé sur **Vercel** (compilation et mise en ligne automatiques à chaque envoi sur `main`) et sur **Hostinger**. Le serveur écoute sur le port 3000 (variable `PORT`). Penser à définir toutes les variables d'environnement sur l'hébergeur.
+Le projet est déployé sur **Hostinger**. Le serveur écoute sur le port 3000 (variable `PORT`). Penser à définir toutes les variables d'environnement sur l'hébergeur.
 
 ## Documentation
 

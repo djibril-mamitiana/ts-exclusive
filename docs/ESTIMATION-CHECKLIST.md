@@ -1,13 +1,13 @@
 # Suivi de l'estimation (68 jours) : tâche par tâche
 
-Légende : **Fait** = livré et testé. **À configurer** = livré, il manque une information du client.
-Code source : https://github.com/gingerrhr-ui/ts-exclusive · Mise à jour : 24 octobre 2026.
+Légende : **Fait** = livré, testé et validé.
+Code source : https://github.com/gingerrhr-ui/ts-exclusive · Mise à jour : 19 novembre 2026.
 
 ## Sprint 0 : Cadrage du projet (9 j)
 | Tâche | État | Où |
 |---|---|---|
 | Apprentissage de Nuxt et Node.js | Fait | Projet Nuxt 4 / Nitro |
-| Configuration des environnements | Fait | `.env.example`, Vercel et Hostinger (compilation `npm run build` incluse), Neon, GitHub (gingerrhr-ui/ts-exclusive) |
+| Configuration des environnements | Fait | `.env.example`, Hostinger (compilation `npm run build` incluse), Neon, GitHub (gingerrhr-ui/ts-exclusive) |
 | Analyse des besoins et spécifications | Fait | Arborescence, plaquette, visuels et contenus finaux du client analysés |
 | Architecture et base de données | Fait | `docs/ARCHITECTURE.md`, `server/plugins/init-db.ts` |
 | Product Backlog et planification des sprints | Fait | `docs/BACKLOG.md` |
@@ -36,7 +36,7 @@ Code source : https://github.com/gingerrhr-ui/ts-exclusive · Mise à jour : 24 
 | Hero et section promesse | Fait | Hero (photo, slogan, onglet « Voir les offres », chiffres clés), accroche et trois valeurs |
 | Sections Services et valeurs | Fait | Mosaïque de services numérotés avec bouton d'action, bloc conciergerie privée VIP (service à part) ; la section « Pourquoi » a été remplacée par les trois valeurs |
 | Sections Destinations, Partners et FAQ | Fait | Explorateur de destinations avec carte de Madagascar, partenaires, FAQ |
-| Section Témoignages | Fait, **à configurer** | Affichée dès qu'un témoignage est ajouté dans l'admin (aucun inventé) |
+| Section Témoignages | Fait | Affichée dès qu'un témoignage est ajouté dans l'admin (aucun inventé) |
 | Intégration responsive | Fait | Mobile, tablette, desktop |
 
 ## Sprint 4 : Services (10 j)
@@ -63,7 +63,7 @@ Code source : https://github.com/gingerrhr-ui/ts-exclusive · Mise à jour : 24 
 | Détail, notes internes, export CSV | Fait | `/admin/devis` |
 | Formulaire de demande de devis | Fait | `/contact` |
 | Validation et anti-spam | Fait | Champ piège, contrôles serveur |
-| Emails de confirmation et notification | Fait, **à configurer** | Nécessite `SMTP_*` et `MAIL_TO` sur Vercel |
+| Emails de confirmation et notification | Fait | Configurés avec `SMTP_*` et `MAIL_TO` sur l'hébergeur |
 
 ## Sprint 7 : Gestion de contenu (7 j)
 | Tâche | État | Où |
@@ -87,7 +87,7 @@ Les tâches « Tests, debug et Sprint Review » de chaque sprint correspondent a
 | Tâche | État | Où |
 |---|---|---|
 | Nouveau design d'après le modèle du client | Fait | `app/assets/css/site4.css`, `docs/DESIGN.md` |
-| Contenus finaux (slogan, accroche, trois valeurs, sept services, à propos) en français et en anglais | Fait, **à relire** par le client (traduction anglaise) | `server/utils/finalContent.ts` |
+| Contenus finaux (slogan, accroche, trois valeurs, sept services, à propos) en français et en anglais | Fait, relu et validé par le client (traduction anglaise) | `server/utils/finalContent.ts` |
 | Flotte finale : quatre véhicules, textes corrigés, photos détourées | Fait | `server/utils/fleetContent.ts`, `public/img/fleet` |
 | Accroches percutantes, contenu et bouton d'action par service, conciergerie à part, numérotation des seuls services | Fait | `ServiceTile.vue`, `ServiceBlock.vue`, `ConciergeBand.vue`, `app/utils/services.ts` |
 | Séparation stricte du français et de l'anglais | Fait | `app/i18n/messages.ts`, `server/utils/contentPatches.ts` |
