@@ -42,14 +42,14 @@ Travail réalisé en octobre 2026 à la demande du client, en plus de l'estimati
 7. En tant qu'administrateur, je crée des comptes avec un rôle (administrateur ou éditeur).
 8. En tant que responsable, je reçois un email à chaque nouvelle demande (si SMTP configuré).
 
-## Éléments fournis et validés
+## Validé
 - Envoi des emails configuré (paramètres SMTP).
-- Photos propres à l'entreprise, témoignages et réseaux sociaux fournis.
 - Traduction anglaise des contenus finaux relue et validée par le client.
-- Nom de domaine et pages légales fournis.
-- Recette finale validée par le client ; site en ligne sur Hostinger.
+- Recette finale validée par le client ; site en ligne sur Hostinger (https://velys-group.com).
 
 ## À venir
+- Définir `SITE_URL=https://velys-group.com` sur l'hébergeur : sans cette variable, le plan du site, les adresses canoniques et les balises hreflang pointent vers `http://localhost:3000`.
+- Pages légales (mentions légales, politique de confidentialité), liens vers les réseaux sociaux, témoignages et photographies propres à l'entreprise, à fournir par l'entreprise.
 - Changer le mot de passe administrateur provisoire.
 
 Le suivi tâche par tâche est dans `ESTIMATION-CHECKLIST.md`.
