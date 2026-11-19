@@ -8,7 +8,8 @@ Code source : https://github.com/gingerrhr-ui/ts-exclusive · Site en ligne : ht
 - **Authentification :** sessions signées (JWT HS256 avec `jose`, cookie httpOnly 7 jours), mots de passe hachés avec scrypt.
 - **Emails :** nodemailer, activé uniquement si les variables SMTP sont définies.
 - **Mouvement :** `lenis` (défilement fluide) et deux plugins maison, sans autre bibliothèque d'animation.
-- **Hébergement :** Vercel, déploiement automatique à chaque `git push` sur `main`.
+- **Compilation :** `npm run build` (Nuxt, Vite, Nitro) compile et minifie le projet vers `.output` : JavaScript en 42 fichiers (372 Ko, 126 Ko en brotli), CSS minifié, HTML compact, serveur Node.js autonome (`.output/server/index.mjs`). Elle est exécutée à chaque déploiement.
+- **Hébergement :** Vercel (compilation et déploiement automatiques à chaque `git push` sur `main`) et Hostinger. Le serveur Nitro se configure par variables d'environnement, le même code s'héberge donc sur les deux.
 - **Langues :** français et anglais sans module externe (voir « Langues »).
 
 ## Dossiers
