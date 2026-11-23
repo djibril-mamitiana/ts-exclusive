@@ -15,7 +15,9 @@ export default defineNuxtConfig({
     smtpPass: process.env.SMTP_PASS,
     mailFrom: process.env.MAIL_FROM,
     mailTo: process.env.MAIL_TO,
-    public: { siteUrl: process.env.SITE_URL || 'http://localhost:3000' }
+    // SITE_URL (ou NUXT_PUBLIC_SITE_URL au démarrage) prime ; sinon l'adresse du site en ligne en production, localhost en développement.
+    // L'adresse n'est volontairement pas déduite de l'en-tête Host de la requête : il peut être falsifié.
+    public: { siteUrl: process.env.SITE_URL || (process.env.NODE_ENV === 'production' ? 'https://velys-group.com' : 'http://localhost:3000') }
   },
   hooks: {
     // Duplique toutes les pages publiques sous /en pour la version anglaise

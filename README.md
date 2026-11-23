@@ -21,7 +21,7 @@ est inséré et le compte administrateur est créé à partir de ADMIN_EMAIL / A
 | DATABASE_URL | Connexion PostgreSQL (Neon) |
 | AUTH_SECRET | Clé de signature des sessions (longue chaîne aléatoire) |
 | ADMIN_EMAIL / ADMIN_PASSWORD | Premier compte administrateur |
-| SITE_URL | URL publique du site (sitemap, adresses canoniques, hreflang). À définir en production (`https://velys-group.com`), sinon les adresses pointent vers `http://localhost:3000` |
+| SITE_URL | URL publique du site (sitemap, adresses canoniques, hreflang). Facultative : en production elle vaut `https://velys-group.com` par défaut, en développement `http://localhost:3000`. À définir seulement si le domaine change |
 | SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS | Envoi des emails (facultatif) |
 | MAIL_FROM, MAIL_TO | Expéditeur et destinataire des notifications de devis |
 

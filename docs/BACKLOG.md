@@ -48,7 +48,7 @@ Travail réalisé en octobre 2026 à la demande du client, en plus de l'estimati
 - Recette finale validée par le client ; site en ligne sur Hostinger (https://velys-group.com).
 
 ## À venir
-- Définir `SITE_URL=https://velys-group.com` sur l'hébergeur : sans cette variable, le plan du site, les adresses canoniques et les balises hreflang pointent vers `http://localhost:3000`.
+- Vérifier sur Hostinger que les routes du serveur répondent (`/api/settings`, `/sitemap.xml`, `/robots.txt`) : sans elles, le pied de page n'affiche ni téléphone ni email.
 - Pages légales (mentions légales, politique de confidentialité), liens vers les réseaux sociaux, témoignages et photographies propres à l'entreprise, à fournir par l'entreprise.
 - Changer le mot de passe administrateur provisoire.
 
