@@ -29,11 +29,11 @@ const toTop = () => {
         <div class="top">
           <div class="soc">
             <a :href="waLink(settings.whatsapp)" target="_blank" rel="noopener" aria-label="WhatsApp"><Icon name="whatsapp" :size="18" /></a>
-            <a :href="`mailto:${settings.email}`" aria-label="Email"><Icon name="mail" :size="18" /></a>
+            <a v-if="settings.email" :href="`mailto:${settings.email}`" aria-label="Email"><Icon name="mail" :size="18" /></a>
             <a v-for="s in socials" :key="s.k" :href="s.href" target="_blank" rel="noopener" :aria-label="s.label" class="txt">{{ s.label }}</a>
           </div>
           <div class="col">
-            <h4>{{ m.footer.navigate }}</h4>
+            <h2>{{ m.footer.navigate }}</h2>
             <ul>
               <li><NuxtLink :to="lp('/services')">{{ m.footer.services }}</NuxtLink></li>
               <li><NuxtLink :to="lp('/flotte')">{{ m.footer.fleet }}</NuxtLink></li>
@@ -43,11 +43,11 @@ const toTop = () => {
             </ul>
           </div>
           <div class="col">
-            <h4>{{ m.footer.contact }}</h4>
+            <h2>{{ m.footer.contact }}</h2>
             <ul>
-              <li><a :href="`tel:${String(settings.phone || '').replace(/[^+\d]/g, '')}`">{{ settings.phone }}</a></li>
-              <li><a :href="`mailto:${settings.email}`">{{ settings.email }}</a></li>
-              <li>{{ settings.address }}</li>
+              <li v-if="settings.phone"><a :href="`tel:${String(settings.phone).replace(/[^+\d]/g, '')}`">{{ settings.phone }}</a></li>
+              <li v-if="settings.email"><a :href="`mailto:${settings.email}`">{{ settings.email }}</a></li>
+              <li v-if="settings.address">{{ settings.address }}</li>
             </ul>
           </div>
           <div class="mark">

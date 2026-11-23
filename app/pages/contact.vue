@@ -18,7 +18,7 @@ usePageSeo(c.value.seoTitle, c.value.sub)
           <ul class="ts-gap" style="padding-top:24px">
             <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.phone }}</span>{{ settings.phone }}</li>
             <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.whatsapp }}</span><a class="ts-link" :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">{{ c.writeWa }}</a></li>
-            <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.email }}</span><a :href="`mailto:${settings.email}`">{{ settings.email }}</a></li>
+            <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.email }}</span><a v-if="settings.email" :href="`mailto:${settings.email}`">{{ settings.email }}</a></li>
             <li><span class="ts-label" style="display:block;color:var(--champ);opacity:1">{{ c.address }}</span>{{ settings.address }}</li>
           </ul>
         </div>

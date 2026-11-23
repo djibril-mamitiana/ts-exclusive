@@ -17,6 +17,7 @@ const list = computed(() => (current.value ? content.value.vehicles.filter((v: a
       <button v-for="c in cats" :key="c" class="ts-chip" :class="{ on: current === c }" @click="current = c">{{ c }}</button>
     </div>
   </div>
+  <h2 class="sr-only">{{ m.menu.fleet }}</h2>
   <FleetShowcase :key="current" :vehicles="list" />
   <FinalCta :line1="p.finalTitle" :image="img('flotte.final')" :primary="m.common.requestAvailability" />
 </template>

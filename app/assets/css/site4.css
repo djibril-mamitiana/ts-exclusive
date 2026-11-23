@@ -10,7 +10,7 @@
   --slab: 'Roboto Slab', Georgia, serif;
   --script: 'Cormorant Garamond', Georgia, serif;
   --steel: #8aa4bd;
-  --steel-d: #4b7096;
+  --steel-d: #426788;
   --mist: #a7b5c6;
   --fog: #c9d2de;
   --slate: #33465e;
@@ -120,7 +120,7 @@
 .ts-pillars .it, .ts-pillars .it:first-child { border-radius: 0; border-top: 1px solid rgba(255, 255, 255, .16); border-right: 1px solid rgba(255, 255, 255, .1); padding: clamp(26px, 3vw, 40px) 16px 8px; }
 .ts-pillars .it:last-child { border-right: 0; }
 .ts-pillars .it svg { color: var(--steel); }
-.ts-pillars h4 { font-weight: 500; letter-spacing: .24em; color: #fff; }
+.ts-pillars h2 { font-weight: 500; letter-spacing: .24em; color: #fff; }
 .ts-pillars p { font-family: var(--slab); font-weight: 300; color: rgba(255, 255, 255, .62); opacity: 1; }
 
 /* ---------- Sections : à plat, coins droits, alternance sombre / clair ---------- */
@@ -271,7 +271,7 @@
 .ts-footer .soc a { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(12, 38, 70, .35); border-radius: var(--r-s); color: var(--navy); transition: background .4s var(--ease), color .4s var(--ease), border-color .4s; }
 .ts-footer .soc a.txt { width: auto; padding: 0 14px; font: 500 10px/1 var(--sans); letter-spacing: .18em; text-transform: uppercase; }
 .ts-footer .soc a:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
-.ts-footer h4 { color: var(--steel-d); font-weight: 500; letter-spacing: .3em; }
+.ts-footer h2 { color: var(--steel-d); font-weight: 500; letter-spacing: .3em; }
 .ts-footer li { font-family: var(--slab); font-weight: 300; font-size: 13px; opacity: .8; }
 .ts-footer li a:hover { color: var(--steel-d); opacity: 1; }
 .ts-footer .mark { justify-self: end; text-align: right; }
@@ -380,14 +380,14 @@
 .ts-light .ts-rule2 i:last-child, .ts-cloud .ts-rule2 i:last-child { background: linear-gradient(90deg, var(--gold-d), rgba(12, 38, 70, .1)); }
 .ts-hstats::before { background: linear-gradient(90deg, var(--gold), rgba(255, 255, 255, .22) 45%, rgba(255, 255, 255, .12)); }
 .ts-tile .num { color: var(--gold-l); }
-.ts-tile.mist .num, .ts-tile.fog .num { color: var(--gold-d); }
+.ts-tile.mist .num, .ts-tile.fog .num { color: #705216; }
 .ts-menu .group h4 { color: var(--gold); }
 .ts-menu .group a.apart { color: var(--gold-l); opacity: .9; }
 .ts-car .brand { color: var(--gold); }
-.ts-car.ts-light .brand { color: var(--gold-d); }
+.ts-car.ts-light .brand { color: #765616; }
 .ts-faq summary::after { color: var(--gold-d); }
 .ts-footer { box-shadow: inset 0 3px 0 var(--gold); }
-.ts-footer h4 { color: var(--gold-d); }
+.ts-footer h2 { color: var(--gold-d); }
 
 /* ---------- Bouton « Voir les offres » : onglet doré, bien visible ---------- */
 .ts-hero .in.ts-wrap { padding-right: calc(var(--gut) + 92px); }
@@ -410,7 +410,7 @@
 .ts-tile h3 a.stretch { color: inherit; }
 .ts-tile h3 a.stretch::after { content: ''; position: absolute; inset: 0; z-index: 2; }
 .ts-tile .hook { font-family: var(--sans); font-weight: 300; font-size: clamp(1rem, 1.4vw, 1.3rem); line-height: 1.35; letter-spacing: .01em; max-width: 24ch; margin-top: 16px; opacity: 1; }
-.ts-tile p.more { font-size: 12px; opacity: .74; margin-top: 12px; max-width: 32ch; }
+.ts-tile p.more { font-size: 12px; opacity: .9; margin-top: 12px; max-width: 32ch; }
 .ts-tile .cta {
   position: relative; z-index: 3; display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; padding: 12px 16px;
   border: 1px solid currentColor; border-radius: var(--r-btn); font: 500 10px/1.4 var(--sans); letter-spacing: .18em; text-transform: uppercase; text-align: left;

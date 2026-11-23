@@ -62,7 +62,7 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
     <div class="ts-wrap row">
       <NuxtLink :to="lp('/')" class="ts-brand" aria-label="TS EXCLUSIVE"><img :src="img('logo.dark')" :alt="m.common.logoAlt" width="267" height="48"></NuxtLink>
       <div class="ts-tools">
-        <NuxtLink :to="otherPath" class="ts-link" :aria-label="lang === 'fr' ? 'English' : 'Français'">{{ lang === 'fr' ? 'EN' : 'FR' }}</NuxtLink>
+        <NuxtLink :to="otherPath" class="ts-link" :lang="lang === 'fr' ? 'en' : 'fr'" :hreflang="lang === 'fr' ? 'en' : 'fr'" :aria-label="lang === 'fr' ? 'EN – English' : 'FR – Français'">{{ lang === 'fr' ? 'EN' : 'FR' }}</NuxtLink>
         <NuxtLink :to="lp('/contact')" class="ts-btn sm hide-m">{{ m.nav.quote }}</NuxtLink>
         <button class="ts-burger" type="button" :aria-expanded="open" :aria-label="m.nav.menu" @click="open = true"><i /><i /><i /></button>
       </div>
@@ -100,8 +100,8 @@ const fleetItems = computed(() => m.value.menu.fleetItems.map(label => ({ label,
     </div>
     <div class="foot">
       <a :href="waLink(settings.whatsapp)" target="_blank" rel="noopener">WhatsApp</a>
-      <a :href="`mailto:${settings.email}`">{{ settings.email }}</a>
-      <span>{{ settings.phone }}</span>
+      <a v-if="settings.email" :href="`mailto:${settings.email}`">{{ settings.email }}</a>
+      <span v-if="settings.phone">{{ settings.phone }}</span>
       <NuxtLink :to="otherPath">{{ lang === 'fr' ? 'English' : 'Français' }}</NuxtLink>
     </div>
   </div>

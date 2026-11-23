@@ -49,7 +49,7 @@ useHead({
     <div class="ts-wrap grid3">
       <div v-for="(p, i) in h.pillars" :key="p.t" v-reveal="i * 0.08" class="it">
         <Icon :name="p.icon" :size="30" />
-        <h4>{{ p.t }}</h4>
+        <h2>{{ p.t }}</h2>
         <p>{{ p.d }}</p>
       </div>
     </div>
@@ -80,7 +80,7 @@ useHead({
               <span class="go">{{ h.more }} <span class="ts-arr" /></span>
             </div>
           </NuxtLink>
-          <a v-reveal="0.2" class="ts-phone" :href="tel" :aria-label="h.callUs">
+          <a v-if="settings.phone" v-reveal="0.2" class="ts-phone" :href="tel" :aria-label="`${h.callUs} ${settings.phone}`">
             <Icon name="phone" :size="20" />
             <span class="sep" />
             <b>{{ settings.phone }}</b>

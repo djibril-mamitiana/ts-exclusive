@@ -61,7 +61,7 @@ const others = computed(() => content.value.services.filter(s => s.slug !== serv
 
     <section class="ts-sec ts-black">
       <div class="ts-wrap">
-        <span v-reveal class="ts-label" style="margin-bottom:10px">{{ m.common.otherServices }}</span>
+        <h2 v-reveal class="ts-label" style="margin-bottom:10px">{{ m.common.otherServices }}</h2>
         <ServiceEditorial :services="others" :all="content.services" />
       </div>
     </section>
